@@ -23,7 +23,15 @@
       "Bash(git add:*)",
       "Bash(git rev-parse:*)",
       "Bash(git init:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout 3 tail:*)",
+      "Bash(dir /b /s \"C:\\\\Users\\\\heirr\\\\OneDrive\\\\Desktop\\\\Hope2_Studio\\\\Aarons_Lawn_Care\")",
+      "Bash(findstr:*)",
+      "Bash(test:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []

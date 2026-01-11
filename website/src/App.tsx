@@ -1,5 +1,5 @@
 import { HelmetProvider } from 'react-helmet-async';
-import Router from './router';
+import Router from './router.tsx';
 import { ToastProvider } from './contexts/ToastContext';
 
 function App() {
