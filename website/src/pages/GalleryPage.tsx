@@ -1,0 +1,262 @@
+import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { X } from 'lucide-react';
+
+interface GalleryItem {
+  id: string;
+  service: string;
+  title: string;
+  beforeAlt: string;
+  afterAlt: string;
+  // Note: Using placeholder image service for now
+  // Replace with actual image paths when you have real photos
+  beforeImage: string;
+  afterImage: string;
+}
+
+const galleryItems: GalleryItem[] = [
+  {
+    id: '1',
+    service: 'mowing',
+    title: 'Residential Lawn Mowing',
+    beforeAlt: 'Overgrown lawn before mowing',
+    afterAlt: 'Perfectly manicured lawn after professional mowing',
+    beforeImage: 'https://placehold.co/800x600/4a7d26/white?text=Before+Mowing',
+    afterImage: 'https://placehold.co/800x600/2d5016/white?text=After+Mowing',
+  },
+  {
+    id: '2',
+    service: 'landscaping',
+    title: 'Landscape Design & Installation',
+    beforeAlt: 'Empty yard before landscaping',
+    afterAlt: 'Beautiful landscaped garden after installation',
+    beforeImage: 'https://placehold.co/800x600/8B7355/white?text=Before+Landscaping',
+    afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Landscaping',
+  },
+  {
+    id: '3',
+    service: 'mulching',
+    title: 'Garden Bed Mulching',
+    beforeAlt: 'Garden bed before mulching',
+    afterAlt: 'Fresh mulch installed in garden bed',
+    beforeImage: 'https://placehold.co/800x600/8B7355/white?text=Before+Mulching',
+    afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Mulching',
+  },
+  {
+    id: '4',
+    service: 'cleanup',
+    title: 'Fall Leaf Cleanup',
+    beforeAlt: 'Yard covered with fall leaves',
+    afterAlt: 'Clean yard after leaf removal',
+    beforeImage: 'https://placehold.co/800x600/d97706/white?text=Before+Cleanup',
+    afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Cleanup',
+  },
+  {
+    id: '5',
+    service: 'hedges',
+    title: 'Hedge Trimming & Shaping',
+    beforeAlt: 'Overgrown hedges before trimming',
+    afterAlt: 'Neatly trimmed and shaped hedges',
+    beforeImage: 'https://placehold.co/800x600/059669/white?text=Before+Trimming',
+    afterImage: 'https://placehold.co/800x600/10b981/white?text=After+Trimming',
+  },
+  {
+    id: '6',
+    service: 'edging',
+    title: 'Professional Edging',
+    beforeAlt: 'Undefined lawn edges',
+    afterAlt: 'Crisp, clean edges along walkway',
+    beforeImage: 'https://placehold.co/800x600/6b7280/white?text=Before+Edging',
+    afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Edging',
+  },
+];
+
+const serviceFilters = [
+  { id: 'all', label: 'All Services' },
+  { id: 'mowing', label: 'Lawn Mowing' },
+  { id: 'landscaping', label: 'Landscaping' },
+  { id: 'mulching', label: 'Mulching' },
+  { id: 'cleanup', label: 'Cleanups' },
+  { id: 'hedges', label: 'Hedge Trimming' },
+  { id: 'edging', label: 'Edging' },
+];
+
+export default function GalleryPage() {
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const filteredItems = selectedFilter === 'all'
+    ? galleryItems
+    : galleryItems.filter(item => item.service === selectedFilter);
+
+  return (
+    <>
+      <Helmet>
+        <title>Gallery | Aaron's Lawn Care Louisville KY - Before & After Photos</title>
+        <meta
+          name="description"
+          content="View our lawn care before and after photos. See the quality of our work in Louisville, KY. Professional mowing, landscaping, cleanup, and more."
+        />
+      </Helmet>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Our Work Gallery
+            </h1>
+            <p className="text-xl md:text-2xl text-green-100">
+              See the difference professional lawn care makes. Browse our before and after photos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Filter Tabs */}
+      <section className="bg-white border-b border-gray-200 sticky top-0 z-40">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
+            {serviceFilters.map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setSelectedFilter(filter.id)}
+                className={`px-6 py-2 rounded-full font-semibold whitespace-nowrap transition-all ${
+                  selectedFilter === filter.id
+                    ? 'bg-green-600 text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Grid */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          {filteredItems.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-xl text-gray-600">No items found for this filter.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {filteredItems.map((item) => (
+                <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+                  <div className="p-4 border-b border-gray-200 bg-gradient-to-r from-green-600 to-green-700 text-white">
+                    <h3 className="font-bold text-lg">{item.title}</h3>
+                  </div>
+
+                  {/* Before Image */}
+                  <div className="relative">
+                    <div className="absolute top-2 left-2 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                      Before
+                    </div>
+                    <button
+                      onClick={() => setSelectedImage({ src: item.beforeImage, alt: item.beforeAlt })}
+                      className="w-full block"
+                    >
+                      <img
+                        src={item.beforeImage}
+                        alt={item.beforeAlt}
+                        className="w-full h-64 object-cover hover:opacity-90 transition-opacity cursor-pointer"
+                      />
+                    </button>
+                  </div>
+
+                  {/* After Image */}
+                  <div className="relative">
+                    <div className="absolute top-2 left-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                      After
+                    </div>
+                    <button
+                      onClick={() => setSelectedImage({ src: item.afterImage, alt: item.afterAlt })}
+                      className="w-full block"
+                    >
+                      <img
+                        src={item.afterImage}
+                        alt={item.afterAlt}
+                        className="w-full h-64 object-cover hover:opacity-90 transition-opacity cursor-pointer"
+                      />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Placeholder Notice */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-3xl mx-auto bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h3 className="text-lg font-bold text-blue-900 mb-2">
+              Gallery Coming Soon
+            </h3>
+            <p className="text-blue-800">
+              We're currently compiling our best before and after photos. Check back soon to see examples of our work!
+              In the meantime, <a href="/quote" className="font-bold underline">request a free quote</a> to get started.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Lawn?
+          </h2>
+          <p className="text-xl md:text-2xl mb-10 text-green-100 max-w-3xl mx-auto">
+            Let's make your property our next success story
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/quote"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-green-800 font-bold text-lg rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transform hover:scale-105 transition-all"
+            >
+              Get Your Free Quote
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="tel:5029268524"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-900 bg-opacity-50 text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-opacity-70 transform hover:scale-105 transition-all"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              Call (502) 926-8524
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 p-2 bg-white rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Close lightbox"
+          >
+            <X className="w-6 h-6 text-gray-900" />
+          </button>
+          <img
+            src={selectedImage.src}
+            alt={selectedImage.alt}
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
+  );
+}

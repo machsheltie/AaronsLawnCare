@@ -7,27 +7,28 @@
 @layer base {
   :root {
     /* Nature's Elegance Palette */
-    
+
     /* Background: Soft Cream/White */
     --background: 40 20% 99%;
-    --foreground: 150 10% 20%; /* Dark Green-Grey */
+    --foreground: 150 10% 20%;
+    /* Dark Green-Grey */
 
     /* Card: Pure White with slight tint */
     --card: 0 0% 100%;
     --card-foreground: 150 10% 20%;
- 
+
     /* Popover */
     --popover: 0 0% 100%;
     --popover-foreground: 150 10% 20%;
- 
+
     /* Primary: Deep Forest Green (#047857) -> HSL 161 94% 24% approx. Let's adjust to be rich. */
     --primary: 161 94% 24%;
     --primary-foreground: 0 0% 100%;
- 
+
     /* Secondary: Light Moss/Sage (#d1fae5) used for backgrounds of badges etc */
     --secondary: 150 30% 94%;
     --secondary-foreground: 161 94% 24%;
- 
+
     /* Accent: Gold (#f59e0b) */
     --accent: 45 93% 47%;
     --accent-foreground: 0 0% 100%;
@@ -35,7 +36,7 @@
     /* Muted: Greys */
     --muted: 150 10% 94%;
     --muted-foreground: 150 5% 40%;
- 
+
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -44,55 +45,67 @@
     --border: 150 20% 90%;
     --input: 150 20% 90%;
     --ring: 161 94% 24%;
- 
+
     --radius: 0.75rem;
   }
- 
+
   .dark {
     --background: 150 50% 5%;
     --foreground: 150 10% 90%;
- 
+
     --card: 150 50% 8%;
     --card-foreground: 150 10% 90%;
- 
+
     --popover: 150 50% 8%;
     --popover-foreground: 150 10% 90%;
- 
+
     --primary: 161 94% 24%;
     --primary-foreground: 0 0% 100%;
- 
+
     --secondary: 150 30% 15%;
     --secondary-foreground: 150 10% 90%;
- 
+
     --accent: 45 93% 47%;
     --accent-foreground: 0 0% 100%;
- 
+
     --muted: 150 30% 15%;
     --muted-foreground: 150 10% 60%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 150 10% 90%;
- 
+
     --border: 150 30% 15%;
     --input: 150 30% 15%;
     --ring: 161 94% 24%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold text-primary-900;
   }
 }
 
 @layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Noise Texture for Glassmorphism */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
 }

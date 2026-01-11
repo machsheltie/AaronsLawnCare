@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 bg-gradient-to-r from-green-800 via-green-700 to-green-800 transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'
+        className={`sticky top-0 z-50 transition-all duration-500 ease-in-out bg-green-900/90 backdrop-blur-md bg-noise shadow-lg ${scrolled ? 'py-2' : 'py-4'
           }`}
       >
         <div className="container mx-auto px-4">

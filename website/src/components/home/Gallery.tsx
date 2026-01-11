@@ -1,0 +1,93 @@
+import { motion } from "framer-motion";
+
+export const Gallery = () => {
+    return (
+        <section className="py-24 bg-white overflow-hidden">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <span className="text-green-600 font-semibold tracking-wider text-sm uppercase mb-3 block">Our Work</span>
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-green-950 mb-6">
+                        See The Difference
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Take a look at some of the landscapes we've transformed.
+                    </p>
+                </div>
+
+                {/* Bento Grid Gallery */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
+                    {/* Large Featured Image */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl"
+                    >
+                        <img
+                            src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=1200"
+                            alt="Beautiful large lawn"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <p className="text-white font-bold text-xl">Estate Maintenance</p>
+                        </div>
+                    </motion.div>
+
+                    {/* Tall Side Image */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="md:row-span-2 relative group overflow-hidden rounded-2xl"
+                    >
+                        <img
+                            src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Garden path"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <p className="text-white font-bold text-xl">Garden Design</p>
+                        </div>
+                    </motion.div>
+
+                    {/* Small Bottom Image 1 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="relative group overflow-hidden rounded-2xl"
+                    >
+                        <img
+                            src="https://images.unsplash.com/photo-1610427847423-f38f712f5a63?q=80&w=800&auto=format&fit=crop"
+                            alt="Mowing Pattern"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p className="text-white font-bold text-lg">Precision Mowing</p>
+                        </div>
+                    </motion.div>
+
+                    {/* Small Bottom Image 2 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="md:col-span-2 relative group overflow-hidden rounded-2xl"
+                    >
+                        <img
+                            src="https://images.unsplash.com/photo-1623315995837-2938a425399c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Landscape Overview"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p className="text-white font-bold text-lg">Full Transformations</p>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
