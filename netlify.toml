@@ -1,0 +1,37 @@
+# Netlify configuration for Aaron's Lawn Care Website
+# This file configures Netlify to build from the website/ subdirectory
+
+[build]
+  # Base directory for the build (where package.json is located)
+  base = "website/"
+
+  # Build command to run
+  command = "npm run build"
+
+  # Directory to publish (relative to base directory)
+  publish = "dist/"
+
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "20"
+
+# Redirect rules for single-page application (SPA)
+# This ensures React Router works correctly
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
