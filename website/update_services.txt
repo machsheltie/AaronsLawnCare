@@ -1,0 +1,18 @@
+Service pages need to be updated with comprehensive content similar to LawnMowingPage.tsx.
+Each page should have:
+- Unique benefits (4 items)
+- Process steps (4-6 items)  
+- FAQs (4-5 items)
+- SEO meta tags
+- Service schema
+
+Remaining pages to update:
+1. EdgingPage.tsx
+2. LeafRemovalPage.tsx
+3. MulchingPage.tsx
+4. FallCleanupPage.tsx
+5. SpringCleanupPage.tsx
+6. HedgeTrimmingPage.tsx
+7. LandscapeDesignPage.tsx
+8. LandscapeMaintenancePage.tsx
+9. SnowRemovalPage.tsx
