@@ -13,13 +13,16 @@ export default function AboutPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-green-900">
               20+ Years of Excellence in Lawn Care
             </h1>
-            <p className="text-xl md:text-2xl text-green-100">
+            <p className="text-xl md:text-2xl text-gray-600">
               A locally-owned business dedicated to making Louisville properties beautiful, one lawn at a time.
             </p>
           </div>

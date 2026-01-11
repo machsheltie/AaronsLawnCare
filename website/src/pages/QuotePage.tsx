@@ -173,11 +173,14 @@ export default function QuotePage() {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-16">
-        <div className="container mx-auto px-4">
+      <div className="min-h-screen bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-green-900 mb-4">
               Request Your Free Quote
             </h1>
             <p className="text-xl text-gray-600">
@@ -217,9 +220,8 @@ export default function QuotePage() {
                       {...register('fullName')}
                       type="text"
                       id="fullName"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                        errors.fullName ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.fullName ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="John Smith"
                     />
                     {errors.fullName && (
@@ -236,9 +238,8 @@ export default function QuotePage() {
                       {...register('phone')}
                       type="tel"
                       id="phone"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="(502) 555-0123"
                     />
                     {errors.phone && (
@@ -255,9 +256,8 @@ export default function QuotePage() {
                       {...register('email')}
                       type="email"
                       id="email"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="john@example.com"
                     />
                     {errors.email && (
@@ -274,9 +274,8 @@ export default function QuotePage() {
                       {...register('propertyAddress')}
                       type="text"
                       id="propertyAddress"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                        errors.propertyAddress ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.propertyAddress ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       placeholder="123 Main St, Louisville, KY 40202"
                     />
                     {errors.propertyAddress && (
@@ -327,9 +326,8 @@ export default function QuotePage() {
                     <select
                       {...register('propertySize')}
                       id="propertySize"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                        errors.propertySize ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.propertySize ? 'border-red-500' : 'border-gray-300'
+                        }`}
                     >
                       {PROPERTY_SIZES.map((size) => (
                         <option key={size.value} value={size.value}>
@@ -350,9 +348,8 @@ export default function QuotePage() {
                     <select
                       {...register('urgency')}
                       id="urgency"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                        errors.urgency ? 'border-red-500' : 'border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.urgency ? 'border-red-500' : 'border-gray-300'
+                        }`}
                     >
                       {URGENCY_LEVELS.map((level) => (
                         <option key={level.value} value={level.value}>

@@ -1,0 +1,27 @@
+# Aaron's Lawn Care - robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://aaronslawncare.com/sitemap.xml
+
+# Crawl-delay to be respectful of server resources
+Crawl-delay: 1
+
+# Disallow indexing of development/staging environments
+User-agent: *
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+
+# Allow all major search engines
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /

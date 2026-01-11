@@ -10,6 +10,7 @@ const QuotePage = lazy(() => import('./pages/QuotePage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
           { path: 'quote', element: <QuotePage /> },
           { path: 'contact', element: <ContactPage /> },
           { path: 'gallery', element: <GalleryPage /> },
+          { path: 'reviews', element: <ReviewsPage /> },
           { path: 'privacy', element: <PrivacyPage /> },
           { path: 'terms', element: <TermsPage /> },
 

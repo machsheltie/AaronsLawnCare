@@ -117,18 +117,21 @@ export default function ServicesPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-green-900">
               Professional Lawn Care Services
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 mb-8">
               From routine maintenance to complete landscaping transformations, we've got your lawn covered.
             </p>
             <Link
               to="/quote"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-800 font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transform hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-green-700 transform hover:scale-105 transition-all"
             >
               Get Your Free Quote
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

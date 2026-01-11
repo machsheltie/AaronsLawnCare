@@ -12,6 +12,150 @@ export default function HomePage() {
           name="description"
           content="20+ years of professional lawn care services in Louisville, KY. Mowing, treatment, landscaping, and more. Get your free quote today!"
         />
+
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Aaron's Lawn Care | Professional Lawn Care Services in Louisville, KY" />
+        <meta property="og:description" content="20+ years of professional lawn care services in Louisville, KY. Mowing, treatment, landscaping, and more. Get your free quote today!" />
+        <meta property="og:url" content="https://aaronslawncare.com" />
+        <meta property="og:site_name" content="Aaron's Lawn Care" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Aaron's Lawn Care | Professional Lawn Care Services in Louisville, KY" />
+        <meta name="twitter:description" content="20+ years of professional lawn care services in Louisville, KY. Mowing, treatment, landscaping, and more. Get your free quote today!" />
+
+        {/* LocalBusiness Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Aaron's Lawn Care",
+            "description": "Professional lawn care and landscaping services serving the greater Louisville, Kentucky area for over 20 years.",
+            "url": "https://aaronslawncare.com",
+            "telephone": "+15029268524",
+            "email": "gnaua429@gmail.com",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Louisville",
+              "addressRegion": "KY",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "38.2527",
+              "longitude": "-85.7585"
+            },
+            "areaServed": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "38.2527",
+                "longitude": "-85.7585"
+              },
+              "geoRadius": "50000"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "08:00",
+              "closes": "18:00"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Lawn Care Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Lawn Mowing",
+                    "description": "Professional lawn mowing services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Edging",
+                    "description": "Precise lawn edging services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Leaf Removal",
+                    "description": "Comprehensive leaf removal services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Landscaping",
+                    "description": "Full-service landscaping and design"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Mulching",
+                    "description": "Professional mulch installation"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Fall Cleanup",
+                    "description": "Complete fall yard cleanup"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Spring Cleanup",
+                    "description": "Spring yard preparation services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Hedge Trimming",
+                    "description": "Professional hedge and shrub trimming"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Landscape Design",
+                    "description": "Custom landscape design services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Snow Removal",
+                    "description": "Winter snow removal services"
+                  }
+                }
+              ]
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "10"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}

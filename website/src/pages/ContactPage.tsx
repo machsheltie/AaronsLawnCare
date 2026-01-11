@@ -71,13 +71,16 @@ export default function ContactPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-green-900">
               Get in Touch
             </h1>
-            <p className="text-xl md:text-2xl text-green-100">
+            <p className="text-xl md:text-2xl text-gray-600">
               We're here to help with all your lawn care needs. Reach out today!
             </p>
           </div>
@@ -214,9 +217,8 @@ export default function ContactPage() {
                         {...register('name')}
                         type="text"
                         id="name"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                          errors.name ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.name ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="John Smith"
                       />
                       {errors.name && (
@@ -233,9 +235,8 @@ export default function ContactPage() {
                         {...register('email')}
                         type="email"
                         id="email"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="john@example.com"
                       />
                       {errors.email && (
@@ -252,9 +253,8 @@ export default function ContactPage() {
                         {...register('phone')}
                         type="tel"
                         id="phone"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                          errors.phone ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="(502) 555-0123"
                       />
                       {errors.phone && (
@@ -271,9 +271,8 @@ export default function ContactPage() {
                         {...register('subject')}
                         type="text"
                         id="subject"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                          errors.subject ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.subject ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="How can we help you?"
                       />
                       {errors.subject && (
@@ -290,9 +289,8 @@ export default function ContactPage() {
                         {...register('message')}
                         id="message"
                         rows={5}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${
-                          errors.message ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.message ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="Tell us about your lawn care needs..."
                       />
                       {errors.message && (
