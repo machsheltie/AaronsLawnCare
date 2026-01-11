@@ -1,0 +1,525 @@
+# 500 Prompts to Build Aaron's Lawn Care Service App
+
+## PROMPTS 1-50: Foundation & Setup
+
+1. Initialize a new React 18 project using Vite with TypeScript template and name it 'aarons-lawn-care'
+2. Install Tailwind CSS v3.4+ with PostCSS and configure it with mobile-first breakpoints
+3. Install React Router DOM v6 for routing and navigation
+4. Install Zustand for client-side state management
+5. Install TanStack Query (React Query v5) for server state management
+6. Install React Hook Form and Zod for form handling and validation
+7. Install date-fns for date manipulation and formatting
+8. Install lucide-react for icons
+9. Install recharts for data visualization in reports
+10. Install Dexie.js for IndexedDB offline storage
+11. Install browser-image-compression for photo compression
+12. Create a Supabase project in US East region named 'aarons-lawn-care'
+13. Copy the Supabase project URL and anon key to environment variables
+14. Install @supabase/supabase-js v2.38+ client library
+15. Create .env.local file with VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
+16. Create src/lib/supabase.js file and initialize Supabase client with environment variables
+17. Create src/lib/utils.js with cn() function for className merging using clsx
+18. Set up Tailwind config with custom colors: primary green (#10b981), secondary blue, and neutral grays
+19. Configure Tailwind to include safelist for dynamic classes used in job type color coding
+20. Create src/components folder for all React components
+21. Create src/components/ui folder for reusable UI components
+22. Create src/components/features folder for feature-specific components
+23. Create src/pages folder for page-level components
+24. Create src/hooks folder for custom React hooks
+25. Create src/stores folder for Zustand state stores
+26. Create src/services folder for API service functions
+27. Create src/styles folder with globals.css importing Tailwind directives
+28. Install vite-plugin-pwa for Progressive Web App functionality
+29. Configure vite.config.js with PWA plugin including manifest and service worker settings
+30. Create public/manifest.json with app name, colors, and icon paths
+31. Create public/icons folder and add 192x192 and 512x512 PNG icons with lawn care logo
+32. Set up ESLint with React, TypeScript, and accessibility rules
+33. Set up Prettier with 2-space indentation and semicolons
+34. Create .gitignore including node_modules, .env files, and build directories
+35. Initialize Git repository and make initial commit
+36. Create GitHub repository and push initial code
+37. Install @stripe/stripe-js for payment processing integration
+38. Install @googlemaps/js-api-loader for Google Maps integration
+39. Create package.json scripts for dev, build, preview, and lint
+40. Set up absolute imports with @ alias pointing to src directory in vite.config.js and tsconfig.json
+41. Create README.md with project setup instructions and environment variable requirements
+42. Install Vitest and @testing-library/react for unit testing
+43. Install Playwright for end-to-end testing
+44. Create vitest.config.js with test environment configuration
+45. Create playwright.config.js with test browsers and base URL
+46. Install @sentry/react for error tracking and monitoring
+47. Create src/lib/sentry.js to initialize Sentry with DSN from environment variable
+48. Set up TypeScript path aliases in tsconfig.json for cleaner imports
+49. Create .env.example file documenting all required environment variables with placeholder values
+50. Install concurrently to run multiple dev servers simultaneously if needed
+
+## PROMPTS 51-100: Database & Auth
+
+51. In Supabase SQL Editor, enable uuid-ossp extension with CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+52. In Supabase SQL Editor, enable postgis extension with CREATE EXTENSION IF NOT EXISTS "postgis"
+53. Create users table with id, email, full_name, phone, role, avatar_url, is_active, created_at, updated_at columns
+54. Add CHECK constraint on users.role to only allow 'owner', 'admin', 'crew_lead', 'crew_member', 'office_staff'
+55. Create index idx_users_email on users(email) for fast lookup
+56. Create index idx_users_role on users(role) for role-based queries
+57. Create customers table with id, user_id, first_name, last_name, email, phone, billing address fields, customer_type, status, tags, notes, stripe_customer_id
+58. Add foreign key constraint on customers.user_id referencing users(id)
+59. Add CHECK constraint on customers.status allowing only 'active', 'inactive', 'archived'
+60. Create full-text search index on customers using GIN for first_name, last_name, email, phone
+61. Create properties table with id, customer_id, address, city, state, zip, location (GEOGRAPHY), lot_size, gate_code, access_notes, pet_warnings, is_primary
+62. Add foreign key on properties.customer_id referencing customers(id) with ON DELETE CASCADE
+63. Create spatial index on properties.location using GIST for geospatial queries
+64. Create jobs table with id, user_id, customer_id, property_id, assigned_to, job_type, title, description, status, scheduled_date, times, durations, priority, requires_equipment, weather_dependent, recurring_job_id, start/end_location
+65. Add CHECK constraint on jobs.status for 'scheduled', 'en_route', 'in_progress', 'completed', 'cancelled', 'rescheduled'
+66. Add CHECK constraint on jobs.job_type for 'mowing', 'trimming', 'edging', 'mulching', 'tree_trimming', 'tree_removal', 'stump_grinding', 'other'
+67. Create computed column actual_duration as GENERATED ALWAYS AS expression calculating minutes between start and end times
+68. Create indexes on jobs for user_id, customer_id, assigned_to, scheduled_date, status, recurring_job_id
+69. Create recurring_jobs table with id, user_id, customer_id, property_id, job_type, title, description, recurrence_pattern (JSONB), start_date, end_date, is_active, is_paused, pause dates, assigned_to, estimated_duration
+70. Create index on recurring_jobs.is_active filtered WHERE is_active = TRUE
+71. Create job_photos table with id, job_id, storage_path, photo_type, caption, latitude, longitude, taken_at, uploaded_at, uploaded_by, file_size
+72. Add CHECK constraint on job_photos.photo_type for 'before', 'during', 'after'
+73. Create invoices table with id, user_id, customer_id, job_id, invoice_number (UNIQUE), status, subtotal, tax_rate, tax_amount, total_amount, amount_paid, amount_due (GENERATED), issue_date, due_date, paid_date, notes, stripe_invoice_id
+74. Add CHECK constraint ensuring due_date >= issue_date on invoices
+75. Add CHECK constraint ensuring amount_paid <= total_amount on invoices
+76. Create unique index on invoices.invoice_number
+77. Create invoice_line_items table with id, invoice_id, description, quantity, unit_price, line_total (GENERATED as quantity * unit_price)
+78. Create payments table with id, invoice_id, customer_id, amount, payment_method, stripe_payment_intent_id, status, paid_at
+79. Create trees table with id, property_id, species_common, species_scientific, location (GEOGRAPHY), location_notes, diameter_at_breast_height, height_feet, canopy_spread_feet, health_status, risk_rating, notes, last_service_date
+80. Create equipment table with id, user_id, name, equipment_type, make, model, year, serial_number, status, is_owned, maintenance dates, certification_expires, notes
+81. Create notifications table with id, customer_id, job_id, notification_type, channel, recipient, message, status, sent_at, delivered_at, error_message
+82. Create SQL function update_updated_at_column() that returns trigger setting NEW.updated_at to NOW()
+83. Create BEFORE UPDATE trigger on customers table calling update_updated_at_column() function
+84. Create BEFORE UPDATE triggers on all tables with updated_at columns using same function
+85. Create SQL function generate_invoice_number() that generates 'INV-YYYYMMDD-XXXX' format based on current date and count
+86. Create BEFORE INSERT trigger on invoices calling set_invoice_number() to auto-generate invoice numbers
+87. Create SQL function calculate_distance(lat1, lng1, lat2, lng2) returning distance in miles using ST_Distance PostGIS function
+88. Enable Row Level Security on all tables with ALTER TABLE ... ENABLE ROW LEVEL SECURITY
+89. Create RLS policy "Users can view own customers" on customers FOR SELECT using user_id = auth.uid()
+90. Create RLS policy "Users can insert own customers" on customers FOR INSERT with CHECK user_id = auth.uid()
+91. Create RLS policy "Users can update own customers" on customers FOR UPDATE using user_id = auth.uid()
+92. Create RLS policies on jobs allowing SELECT where user_id = auth.uid() OR assigned_to = auth.uid()
+93. Create RLS policy on invoices allowing public SELECT when status IN ('sent', 'overdue') for payment portal
+94. Create Supabase Storage bucket 'job-photos' with private access requiring authentication
+95. Create Supabase Storage bucket 'customer-documents' with private access
+96. In Supabase Auth settings, configure email template for password reset with branding
+97. Configure Supabase Auth to require email confirmation for new user signups
+98. Set Supabase Auth JWT expiry to 1 hour for access tokens and 30 days for refresh tokens
+99. Create src/lib/auth.js with helper functions for signIn, signOut, getSession, onAuthStateChange using Supabase client
+100. Create src/stores/authStore.js Zustand store managing user, session, loading state with signOut action
+
+## PROMPTS 101-150: Core Components
+
+101. Create src/components/ui/Button.jsx with variants for primary, secondary, ghost, and danger using Tailwind
+102. Make Button component support different sizes (sm, md, lg) and disabled/loading states
+103. Create src/components/ui/Input.jsx with label, error message, and icon support
+104. Create src/components/ui/Select.jsx styled dropdown with searchable option
+105. Create src/components/ui/Card.jsx container component with header, body, and footer slots
+106. Create src/components/ui/Modal.jsx overlay component using React Portal with close on escape and outside click
+107. Create src/components/ui/Sheet.jsx slide-in panel component from right side for mobile-friendly forms
+108. Create src/components/ui/Badge.jsx component for status indicators with color variants
+109. Create src/components/ui/Avatar.jsx component displaying user initials or image with fallback
+110. Create src/components/ui/Spinner.jsx loading indicator with customizable size and color
+111. Create src/components/ui/Toast.jsx notification component using context for global access
+112. Create src/components/ui/Tabs.jsx component for tabbed interfaces with active state styling
+113. Create src/components/ui/DatePicker.jsx using native HTML5 date input styled with Tailwind
+114. Create src/components/ui/TimePicker.jsx for selecting time with AM/PM support
+115. Create src/components/ui/Checkbox.jsx styled checkbox with label and error state
+116. Create src/components/ui/Radio.jsx styled radio button group component
+117. Create src/components/ui/Switch.jsx toggle switch component for boolean settings
+118. Create src/components/ui/Textarea.jsx multiline text input with character counter option
+119. Create src/components/ui/Table.jsx responsive table component with sorting and pagination
+120. Create src/components/ui/Dropdown.jsx menu component for action lists
+121. Create src/components/ui/Breadcrumb.jsx navigation component showing current location path
+122. Create src/components/ui/Alert.jsx component for info, success, warning, error messages
+123. Create src/components/ui/Progress.jsx bar component showing completion percentage
+124. Create src/components/ui/Skeleton.jsx loading placeholder component with animation
+125. Create src/components/Layout/Header.jsx with app logo, navigation menu, and user avatar
+126. Create src/components/Layout/Sidebar.jsx navigation menu for desktop with collapsible sections
+127. Create src/components/Layout/MobileNav.jsx bottom navigation bar with 5 main icons for mobile
+128. Create src/components/Layout/MainLayout.jsx combining Header, Sidebar, and content area with responsive behavior
+129. Create src/components/PrivateRoute.jsx checking authentication and redirecting to login if not authenticated
+130. Create src/hooks/useAuth.js custom hook accessing authStore and returning user, loading, signOut
+131. Create src/hooks/useToast.js custom hook for showing toast notifications with success, error, info methods
+132. Create src/hooks/useMediaQuery.js detecting screen size breakpoints (mobile, tablet, desktop)
+133. Create src/hooks/useOnClickOutside.js hook for detecting clicks outside an element
+134. Create src/hooks/useDebounce.js hook for debouncing rapidly changing values
+135. Create src/hooks/useLocalStorage.js hook for syncing state with localStorage
+136. Create src/hooks/useGeolocation.js hook for accessing device GPS coordinates
+137. Create src/hooks/useOnline.js hook detecting online/offline status for PWA
+138. Create src/lib/db.js initializing Dexie IndexedDB with stores for jobs, customers, photos, offlineQueue
+139. Create src/lib/offline.js with queueAction() function adding actions to offlineQueue
+140. Create src/lib/offline.js with syncOfflineQueue() function processing queued actions when online
+141. Create src/services/customerService.js with getCustomers, getCustomer, createCustomer, updateCustomer, deleteCustomer functions
+142. Create src/services/jobService.js with getJobs, getJob, createJob, updateJob, deleteJob functions
+143. Create src/services/invoiceService.js with getInvoices, getInvoice, createInvoice, updateInvoice functions
+144. Create src/services/photoService.js with uploadPhoto function including compression and validation
+145. Create src/hooks/useCustomers.js React Query hook with queries for fetching customers list and details
+146. Create src/hooks/useJobs.js React Query hook with queries and mutations for job operations
+147. Create src/hooks/useInvoices.js React Query hook with queries for invoice operations
+148. Create src/stores/uiStore.js Zustand store for UI state like sidebar open/closed, modal states
+149. Create src/lib/validators.js with Zod schemas for customer, job, invoice validation
+150. Create src/lib/formatters.js with functions for formatting phone numbers, currency, dates
+
+## PROMPTS 151-250: Features Implementation
+
+151. Create src/components/features/customers/CustomerCard.jsx displaying customer name, address, phone, last service date, and actions
+152. Create src/components/features/customers/CustomerList.jsx rendering grid of CustomerCard components with loading state
+153. Add search functionality to CustomerList filtering by name, phone, or address
+154. Add filter dropdown to CustomerList for filtering by status (active, inactive, archived)
+155. Add sort options to CustomerList for sorting by name, last service, or total revenue
+156. Create src/components/features/customers/CustomerForm.jsx with fields for all customer information
+157. Add form validation to CustomerForm using React Hook Form and Zod schema
+158. Add tags input to CustomerForm allowing multiple custom tags with add/remove functionality
+159. Create src/components/features/customers/PropertyForm.jsx for adding/editing property details
+160. Integrate Google Places Autocomplete API in PropertyForm for address field
+161. Add map display in PropertyForm showing property location from geocoded address
+162. Create src/components/features/customers/CustomerDetail.jsx with tabs for properties, service history, invoices, notes
+163. Add service history timeline in CustomerDetail showing all completed jobs chronologically
+164. Add photo gallery in CustomerDetail showing before/after photos from all jobs
+165. Create src/components/features/scheduling/Calendar.jsx with week view grid layout
+166. Make Calendar display jobs as colored cards in time slots based on scheduled_start_time
+167. Add drag-and-drop functionality to Calendar using react-dnd or native drag events
+168. Implement job card repositioning in Calendar updating scheduled_date and scheduled_start_time
+169. Add crew member filter dropdown to Calendar showing only jobs assigned to selected crew
+170. Add job type color coding to Calendar cards (green for mowing, blue for tree work, etc.)
+171. Create src/components/features/scheduling/DayView.jsx showing single day chronological job list
+172. Add crew member tabs to DayView switching between different crew schedules
+173. Display total estimated time and job count statistics at top of DayView
+174. Create src/components/features/scheduling/JobForm.jsx with all job fields
+175. Add customer searchable dropdown to JobForm with autocomplete
+176. Make property dropdown in JobForm dynamically populate based on selected customer
+177. Add recurring job toggle to JobForm expanding additional recurrence pattern fields
+178. Create src/components/features/scheduling/RecurringJobForm.jsx for recurrence configuration
+179. Add frequency selector to RecurringJobForm (weekly, bi-weekly, monthly, custom)
+180. Add day of week selector for weekly/bi-weekly patterns in RecurringJobForm
+181. Add date range picker for start and optional end date in RecurringJobForm
+182. Generate preview list showing next 4-6 job dates based on recurrence pattern
+183. Create src/components/features/jobs/JobDetail.jsx displaying all job information
+184. Add Google Maps iframe in JobDetail showing property location
+185. Add photo gallery in JobDetail with before/during/after tabs
+186. Add status update buttons in JobDetail (Start Job, Complete Job) with state management
+187. Create src/components/features/jobs/JobTimer.jsx auto-incrementing timer display
+188. Create src/components/features/photos/PhotoCapture.jsx using HTML5 file input with camera capture
+189. Add photo category buttons (Before/During/After) to PhotoCapture
+190. Implement photo compression in PhotoCapture to 500KB using browser-image-compression
+191. Add photo preview thumbnails in PhotoCapture with delete option before upload
+192. Create offline photo queue storing photos in IndexedDB when offline
+193. Implement background photo upload when online in PhotoCapture
+194. Create src/components/features/photos/PhotoGallery.jsx displaying photo grid with lightbox
+195. Add photo filtering by type (before/during/after) in PhotoGallery
+196. Create src/components/features/invoicing/InvoiceForm.jsx with line items management
+197. Add dynamic line item rows to InvoiceForm with add/remove buttons
+198. Implement auto-calculation of subtotal, tax, and total in InvoiceForm
+199. Add job selector to InvoiceForm auto-populating line item from completed job
+200. Create src/components/features/invoicing/InvoiceList.jsx with filter tabs
+201. Add search functionality to InvoiceList by invoice number or customer name
+202. Add date range filter to InvoiceList for filtering by issue date or due date
+203. Display total unpaid amount prominently at top of InvoiceList
+204. Create src/components/features/invoicing/InvoiceDetail.jsx displaying full invoice
+205. Add PDF generation functionality to InvoiceDetail using jsPDF or similar library
+206. Add email sending functionality to InvoiceDetail calling Supabase Edge Function
+207. Create src/components/features/invoicing/PaymentPortal.jsx for customer-facing payment
+208. Integrate Stripe Elements in PaymentPortal for secure card input
+209. Add save payment method checkbox in PaymentPortal storing payment method ID
+210. Implement payment processing in PaymentPortal calling create-payment-intent Edge Function
+211. Create payment success screen showing confirmation and receipt details
+212. Create Supabase Edge Function 'create-payment-intent' in supabase/functions directory
+213. Implement Stripe payment intent creation in Edge Function with metadata
+214. Create Supabase Edge Function 'stripe-webhook' for handling payment events
+215. Implement webhook signature verification in stripe-webhook function
+216. Handle payment_intent.succeeded event updating invoice status to 'paid'
+217. Create payment record in database from successful payment webhook
+218. Create Supabase Edge Function 'send-notification' for SMS and email
+219. Integrate Twilio API in send-notification function for SMS messages
+220. Integrate SendGrid API in send-notification function for email messages
+221. Create notification templates for appointment reminders, service complete, payment reminders
+222. Implement two-way SMS handling for customer replies to notifications
+223. Create src/components/features/reports/RevenueReport.jsx with line chart
+224. Add date range selector to RevenueReport filtering displayed data
+225. Display total revenue, paid vs unpaid breakdown in RevenueReport
+226. Add pie chart showing revenue by service type in RevenueReport
+227. Create src/components/features/reports/JobCompletionReport.jsx with bar chart
+228. Display jobs completed count and completion rate in JobCompletionReport
+229. Add crew comparison table showing jobs completed per crew member
+230. Create src/components/features/reports/CustomerReport.jsx with statistics
+231. Display total customers, active customers, customer lifetime values
+232. Add CSV export functionality to all reports using papaparse library
+233. Create src/components/features/tree/TreeInventory.jsx displaying tree cards
+234. Add filter by property and health status to TreeInventory
+235. Create src/components/features/tree/TreeForm.jsx for adding/editing trees
+236. Add species searchable dropdown to TreeForm with common tree species
+237. Add GPS coordinate picker to TreeForm showing location on property map
+238. Create src/components/features/tree/TreePricingCalculator.jsx with size inputs
+239. Add complexity multiplier sliders to TreePricingCalculator
+240. Implement pricing calculation formula in TreePricingCalculator
+241. Display recommended crew size based on tree size in TreePricingCalculator
+242. Create src/components/features/tree/SafetyChecklist.jsx with checkboxes
+243. Require all safety checklist items completed before enabling Start Job button
+244. Create src/components/features/equipment/EquipmentList.jsx displaying equipment cards
+245. Add filter by type and status to EquipmentList
+246. Create src/components/features/equipment/EquipmentForm.jsx for equipment details
+247. Add maintenance date fields and certification tracking to EquipmentForm
+248. Create Supabase Edge Function 'optimize-route' implementing TSP algorithm
+249. Call Google Maps Distance Matrix API in optimize-route function
+250. Return optimized job order with estimated times and total distance
+
+## PROMPTS 251-350: Screens & Views
+
+251. Create src/pages/Login.jsx with email and password inputs
+252. Add form validation to Login page checking for valid email format
+253. Implement sign in functionality in Login page calling supabase.auth.signInWithPassword
+254. Add "Forgot Password" link in Login page navigating to password reset
+255. Display error messages in Login page for invalid credentials
+256. Add loading state to Login page disabling submit button during authentication
+257. Create src/pages/ForgotPassword.jsx with email input for password reset
+258. Implement password reset functionality calling supabase.auth.resetPasswordForEmail
+259. Display success message in ForgotPassword page after email sent
+260. Create src/pages/ResetPassword.jsx for setting new password
+261. Add password strength indicator to ResetPassword page
+262. Implement password update functionality in ResetPassword page
+263. Create src/pages/Dashboard.jsx with different views for owner vs crew member roles
+264. Display today's stats cards in Dashboard (jobs scheduled, completed, revenue, outstanding invoices)
+265. Add quick action buttons in Dashboard (Create Job, Create Customer, Create Invoice)
+266. Show today's schedule preview in Dashboard with first 5 jobs
+267. Add recent activity feed in Dashboard showing latest updates
+268. Display crew status indicators in Dashboard showing active jobs
+269. Create weather widget in Dashboard fetching from weather API
+270. Create src/pages/Customers.jsx with CustomerList component
+271. Add "Add Customer" floating action button to Customers page
+272. Implement pagination in Customers page loading 20 customers per page
+273. Add loading skeleton while fetching customers in Customers page
+274. Create src/pages/CustomerDetail.jsx displaying full customer information
+275. Add edit button in CustomerDetail page opening CustomerForm in modal
+276. Implement delete customer with confirmation dialog in CustomerDetail page
+277. Add "Schedule Job" button in CustomerDetail page opening JobForm pre-filled with customer
+278. Add "Create Invoice" button in CustomerDetail page
+279. Display properties list in CustomerDetail page with add property button
+280. Show service history timeline in CustomerDetail with filter options
+281. Display invoices tab in CustomerDetail showing all customer invoices
+282. Add notes tab in CustomerDetail with add note functionality
+283. Create src/pages/Schedule.jsx with Calendar component as default view
+284. Add view toggle in Schedule page switching between week, day, and month views
+285. Add "Add Job" button in Schedule page opening JobForm in sheet
+286. Implement "Optimize Route" button in Schedule page calling optimize-route function
+287. Display optimization results in modal showing before/after comparison
+288. Create src/pages/FieldApp.jsx optimized for mobile with large touch targets
+289. Display today's jobs list in FieldApp with job cards
+290. Add filter in FieldApp showing only incomplete jobs
+291. Display job count (completed / total) at top of FieldApp
+292. Add weather indicator in FieldApp header
+293. Create "Navigate" button in each job card launching Google Maps
+294. Add "Start Job" button in job card updating status and capturing GPS location
+295. Implement job timer in FieldApp starting when job started
+296. Create "Add Photos" button opening PhotoCapture component
+297. Add "Complete Job" button in FieldApp opening completion checklist
+298. Display required checklist items (photos, time, location) in completion screen
+299. Add notes input in completion screen for crew member comments
+300. Show success message after job completion with confetti animation
+301. Create src/pages/JobDetail.jsx displaying comprehensive job information
+302. Add edit job button in JobDetail opening JobForm with pre-filled data
+303. Display customer information card in JobDetail with call button
+304. Show property details and map in JobDetail
+305. Display before/after photo comparison in JobDetail
+306. Add GPS-stamped timestamps in JobDetail showing start/end locations on map
+307. Create "Create Invoice" button in JobDetail if job is completed
+308. Create src/pages/Invoices.jsx with InvoiceList component
+309. Add filter tabs in Invoices page (All, Unpaid, Overdue, Paid)
+310. Implement search functionality in Invoices page by invoice number or customer
+311. Add date range filter in Invoices page
+312. Display total unpaid amount prominently in Invoices page
+313. Add "Create Invoice" floating action button in Invoices page
+314. Create src/pages/InvoiceDetail.jsx displaying full invoice information
+315. Add edit button in InvoiceDetail opening InvoiceForm if invoice is draft
+316. Implement "Send via Email" button in InvoiceDetail calling send-notification function
+317. Implement "Send via SMS" button in InvoiceDetail
+318. Add "Record Payment" button in InvoiceDetail for manual payment entry
+319. Display payment history section in InvoiceDetail showing all payments
+320. Add "Download PDF" button in InvoiceDetail generating and downloading invoice PDF
+321. Create src/pages/Reports.jsx with ReportsDashboard component
+322. Add date range selector affecting all reports in Reports page
+323. Display revenue report card with inline chart in Reports page
+324. Display job completion report card with inline chart
+325. Display customer report card with key statistics
+326. Display crew performance report card with bar chart
+327. Add export button to each report card in Reports page
+328. Create src/pages/TreeInventory.jsx with tree cards grid
+329. Add filter dropdowns in TreeInventory by property and health status
+330. Add search functionality in TreeInventory by species name
+331. Add "Add Tree" button in TreeInventory opening TreeForm
+332. Implement map view toggle in TreeInventory showing tree locations on map
+333. Create src/pages/TreeDetail.jsx displaying tree information and photos
+334. Add edit button in TreeDetail opening TreeForm
+335. Display measurements section in TreeDetail (DBH, height, canopy spread)
+336. Show health status with visual indicator in TreeDetail
+337. Display risk assessment section in TreeDetail
+338. Show service history filtered to specific tree in TreeDetail
+339. Create src/pages/Equipment.jsx with EquipmentList component
+340. Add filter dropdowns in Equipment page by type and status
+341. Add "Add Equipment" button opening EquipmentForm
+342. Create src/pages/EquipmentDetail.jsx displaying equipment information
+343. Add maintenance schedule calendar in EquipmentDetail
+344. Display certification section with expiration dates in EquipmentDetail
+345. Show jobs assigned to equipment in EquipmentDetail
+346. Create src/pages/Settings.jsx with tabs for Profile, Business, Team, Integrations, Notifications
+347. Create profile tab in Settings with avatar upload and personal information
+348. Create business tab in Settings with company logo upload and details
+349. Create team tab in Settings with team members list and invite button
+350. Create integrations tab in Settings with connection status for Stripe, Google Maps, Twilio, SendGrid
+
+## PROMPTS 351-400: Mobile Optimization
+
+351. Add touch-friendly 60px minimum touch target sizes to all buttons in mobile view
+352. Implement swipe gestures on job cards to reveal quick actions (complete, skip)
+353. Add pull-to-refresh functionality in FieldApp refreshing today's schedule
+354. Implement bottom sheet component for mobile forms instead of modals
+355. Add haptic feedback on button presses using navigator.vibrate when available
+356. Optimize photo capture for mobile using native camera with accept="image/*" and capture="environment"
+357. Add landscape orientation lock for photo capture on mobile
+358. Implement offline detection banner showing "Working Offline" when no connection
+359. Add automatic retry for failed requests when connection restored
+360. Create offline indicator icon in header showing connection status
+361. Implement background sync for queued actions using Background Sync API
+362. Add install prompt for PWA with "Add to Home Screen" banner on first visit
+363. Configure service worker to cache today's and tomorrow's jobs for offline access
+364. Implement cache expiration strategy removing old cached data after 7 days
+365. Add loading indicators optimized for mobile (smaller, less obtrusive)
+366. Create skeleton screens for all major views showing content structure while loading
+367. Implement infinite scroll in customer and job lists instead of pagination on mobile
+368. Add sticky header to keep navigation accessible while scrolling on mobile
+369. Optimize table layouts to switch to card view on mobile screens
+370. Add horizontal scrolling for wide tables on mobile
+371. Implement thumb zone optimization placing primary actions in bottom third of screen
+372. Create floating action button (FAB) component for primary actions on mobile
+373. Add bottom navigation bar with 5 main icons for mobile navigation
+374. Implement tab bar auto-hiding when scrolling down, showing when scrolling up
+375. Add confirmation dialogs for destructive actions on mobile (delete, cancel)
+376. Optimize date picker for mobile using native HTML5 date input
+377. Add time picker optimized for touch with AM/PM selector
+378. Implement smooth scrolling behavior for in-page navigation
+379. Add scroll-to-top button appearing after scrolling down on long pages
+380. Optimize modal animations for mobile with slide-up entrance
+381. Add safe area insets for iOS devices with notch
+382. Implement auto-focusing first input field on form load on mobile
+383. Add input mode hints (numeric, email, tel) for appropriate mobile keyboards
+384. Optimize photo upload UI showing upload progress with cancel option
+385. Add batch photo upload with visual queue management
+386. Implement image lazy loading for photo galleries on mobile
+387. Add photo swipe gestures for navigating between before/after photos
+388. Optimize map loading on mobile with lower initial zoom and simpler markers
+389. Add current location button in maps on mobile
+390. Implement location permissions request with explanation dialog
+391. Add GPS accuracy indicator showing location precision
+392. Optimize search inputs with debouncing to reduce API calls
+393. Add search history/suggestions dropdown on mobile
+394. Implement voice input option for search on mobile if available
+395. Add dark mode support with system preference detection
+396. Create dark mode toggle in settings saving preference to localStorage
+397. Optimize battery usage by reducing animation complexity in dark mode
+398. Add network-aware loading reducing image quality on slow connections
+399. Implement data saver mode option in settings
+400. Add accessibility improvements with proper ARIA labels on mobile
+
+## PROMPTS 401-450: Polish & UX
+
+401. Add fade-in animation to page transitions using React Router
+402. Implement slide transitions between calendar views (week, day, month)
+403. Add bounce animation to success messages and confirmations
+404. Create confetti effect when completing jobs in FieldApp
+405. Add ripple effect on button presses matching Material Design
+406. Implement smooth scroll animations when navigating to page sections
+407. Add loading bar at top of page during navigation
+408. Create skeleton loading animations with shimmer effect
+409. Add stagger animations to list items appearing sequentially
+410. Implement number count-up animations for statistics in dashboard
+411. Add chart entrance animations in reports (bars growing, lines drawing)
+412. Create flip card animation for showing before/after photos
+413. Add parallax scrolling effect to header images
+414. Implement smooth expand/collapse animations for accordions
+415. Add slide-in animations for sidebar and modals
+416. Create rotation animation for refresh buttons
+417. Add pulse animation to notification badges
+418. Implement progress bar animation during file uploads
+419. Add success checkmark animation after form submissions
+420. Create loading dots animation for processing states
+421. Add micro-interactions on hover for interactive elements
+422. Implement scale animation on button press (slightly shrink)
+423. Add color transition animations on status changes
+424. Create notification toast slide-in from top with auto-dismiss
+425. Add smooth height transitions when expanding/collapsing sections
+426. Implement drag handle visual feedback during drag operations
+427. Add drop zone highlight when dragging items over valid targets
+428. Create success/error color flash on save/error
+429. Add typewriter effect to welcome messages on first login
+430. Implement smooth opacity transitions for show/hide elements
+431. Add custom cursor for draggable elements
+432. Create loading spinner with brand colors
+433. Add progress indicators for multi-step forms
+434. Implement breadcrumb trail animations when navigating
+435. Add empty state illustrations with friendly messages
+436. Create custom 404 page with illustration and navigation options
+437. Add error boundary component with friendly error messages and retry option
+438. Implement maintenance mode page with countdown timer
+439. Add loading state for buttons preventing double-clicks
+440. Create input focus animations with underline sliding effect
+441. Add validation icons (checkmark/X) appearing next to form fields
+442. Implement real-time validation feedback as user types
+443. Add password strength meter with color-coded levels
+444. Create tag input with animated tag addition/removal
+445. Add autocomplete dropdown animations with fade and slide
+446. Implement calendar date hover effect showing job preview
+447. Add tooltip animations on icon hover with delay
+448. Create contextual help popovers with arrow pointing to target
+449. Add onboarding tour using react-joyride highlighting key features
+450. Implement achievement badges appearing when milestones reached
+
+## PROMPTS 451-500: Testing & Deployment
+
+451. Create test file src/services/customerService.test.js with Vitest
+452. Write unit test for createCustomer function validating successful creation
+453. Write unit test for getCustomers function with mock data
+454. Create test file src/components/ui/Button.test.jsx testing all variants
+455. Write test for Button disabled state preventing click events
+456. Create test file src/hooks/useAuth.test.js testing authentication flow
+457. Write integration test for login flow end-to-end with Playwright
+458. Create test file tests/e2e/schedule-job.spec.js testing job creation
+459. Write E2E test for completing job workflow from login to completion
+460. Create E2E test for invoice creation and payment flow
+461. Write test for offline functionality queuing actions
+462. Create test for photo upload with compression
+463. Write test for form validation showing appropriate errors
+464. Create test for search functionality returning filtered results
+465. Write test for date filtering in reports
+466. Configure GitHub Actions workflow for running tests on PR
+467. Add test coverage reporting to GitHub Actions
+468. Set up Lighthouse CI in GitHub Actions testing performance
+469. Configure build step in GitHub Actions
+470. Add deployment step to Vercel in GitHub Actions for main branch
+471. Create staging deployment workflow for develop branch
+472. Set up environment variables in Vercel project settings
+473. Configure custom domain in Vercel (app.aaronscare.com)
+474. Set up SSL certificate auto-renewal in Vercel
+475. Configure Stripe webhook endpoint in Stripe dashboard pointing to Edge Function
+476. Test Stripe webhook with Stripe CLI webhook forwarding
+477. Set up Twilio phone number for SMS notifications
+478. Configure Twilio webhook for receiving SMS replies
+479. Set up SendGrid sender authentication and domain verification
+480. Create email templates in SendGrid for transactional emails
+481. Configure Google Maps API key with proper restrictions
+482. Enable required Google Maps APIs (Geocoding, Distance Matrix, Directions)
+483. Set up Sentry project and configure error reporting
+484. Add source maps upload to Sentry in build process
+485. Configure performance monitoring in Sentry
+486. Set up UptimeRobot monitoring checking every 5 minutes
+487. Configure alert rules in UptimeRobot for email and SMS
+488. Create Supabase production project separate from development
+489. Run database migrations on production Supabase
+490. Set up Supabase Edge Functions deployment
+491. Configure Supabase Edge Functions secrets for production
+492. Set up database backup schedule in Supabase
+493. Configure CORS settings in Supabase for production domain
+494. Add meta tags for SEO (title, description, og:image)
+495. Create sitemap.xml for search engines
+496. Add robots.txt allowing search engine crawling
+497. Configure Google Analytics or alternative analytics
+498. Set up user analytics event tracking for key actions
+499. Create deployment documentation in README with rollback procedure
+500. Perform final production deployment and smoke testing of critical paths

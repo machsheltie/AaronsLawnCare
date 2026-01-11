@@ -1,0 +1,77 @@
+{
+  "mcpServers": {
+    "upstash-context-7-mcp": {
+      "transport": "http",
+      "url": "https://server.smithery.ai/@upstash/context7-mcp/mcp"
+    },
+    "knowall-ai-mcp-neo-4-j-agent-memory": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@knowall-ai/mcp-neo4j-agent-memory",
+        "--profile",
+        "responsible-lobster-HZCviB",
+        "--key",
+        "b7a6f75b-8a14-49a2-ad65-c72e656060b3"
+      ]
+    },
+    "memory-integration": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "playwright-mcp-server": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@executeautomation/playwright-mcp-server"
+      ]
+    },
+    "github-integration": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      }
+    },
+    "git": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git"
+      ]
+    },
+    "supabase": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server"
+      ],
+      "env": {
+        "SUPABASE_URL": "",
+        "SUPABASE_SERVICE_ROLE_KEY": ""
+      }
+    },
+    "chrome-devtools": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ]
+    }
+  }
+}
