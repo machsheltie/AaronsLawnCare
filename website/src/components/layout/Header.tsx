@@ -87,7 +87,7 @@ export default function Header() {
           </div>
         </div>
         {/* Gradient Separator Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-green-400/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[5px] bg-gradient-to-r from-green-900 via-green-700 to-green-900 shadow-md"></div>
       </header>
 
       <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
