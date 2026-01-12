@@ -69,8 +69,8 @@ export default function QuotePage() {
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://aaronslawncare.com' },
-    { name: 'Request a Quote', url: 'https://aaronslawncare.com/quote' }
+    { name: 'Home', url: 'https://aaronslawncare502.com' },
+    { name: 'Request a Quote', url: 'https://aaronslawncare502.com/quote' }
   ]);
 
   const onSubmit = async (data: QuoteFormData) => {
@@ -113,7 +113,7 @@ export default function QuotePage() {
         <SEOHead
           title="Quote Request Sent | Aaron's Lawn Care"
           description="Thank you for your quote request! We'll get back to you as soon as possible."
-          canonical="https://aaronslawncare.com/quote"
+          canonical="https://aaronslawncare502.com/quote"
           robots="noindex, nofollow"
         />
 

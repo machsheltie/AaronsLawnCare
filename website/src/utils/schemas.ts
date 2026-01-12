@@ -85,7 +85,7 @@ export const BUSINESS_CONFIG: SchemaConfig = {
   businessName: "Aaron's Lawn Care",
   phone: "+15029268524",
   email: "gnaua429@gmail.com",
-  websiteUrl: "https://aaronslawncare.com",
+  websiteUrl: "https://aaronslawncare502.com",
   city: "Louisville",
   state: "KY",
   country: "US",
@@ -324,9 +324,9 @@ export function getBreadcrumbsForService(
   serviceUrl: string
 ): BreadcrumbItem[] {
   return [
-    { name: "Home", url: "https://aaronslawncare.com" },
-    { name: "Services", url: "https://aaronslawncare.com/services" },
-    { name: serviceName, url: `https://aaronslawncare.com${serviceUrl}` },
+    { name: "Home", url: "https://aaronslawncare502.com" },
+    { name: "Services", url: "https://aaronslawncare502.com/services" },
+    { name: serviceName, url: `https://aaronslawncare502.com${serviceUrl}` },
   ];
 }
 

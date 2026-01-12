@@ -10,19 +10,19 @@ const StMatthewsPage: React.FC = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://aaronslawncare.com',
+        item: 'https://aaronslawncare502.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Service Areas',
-        item: 'https://aaronslawncare.com/areas',
+        item: 'https://aaronslawncare502.com/areas',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'St. Matthews',
-        item: 'https://aaronslawncare.com/areas/st-matthews',
+        item: 'https://aaronslawncare502.com/areas/st-matthews',
       },
     ],
   };
@@ -30,9 +30,9 @@ const StMatthewsPage: React.FC = () => {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://aaronslawncare.com/areas/st-matthews',
+    '@id': 'https://aaronslawncare502.com/areas/st-matthews',
     name: "Aaron's Lawn Care - St. Matthews",
-    image: 'https://aaronslawncare.com/images/logo.png',
+    image: 'https://aaronslawncare502.com/images/logo.png',
     description:
       'Professional lawn care services in St. Matthews, Louisville, Kentucky. Serving St. Matthews residents for over 20 years.',
     address: {
@@ -48,7 +48,7 @@ const StMatthewsPage: React.FC = () => {
       latitude: 38.2527,
       longitude: -85.6544,
     },
-    url: 'https://aaronslawncare.com/areas/st-matthews',
+    url: 'https://aaronslawncare502.com/areas/st-matthews',
     telephone: '+1-502-123-4567',
     priceRange: '$$',
     areaServed: {
@@ -75,7 +75,7 @@ const StMatthewsPage: React.FC = () => {
       <SEOHead
         title="Lawn Care in St. Matthews, Louisville KY | Aaron's Lawn Care"
         description="Professional lawn care services in St. Matthews, Louisville, Kentucky. Mowing, edging, landscaping & more. 20+ years serving St. Matthews residents. Free quotes!"
-        canonicalUrl="https://aaronslawncare.com/areas/st-matthews"
+        canonicalUrl="https://aaronslawncare502.com/areas/st-matthews"
         schema={[breadcrumbSchema, localBusinessSchema]}
       />
 

@@ -33,8 +33,8 @@ export default function ContactPage() {
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://aaronslawncare.com' },
-    { name: 'Contact', url: 'https://aaronslawncare.com/contact' }
+    { name: 'Home', url: 'https://aaronslawncare502.com' },
+    { name: 'Contact', url: 'https://aaronslawncare502.com/contact' }
   ]);
 
   const contactPointSchema = generateContactPointSchema();

@@ -159,8 +159,8 @@ export default function ReviewsPage() {
   // Generate structured data schemas
   const aggregateRatingSchema = generateAggregateRatingSchema(reviewSchemas);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://aaronslawncare.com' },
-    { name: 'Reviews', url: 'https://aaronslawncare.com/reviews' },
+    { name: 'Home', url: 'https://aaronslawncare502.com' },
+    { name: 'Reviews', url: 'https://aaronslawncare502.com/reviews' },
   ]);
 
   return (
@@ -176,7 +176,7 @@ export default function ReviewsPage() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Customer Reviews | Aaron's Lawn Care Louisville KY" />
         <meta property="og:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." />
-        <meta property="og:url" content="https://aaronslawncare.com/reviews" />
+        <meta property="og:url" content="https://aaronslawncare502.com/reviews" />
         <meta property="og:site_name" content="Aaron's Lawn Care" />
 
         {/* Twitter Card Tags */}

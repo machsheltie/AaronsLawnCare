@@ -15,7 +15,7 @@ export default function TermsPage() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Terms of Service | Aaron's Lawn Care" />
         <meta property="og:description" content="Aaron's Lawn Care terms of service. Read our terms and conditions for using our website and lawn care services." />
-        <meta property="og:url" content="https://aaronslawncare.com/terms" />
+        <meta property="og:url" content="https://aaronslawncare502.com/terms" />
         <meta property="og:site_name" content="Aaron's Lawn Care" />
 
         {/* Twitter Card Tags */}
@@ -37,7 +37,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Welcome to Aaron's Lawn Care. By accessing or using our website (aaronslawncare.com) or engaging our
+                  Welcome to Aaron's Lawn Care. By accessing or using our website (aaronslawncare502.com) or engaging our
                   lawn care services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to
                   these Terms, please do not use our website or services.
                 </p>
@@ -183,7 +183,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Website Use and Intellectual Property</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  <strong>8.1 Website Content:</strong> All content on aaronslawncare.com, including text, images, logos, and
+                  <strong>8.1 Website Content:</strong> All content on aaronslawncare502.com, including text, images, logos, and
                   design, is the property of Aaron's Lawn Care and is protected by copyright laws.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">

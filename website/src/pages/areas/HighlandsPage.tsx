@@ -10,19 +10,19 @@ const HighlandsPage: React.FC = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://aaronslawncare.com',
+        item: 'https://aaronslawncare502.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Service Areas',
-        item: 'https://aaronslawncare.com/areas',
+        item: 'https://aaronslawncare502.com/areas',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Highlands',
-        item: 'https://aaronslawncare.com/areas/highlands',
+        item: 'https://aaronslawncare502.com/areas/highlands',
       },
     ],
   };
@@ -30,9 +30,9 @@ const HighlandsPage: React.FC = () => {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://aaronslawncare.com/areas/highlands',
+    '@id': 'https://aaronslawncare502.com/areas/highlands',
     name: "Aaron's Lawn Care - Highlands",
-    image: 'https://aaronslawncare.com/images/logo.png',
+    image: 'https://aaronslawncare502.com/images/logo.png',
     description:
       'Professional lawn care services in the Highlands neighborhood, Louisville, Kentucky. Serving Highlands residents for over 20 years.',
     address: {
@@ -48,7 +48,7 @@ const HighlandsPage: React.FC = () => {
       latitude: 38.2379,
       longitude: -85.7243,
     },
-    url: 'https://aaronslawncare.com/areas/highlands',
+    url: 'https://aaronslawncare502.com/areas/highlands',
     telephone: '+1-502-123-4567',
     priceRange: '$$',
     areaServed: {
@@ -75,7 +75,7 @@ const HighlandsPage: React.FC = () => {
       <SEOHead
         title="Lawn Care in Highlands, Louisville KY | Aaron's Lawn Care"
         description="Professional lawn care services in Highlands, Louisville, Kentucky. Mowing, edging, landscaping & more. 20+ years serving Highlands residents. Free quotes!"
-        canonicalUrl="https://aaronslawncare.com/areas/highlands"
+        canonicalUrl="https://aaronslawncare502.com/areas/highlands"
         schema={[breadcrumbSchema, localBusinessSchema]}
       />
 

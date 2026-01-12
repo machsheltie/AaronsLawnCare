@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://aaronslawncare.com/sitemap.xml
+Sitemap: https://aaronslawncare502.com/sitemap.xml
 
 # Crawl-delay to be respectful of server resources
 Crawl-delay: 1

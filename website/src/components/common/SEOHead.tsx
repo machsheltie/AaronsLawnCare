@@ -8,8 +8,8 @@
  * <SEOHead
  *   title="Service Title"
  *   description="Service description"
- *   canonical="https://aaronslawncare.com/services/example"
- *   ogImage="https://aaronslawncare.com/images/og.jpg"
+ *   canonical="https://aaronslawncare502.com/services/example"
+ *   ogImage="https://aaronslawncare502.com/images/og.jpg"
  * />
  * ```
  */

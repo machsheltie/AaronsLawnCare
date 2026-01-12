@@ -109,8 +109,8 @@ const services: Service[] = [
 
 export default function ServicesPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://aaronslawncare.com' },
-    { name: 'Services', url: 'https://aaronslawncare.com/services' }
+    { name: 'Home', url: 'https://aaronslawncare502.com' },
+    { name: 'Services', url: 'https://aaronslawncare502.com/services' }
   ]);
 
   return (

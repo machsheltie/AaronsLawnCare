@@ -27,7 +27,7 @@ export default function PrivacyPage() {
                 <p className="text-gray-700 leading-relaxed">
                   Aaron's Lawn Care ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy
                   explains how we collect, use, disclose, and safeguard your information when you visit our website
-                  aaronslawncare.com (the "Site") or use our services.
+                  aaronslawncare502.com (the "Site") or use our services.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy,

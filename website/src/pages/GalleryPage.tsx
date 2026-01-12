@@ -92,8 +92,8 @@ export default function GalleryPage() {
     : galleryItems.filter(item => item.service === selectedFilter);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://aaronslawncare.com' },
-    { name: 'Gallery', url: 'https://aaronslawncare.com/gallery' }
+    { name: 'Home', url: 'https://aaronslawncare502.com' },
+    { name: 'Gallery', url: 'https://aaronslawncare502.com/gallery' }
   ]);
 
   return (

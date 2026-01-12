@@ -11,7 +11,7 @@
 // CONFIGURATION & CONSTANTS
 // ============================================================================
 
-export const BASE_URL = "https://aaronslawncare.com";
+export const BASE_URL = "https://aaronslawncare502.com";
 export const IMAGE_PATH = "/images";
 
 export interface SEOConfig {

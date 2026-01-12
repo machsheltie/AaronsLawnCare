@@ -10,19 +10,19 @@ const JeffersontownPage: React.FC = () => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://aaronslawncare.com',
+        item: 'https://aaronslawncare502.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Service Areas',
-        item: 'https://aaronslawncare.com/areas',
+        item: 'https://aaronslawncare502.com/areas',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Jeffersontown',
-        item: 'https://aaronslawncare.com/areas/jeffersontown',
+        item: 'https://aaronslawncare502.com/areas/jeffersontown',
       },
     ],
   };
@@ -30,9 +30,9 @@ const JeffersontownPage: React.FC = () => {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://aaronslawncare.com/areas/jeffersontown',
+    '@id': 'https://aaronslawncare502.com/areas/jeffersontown',
     name: "Aaron's Lawn Care - Jeffersontown",
-    image: 'https://aaronslawncare.com/images/logo.png',
+    image: 'https://aaronslawncare502.com/images/logo.png',
     description:
       'Professional lawn care services in Jeffersontown, Louisville, Kentucky. Serving Jeffersontown residents for over 20 years.',
     address: {
@@ -48,7 +48,7 @@ const JeffersontownPage: React.FC = () => {
       latitude: 38.1942,
       longitude: -85.5644,
     },
-    url: 'https://aaronslawncare.com/areas/jeffersontown',
+    url: 'https://aaronslawncare502.com/areas/jeffersontown',
     telephone: '+1-502-123-4567',
     priceRange: '$$',
     areaServed: {
@@ -75,7 +75,7 @@ const JeffersontownPage: React.FC = () => {
       <SEOHead
         title="Lawn Care in Jeffersontown, Louisville KY | Aaron's Lawn Care"
         description="Professional lawn care services in Jeffersontown, Louisville, Kentucky. Mowing, edging, landscaping & more. 20+ years serving Jeffersontown residents. Free quotes!"
-        canonicalUrl="https://aaronslawncare.com/areas/jeffersontown"
+        canonicalUrl="https://aaronslawncare502.com/areas/jeffersontown"
         schema={[breadcrumbSchema, localBusinessSchema]}
       />
 

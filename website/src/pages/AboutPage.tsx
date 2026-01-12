@@ -5,8 +5,8 @@ import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 
 export default function AboutPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://aaronslawncare.com' },
-    { name: 'About', url: 'https://aaronslawncare.com/about' }
+    { name: 'Home', url: 'https://aaronslawncare502.com' },
+    { name: 'About', url: 'https://aaronslawncare502.com/about' }
   ]);
 
   return (
