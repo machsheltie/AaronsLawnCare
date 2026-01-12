@@ -7,6 +7,10 @@ import { SEOHead } from '@/components/common/SEOHead';
 import { getContactPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, generateContactPointSchema, schemaToJsonLd, generateSchemaGraph } from '@/utils/schemas';
 import { businessInfo } from '../data/navigation';
+import { FloatingLabelInput } from '@/components/ui/FloatingLabelInput';
+import { FloatingLabelTextarea } from '@/components/ui/FloatingLabelTextarea';
+import { Toast, ToastContainer } from '@/components/ui/Toast';
+import { useToast } from '@/hooks/useToast';
 
 // Simple contact form validation
 const contactFormSchema = z.object({
@@ -22,15 +26,19 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { toasts, removeToast, success: showSuccess, error: showError } = useToast();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
+
+  const formValues = watch();
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://aaronslawncare502.com' },
@@ -62,10 +70,11 @@ export default function ContactPage() {
       });
 
       setIsSuccess(true);
+      showSuccess('Message sent successfully! We\'ll get back to you soon.');
       reset();
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('There was an error sending your message. Please try again or call us directly at (502) 926-8524.');
+      showError('There was an error sending your message. Please try again or call us directly at (502) 926-8524.');
     } finally {
       setIsSubmitting(false);
     }
@@ -74,6 +83,20 @@ export default function ContactPage() {
   return (
     <>
       <SEOHead {...getContactPageSEO()} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
+
+      {/* Toast Notifications */}
+      <ToastContainer>
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            id={toast.id}
+            type={toast.type}
+            message={toast.message}
+            duration={toast.duration}
+            onClose={removeToast}
+          />
+        ))}
+      </ToastContainer>
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
@@ -214,94 +237,59 @@ export default function ContactPage() {
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     {/* Name */}
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Your Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        {...register('name')}
-                        type="text"
-                        id="name"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.name ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        placeholder="John Smith"
-                      />
-                      {errors.name && (
-                        <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
-                      )}
-                    </div>
+                    <FloatingLabelInput
+                      {...register('name')}
+                      type="text"
+                      id="name"
+                      label="Your Name"
+                      isRequired
+                      value={formValues.name || ''}
+                      error={errors.name?.message}
+                    />
 
                     {/* Email */}
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        {...register('email')}
-                        type="email"
-                        id="email"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.email ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        placeholder="john@example.com"
-                      />
-                      {errors.email && (
-                        <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-                      )}
-                    </div>
+                    <FloatingLabelInput
+                      {...register('email')}
+                      type="email"
+                      id="email"
+                      label="Email Address"
+                      isRequired
+                      value={formValues.email || ''}
+                      error={errors.email?.message}
+                    />
 
                     {/* Phone */}
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Phone Number <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        {...register('phone')}
-                        type="tel"
-                        id="phone"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        placeholder="(502) 555-0123"
-                      />
-                      {errors.phone && (
-                        <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
-                      )}
-                    </div>
+                    <FloatingLabelInput
+                      {...register('phone')}
+                      type="tel"
+                      id="phone"
+                      label="Phone Number"
+                      isRequired
+                      value={formValues.phone || ''}
+                      error={errors.phone?.message}
+                    />
 
                     {/* Subject */}
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Subject <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        {...register('subject')}
-                        type="text"
-                        id="subject"
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.subject ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        placeholder="How can we help you?"
-                      />
-                      {errors.subject && (
-                        <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
-                      )}
-                    </div>
+                    <FloatingLabelInput
+                      {...register('subject')}
+                      type="text"
+                      id="subject"
+                      label="Subject"
+                      isRequired
+                      value={formValues.subject || ''}
+                      error={errors.subject?.message}
+                    />
 
                     {/* Message */}
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Message <span className="text-red-500">*</span>
-                      </label>
-                      <textarea
-                        {...register('message')}
-                        id="message"
-                        rows={5}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.message ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        placeholder="Tell us about your lawn care needs..."
-                      />
-                      {errors.message && (
-                        <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
-                      )}
-                    </div>
+                    <FloatingLabelTextarea
+                      {...register('message')}
+                      id="message"
+                      rows={5}
+                      label="Message"
+                      isRequired
+                      value={formValues.message || ''}
+                      error={errors.message?.message}
+                    />
 
                     {/* Submit Button */}
                     <button

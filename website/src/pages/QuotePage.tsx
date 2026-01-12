@@ -6,6 +6,10 @@ import { CheckCircle, Loader2 } from 'lucide-react';
 import { SEOHead } from '@/components/common/SEOHead';
 import { getQuotePageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
+import { FloatingLabelInput } from '@/components/ui/FloatingLabelInput';
+import { FloatingLabelTextarea } from '@/components/ui/FloatingLabelTextarea';
+import { Toast, ToastContainer } from '@/components/ui/Toast';
+import { useToast } from '@/hooks/useToast';
 
 // Validation schema
 const quoteFormSchema = z.object({
@@ -54,12 +58,14 @@ const URGENCY_LEVELS = [
 export default function QuotePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { toasts, removeToast, success: showSuccess, error: showError } = useToast();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
@@ -67,6 +73,8 @@ export default function QuotePage() {
       serviceTypes: [],
     },
   });
+
+  const formValues = watch();
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://aaronslawncare502.com' },
@@ -98,10 +106,11 @@ export default function QuotePage() {
       });
 
       setIsSuccess(true);
+      showSuccess('Quote request submitted successfully! We\'ll contact you soon.');
       reset();
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('There was an error submitting your request. Please try again or call us directly at (502) 926-8524.');
+      showError('There was an error submitting your request. Please try again or call us directly at (502) 926-8524.');
     } finally {
       setIsSubmitting(false);
     }
@@ -177,6 +186,20 @@ export default function QuotePage() {
     <>
       <SEOHead {...getQuotePageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
+      {/* Toast Notifications */}
+      <ToastContainer>
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            id={toast.id}
+            type={toast.type}
+            message={toast.message}
+            duration={toast.duration}
+            onClose={removeToast}
+          />
+        ))}
+      </ToastContainer>
+
       <div className="min-h-screen bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
@@ -216,76 +239,48 @@ export default function QuotePage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Full Name */}
-                  <div>
-                    <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      {...register('fullName')}
-                      type="text"
-                      id="fullName"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.fullName ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="John Smith"
-                    />
-                    {errors.fullName && (
-                      <p className="mt-1 text-sm text-red-500">{errors.fullName.message}</p>
-                    )}
-                  </div>
+                  <FloatingLabelInput
+                    {...register('fullName')}
+                    type="text"
+                    id="fullName"
+                    label="Full Name"
+                    isRequired
+                    value={formValues.fullName || ''}
+                    error={errors.fullName?.message}
+                  />
 
                   {/* Phone Number */}
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      {...register('phone')}
-                      type="tel"
-                      id="phone"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="(502) 555-0123"
-                    />
-                    {errors.phone && (
-                      <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
-                    )}
-                  </div>
+                  <FloatingLabelInput
+                    {...register('phone')}
+                    type="tel"
+                    id="phone"
+                    label="Phone Number"
+                    isRequired
+                    value={formValues.phone || ''}
+                    error={errors.phone?.message}
+                  />
 
                   {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Email Address <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      {...register('email')}
-                      type="email"
-                      id="email"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.email ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="john@example.com"
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-                    )}
-                  </div>
+                  <FloatingLabelInput
+                    {...register('email')}
+                    type="email"
+                    id="email"
+                    label="Email Address"
+                    isRequired
+                    value={formValues.email || ''}
+                    error={errors.email?.message}
+                  />
 
                   {/* Property Address */}
-                  <div>
-                    <label htmlFor="propertyAddress" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Property Address <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      {...register('propertyAddress')}
-                      type="text"
-                      id="propertyAddress"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 ${errors.propertyAddress ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="123 Main St, Louisville, KY 40202"
-                    />
-                    {errors.propertyAddress && (
-                      <p className="mt-1 text-sm text-red-500">{errors.propertyAddress.message}</p>
-                    )}
-                  </div>
+                  <FloatingLabelInput
+                    {...register('propertyAddress')}
+                    type="text"
+                    id="propertyAddress"
+                    label="Property Address"
+                    isRequired
+                    value={formValues.propertyAddress || ''}
+                    error={errors.propertyAddress?.message}
+                  />
                 </div>
               </div>
 
@@ -412,15 +407,12 @@ export default function QuotePage() {
 
                 {/* Additional Details */}
                 <div>
-                  <label htmlFor="additionalDetails" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Additional Details (Optional)
-                  </label>
-                  <textarea
+                  <FloatingLabelTextarea
                     {...register('additionalDetails')}
                     id="additionalDetails"
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                    placeholder="Tell us anything else about your property or specific needs..."
+                    label="Additional Details (Optional)"
+                    value={formValues.additionalDetails || ''}
                   />
                   <p className="mt-1 text-sm text-gray-500">
                     Include any specific concerns, areas of focus, or questions you have.
