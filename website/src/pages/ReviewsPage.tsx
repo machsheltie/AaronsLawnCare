@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Star, MapPin, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { CountUp } from '@/components/ui/CountUp';
 import {
   generateAggregateRatingSchema,
   generateBreadcrumbSchema,
@@ -232,16 +233,22 @@ export default function ReviewsPage() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
               <div className="bg-green-100 border border-green-200 rounded-lg p-4">
-                <div className="text-4xl font-bold mb-1 text-green-900">{averageRating}</div>
+                <div className="text-4xl font-bold mb-1 text-green-900">
+                  <CountUp end={parseFloat(averageRating)} decimals={1} duration={2000} />
+                </div>
                 <div className="text-green-700 text-sm">Average Rating</div>
                 <StarRating rating={5} />
               </div>
               <div className="bg-green-100 border border-green-200 rounded-lg p-4">
-                <div className="text-4xl font-bold mb-1 text-green-900">{reviews.length}+</div>
+                <div className="text-4xl font-bold mb-1 text-green-900">
+                  <CountUp end={reviews.length} suffix="+" duration={2000} />
+                </div>
                 <div className="text-green-700 text-sm">Happy Customers</div>
               </div>
               <div className="bg-green-100 border border-green-200 rounded-lg p-4">
-                <div className="text-4xl font-bold mb-1 text-green-900">20+</div>
+                <div className="text-4xl font-bold mb-1 text-green-900">
+                  <CountUp end={20} suffix="+" duration={2000} />
+                </div>
                 <div className="text-green-700 text-sm">Years Experience</div>
               </div>
             </div>
@@ -370,7 +377,9 @@ export default function ReviewsPage() {
                 transition={{ delay: 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white rounded-lg p-6 shadow-md card-lift"
               >
-                <div className="text-4xl font-bold text-green-600 mb-2">100%</div>
+                <div className="text-4xl font-bold text-green-600 mb-2">
+                  <CountUp end={100} suffix="%" duration={2500} />
+                </div>
                 <p className="font-semibold text-gray-900">Customer Satisfaction</p>
               </motion.div>
               <motion.div
@@ -380,7 +389,9 @@ export default function ReviewsPage() {
                 transition={{ delay: 0.2, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white rounded-lg p-6 shadow-md card-lift"
               >
-                <div className="text-4xl font-bold text-green-600 mb-2">5★</div>
+                <div className="text-4xl font-bold text-green-600 mb-2">
+                  <CountUp end={5} suffix="★" duration={2500} />
+                </div>
                 <p className="font-semibold text-gray-900">Average Rating</p>
               </motion.div>
               <motion.div
@@ -390,7 +401,9 @@ export default function ReviewsPage() {
                 transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white rounded-lg p-6 shadow-md card-lift"
               >
-                <div className="text-4xl font-bold text-green-600 mb-2">20+</div>
+                <div className="text-4xl font-bold text-green-600 mb-2">
+                  <CountUp end={20} suffix="+" duration={2500} />
+                </div>
                 <p className="font-semibold text-gray-900">Years Serving Louisville</p>
               </motion.div>
             </div>

@@ -204,4 +204,50 @@
   .input-focus-glow:focus {
     box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
   }
+
+  /* Image Hover Zoom */
+  .image-zoom {
+    overflow: hidden;
+  }
+
+  .image-zoom img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Subtle Parallax Effect */
+  .parallax-slow {
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Floating Animation for Decorative Elements */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Pulse Glow Effect */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(34, 197, 94, 0.4);
+    }
+  }
 }
