@@ -1,6 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
+import {
+  generateServiceSchema,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  getBreadcrumbsForService
+} from '@/utils/schemas';
 
 interface Benefit {
   title: string;
@@ -55,32 +61,17 @@ export default function ServicePageTemplate({
 
         {/* Service Schema */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": serviceName,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Aaron's Lawn Care",
-              "telephone": "+15029268524",
-              "email": "gnaua429@gmail.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Louisville",
-                "addressRegion": "KY",
-                "addressCountry": "US"
-              }
-            },
-            "areaServed": {
-              "@type": "GeoCircle",
-              "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": "38.2527",
-                "longitude": "-85.7585"
-              },
-              "geoRadius": "50000"
-            }
-          })}
+          {JSON.stringify(generateServiceSchema(serviceName, metaDescription, serviceUrl))}
+        </script>
+
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(generateFAQSchema(faqs))}
+        </script>
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(generateBreadcrumbSchema(getBreadcrumbsForService(serviceName, serviceUrl)))}
         </script>
       </Helmet>
 
