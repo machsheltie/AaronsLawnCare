@@ -61,7 +61,11 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log'],
+        pure_funcs: ['console.log', 'console.info'],
+        passes: 2, // Run compression twice for better results
+      },
+      mangle: {
+        safari10: true, // Fix Safari 10/11 bugs
       },
     },
     // Code splitting strategy
@@ -76,6 +80,13 @@ export default defineConfig({
           'ui-vendor': ['framer-motion', 'lucide-react'],
           'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
         },
+        // Optimize chunk loading
+        compact: true,
+      },
+      // Tree-shaking optimizations
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
       },
     },
     // Output options
@@ -86,6 +97,12 @@ export default defineConfig({
     cssMinify: true,
     // Asset inlining threshold (10kb)
     assetsInlineLimit: 10240,
+    // Report compressed size
+    reportCompressedSize: true,
+    // Improve build performance
+    modulePreload: {
+      polyfill: false, // Modern browsers only
+    },
   },
 
   server: {
