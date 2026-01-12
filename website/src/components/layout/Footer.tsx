@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import NewsletterSignup from "../common/NewsletterSignup";
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary-950 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer className="bg-primary-950 text-white">
+      {/* Newsletter Signup Section */}
+      <NewsletterSignup />
+
+      <div className="pt-16 pb-8">
+        <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
@@ -64,11 +69,12 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-400">
-          <p>&copy; {new Date().getFullYear()} Aaron's Lawn Care. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <div className="border-t border-primary-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-400">
+            <p>&copy; {new Date().getFullYear()} Aaron's Lawn Care. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            </div>
           </div>
         </div>
       </div>

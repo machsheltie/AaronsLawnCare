@@ -16,6 +16,11 @@
     <meta name="description" content="Professional lawn care and landscaping services. Quality service, competitive pricing, and exceptional results for your property." />
   </head>
   <body>
+    <!-- Hidden form for Netlify Forms detection -->
+    <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
