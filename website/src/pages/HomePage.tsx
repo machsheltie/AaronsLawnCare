@@ -20,12 +20,24 @@ export default function HomePage() {
       />
 
       <main>
-        <Hero />
-        <ServicesPreview />
-        <Features />
-        <Gallery />
-        <Testimonials />
-        <CallToAction />
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="services">
+          <ServicesPreview />
+        </section>
+        <section id="features">
+          <Features />
+        </section>
+        <section id="gallery">
+          <Gallery />
+        </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+        <section id="cta">
+          <CallToAction />
+        </section>
       </main>
     </>
   );

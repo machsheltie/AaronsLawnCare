@@ -15,7 +15,7 @@ export default function AboutPage() {
       <SEOHead {...getAboutPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       {/* Hero Section */}
-      <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+      <section id="about-hero" className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
@@ -32,7 +32,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-white">
+      <section id="story" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Story</h2>
@@ -59,7 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-gray-50">
+      <section id="team" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -121,7 +121,7 @@ export default function AboutPage() {
       </section>
 
       {/* Service Commitment */}
-      <section className="py-20 bg-white">
+      <section id="commitment" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
@@ -197,7 +197,7 @@ export default function AboutPage() {
       </section>
 
       {/* Service Area */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-green-100">
+      <section id="service-area" className="py-20 bg-gradient-to-br from-green-50 to-green-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
