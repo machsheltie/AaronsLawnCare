@@ -39,7 +39,7 @@ export const Hero = () => {
                             Get a Free Quote
                             <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
                         </Button>
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-primary-200 text-primary-900 hover:bg-primary-50 bg-white/50 hover:scale-105 transition-all duration-300">
+                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-primary-200 text-primary-900 hover:text-primary-900 hover:bg-primary-50 bg-white/50 hover:scale-105 transition-all duration-300">
                             <Phone className="w-4 h-4" />
                             (502) 926-8524
                         </Button>
