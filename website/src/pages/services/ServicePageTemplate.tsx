@@ -63,20 +63,26 @@ export default function ServicePageTemplate({
       <SEOHead {...seoConfig} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        {/* Animated Background Blob */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-green-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{serviceName}</h1>
-            <p className="text-xl md:text-2xl text-green-100 mb-10">{description}</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-green-900">{serviceName}</h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-10">{description}</p>
             {seasonalNote && (
-              <div className="inline-block bg-white/10 backdrop-blur rounded-lg px-6 py-3 mb-8">
-                <p className="text-green-100">{seasonalNote}</p>
+              <div className="inline-block bg-green-100 border border-green-200 rounded-lg px-6 py-3 mb-8">
+                <p className="text-green-800">{seasonalNote}</p>
               </div>
             )}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/quote"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-green-800 font-bold text-lg rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transform hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-700 text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-xl hover:bg-green-800 transform hover:scale-105 transition-all"
               >
                 Get Your Free Quote
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +91,7 @@ export default function ServicePageTemplate({
               </Link>
               <a
                 href="tel:5029268524"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-900 bg-opacity-50 text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-opacity-70 transform hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-green-800 font-bold text-lg rounded-lg border-2 border-green-700 hover:bg-green-50 transform hover:scale-105 transition-all"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />

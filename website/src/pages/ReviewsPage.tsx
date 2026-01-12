@@ -212,30 +212,36 @@ export default function ReviewsPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        {/* Animated Background Blob */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-green-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-green-900">
               What Our Customers Say
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 mb-8">
               Don't just take our word for it. Here's what Louisville homeowners have to say about our services.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-                <div className="text-4xl font-bold mb-1">{averageRating}</div>
-                <div className="text-green-100 text-sm">Average Rating</div>
+              <div className="bg-green-100 border border-green-200 rounded-lg p-4">
+                <div className="text-4xl font-bold mb-1 text-green-900">{averageRating}</div>
+                <div className="text-green-700 text-sm">Average Rating</div>
                 <StarRating rating={5} />
               </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-                <div className="text-4xl font-bold mb-1">{reviews.length}+</div>
-                <div className="text-green-100 text-sm">Happy Customers</div>
+              <div className="bg-green-100 border border-green-200 rounded-lg p-4">
+                <div className="text-4xl font-bold mb-1 text-green-900">{reviews.length}+</div>
+                <div className="text-green-700 text-sm">Happy Customers</div>
               </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4">
-                <div className="text-4xl font-bold mb-1">20+</div>
-                <div className="text-green-100 text-sm">Years Experience</div>
+              <div className="bg-green-100 border border-green-200 rounded-lg p-4">
+                <div className="text-4xl font-bold mb-1 text-green-900">20+</div>
+                <div className="text-green-700 text-sm">Years Experience</div>
               </div>
             </div>
           </div>

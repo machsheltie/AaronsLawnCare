@@ -40,7 +40,8 @@
       "Bash(npm run:*)",
       "Bash(node scripts/verify-schemas.js:*)",
       "Bash(timeout:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
