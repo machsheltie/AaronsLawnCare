@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Navbar Texture Preview - Aaron's Lawn Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .preview-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .navbar-preview {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        /* Texture 1: Subtle Topography */
+        .texture-topography {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Texture 2: Hexagons */
+        .texture-hexagons {
+            background-image: url("data:image/svg+xml,%3Csvg width='28' height='49' viewBox='0 0 28 49' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06' fill-rule='evenodd'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Texture 3: Circuit Board */
+        .texture-circuit {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Texture 4: Diagonal Stripes */
+        .texture-stripes {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Texture 5: Subtle Dots */
+        .texture-dots {
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.07' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3Ccircle cx='13' cy='13' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Texture 6: Organic Texture/Grain */
+        .texture-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        /* Texture 7: Triangles */
+        .texture-triangles {
+            background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2.774c.878 0 1.59.71 1.59 1.587 0 .876-.712 1.586-1.59 1.586-.875 0-1.587-.71-1.587-1.586 0-.876.712-1.587 1.587-1.587zm6.974 29.462c-.876 0-1.587-.71-1.587-1.587s.711-1.586 1.587-1.586c.878 0 1.59.709 1.59 1.586s-.712 1.587-1.59 1.587zM1.59 12.774c0-.876.712-1.587 1.587-1.587.878 0 1.59.711 1.59 1.587 0 .878-.712 1.59-1.59 1.59-.875 0-1.587-.712-1.587-1.59zm8.963 18.462c-.876 0-1.587-.709-1.587-1.586s.711-1.587 1.587-1.587c.878 0 1.59.71 1.59 1.587s-.712 1.586-1.59 1.586zm20.645-1.586c0 .877-.709 1.586-1.586 1.586s-1.587-.709-1.587-1.586.71-1.587 1.587-1.587 1.586.71 1.586 1.587zm1.81-16.876c0 .878-.709 1.59-1.586 1.59s-1.587-.712-1.587-1.59c0-.876.71-1.587 1.587-1.587s1.587.711 1.587 1.587zM15.126 29.651c-.875 0-1.587-.709-1.587-1.586s.712-1.587 1.587-1.587c.878 0 1.59.71 1.59 1.587s-.712 1.586-1.59 1.586zM30.014 3.362c.876 0 1.587.71 1.587 1.587 0 .876-.711 1.586-1.587 1.586-.878 0-1.59-.71-1.59-1.586 0-.876.712-1.587 1.59-1.587z' fill='%23ffffff' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Texture 8: Subtle Grid */
+        .texture-grid {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-green-900 mb-4">✨ Premium Texture Preview</h1>
+            <p class="text-lg text-green-700 mb-2">Subtle SVG patterns for sophisticated navbar backgrounds</p>
+            <p class="text-sm text-gray-600">Each texture shown with Deep Forest gradient</p>
+        </div>
+
+        <!-- Texture 1: Topography -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">1. Topography Pattern</h2>
+                    <p class="text-gray-600 mt-1">Organic contour lines - sophisticated and natural</p>
+                </div>
+                <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold text-sm">Subtle</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-topography backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Natural, organic feel that complements lawn care brand</p>
+        </div>
+
+        <!-- Texture 2: Hexagons -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">2. Hexagon Honeycomb</h2>
+                    <p class="text-gray-600 mt-1">Geometric precision - professional and structured</p>
+                </div>
+                <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold text-sm">Premium</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-hexagons backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Modern, tech-forward aesthetic with geometric precision</p>
+        </div>
+
+        <!-- Texture 3: Circuit Board -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">3. Circuit Board</h2>
+                    <p class="text-gray-600 mt-1">Tech-inspired dots and connections - innovative</p>
+                </div>
+                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold text-sm">Modern</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-circuit backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Technology-forward businesses, innovative approach</p>
+        </div>
+
+        <!-- Texture 4: Diagonal Stripes -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">4. Diagonal Stripes</h2>
+                    <p class="text-gray-600 mt-1">Clean lines with movement - classic premium</p>
+                </div>
+                <span class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full font-semibold text-sm">Classic</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-stripes backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Timeless elegance, adds subtle motion and direction</p>
+        </div>
+
+        <!-- Texture 5: Subtle Dots -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">5. Subtle Dot Pattern</h2>
+                    <p class="text-gray-600 mt-1">Minimal and refined - ultra-professional</p>
+                </div>
+                <span class="bg-slate-100 text-slate-800 px-4 py-2 rounded-full font-semibold text-sm">Minimal</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-dots backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Minimalist design, doesn't distract from content</p>
+        </div>
+
+        <!-- Texture 6: Organic Grain -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">6. Organic Texture/Grain</h2>
+                    <p class="text-gray-600 mt-1">Natural paper-like texture - authentic and warm</p>
+                </div>
+                <span class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full font-semibold text-sm">Organic</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-grain backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Adds depth and authenticity, humanizes digital design</p>
+        </div>
+
+        <!-- Texture 7: Triangles -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">7. Triangle Grid</h2>
+                    <p class="text-gray-600 mt-1">Sharp geometric pattern - bold and contemporary</p>
+                </div>
+                <span class="bg-red-100 text-red-800 px-4 py-2 rounded-full font-semibold text-sm">Bold</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-triangles backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Contemporary design, adds visual interest and energy</p>
+        </div>
+
+        <!-- Texture 8: Subtle Grid -->
+        <div class="preview-container">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-green-900">8. Subtle Grid</h2>
+                    <p class="text-gray-600 mt-1">Clean plus-sign grid - structured and organized</p>
+                </div>
+                <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full font-semibold text-sm">Structured</span>
+            </div>
+
+            <div class="navbar-preview bg-gradient-to-r from-slate-900 via-green-950 to-green-900 texture-grid backdrop-blur-md shadow-2xl">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between py-4">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/10 p-2 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <div class="text-2xl font-bold text-white">Aaron's Lawn Care</div>
+                        </div>
+                        <div class="hidden lg:flex items-center gap-8">
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Home</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Services</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">Gallery</a>
+                            <a href="#" class="text-white hover:text-green-100 font-medium transition-colors">About</a>
+                        </div>
+                        <button class="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-800 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">Get a Quote</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3 italic">Best for: Emphasizes organization and precision, professional feel</p>
+        </div>
+
+        <!-- Comparison -->
+        <div class="preview-container bg-gradient-to-br from-green-50 to-emerald-50">
+            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center">Texture Recommendations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-green-900 mb-2">🥇 Top Choice</h3>
+                    <p class="text-sm text-gray-700 mb-2"><strong>Topography (#1)</strong></p>
+                    <p class="text-xs text-gray-600">Natural, organic feel perfect for lawn care. Subtle enough to not distract.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-green-900 mb-2">🥈 Second Best</h3>
+                    <p class="text-sm text-gray-700 mb-2"><strong>Subtle Dots (#5)</strong></p>
+                    <p class="text-xs text-gray-600">Ultra-professional, minimal, won't compete with content. Safest choice.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-green-900 mb-2">🥉 Third Best</h3>
+                    <p class="text-sm text-gray-700 mb-2"><strong>Organic Grain (#6)</strong></p>
+                    <p class="text-xs text-gray-600">Adds warmth and authenticity. Makes digital feel more human.</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-green-900 mb-2">💎 Premium</h3>
+                    <p class="text-sm text-gray-700 mb-2"><strong>Hexagons (#2)</strong></p>
+                    <p class="text-xs text-gray-600">Modern and sophisticated. Best for tech-forward brand positioning.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-white rounded-lg border-l-4 border-green-600">
+                <h3 class="text-lg font-bold text-green-900 mb-3">💡 My Recommendation</h3>
+                <p class="text-gray-700 mb-3"><strong>#1 Topography Pattern</strong> is the clear winner for Aaron's Lawn Care:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 ml-4">
+                    <li>Organic feel aligns perfectly with lawn care/landscaping industry</li>
+                    <li>Subtle enough to not distract from navigation and CTAs</li>
+                    <li>Adds sophistication and depth without being overbearing</li>
+                    <li>Excellent readability maintained for white text</li>
+                    <li>Natural aesthetic reinforces your outdoor services</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-12 pb-8">
+            <div class="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-green-900 mb-4">Which texture speaks to you?</h3>
+                <p class="text-gray-700 mb-6">All textures shown with Deep Forest gradient. Let me know your favorite number (1-8)!</p>
+                <div class="grid grid-cols-4 gap-3 max-w-md mx-auto">
+                    <div class="px-4 py-3 bg-green-50 text-green-900 rounded-lg font-bold border-2 border-green-600">#1</div>
+                    <div class="px-4 py-3 bg-purple-50 text-purple-900 rounded-lg font-bold">#2</div>
+                    <div class="px-4 py-3 bg-blue-50 text-blue-900 rounded-lg font-bold">#3</div>
+                    <div class="px-4 py-3 bg-amber-50 text-amber-900 rounded-lg font-bold">#4</div>
+                    <div class="px-4 py-3 bg-slate-50 text-slate-900 rounded-lg font-bold">#5</div>
+                    <div class="px-4 py-3 bg-orange-50 text-orange-900 rounded-lg font-bold">#6</div>
+                    <div class="px-4 py-3 bg-red-50 text-red-900 rounded-lg font-bold">#7</div>
+                    <div class="px-4 py-3 bg-indigo-50 text-indigo-900 rounded-lg font-bold">#8</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center text-xs text-gray-500 pb-4">
+        <p>Patterns inspired by <a href="https://heropatterns.com/" class="underline">Hero Patterns</a>, <a href="https://www.svgbackgrounds.com/" class="underline">SVG Backgrounds</a>, and premium design resources</p>
+    </div>
+</body>
+</html>

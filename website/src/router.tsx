@@ -13,6 +13,7 @@ const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
+const HeroPreview = lazy(() => import('./pages/HeroPreview'));
 
 // Service Detail Pages
 const LawnMowingPage = lazy(() => import('./pages/services/LawnMowingPage'));
@@ -98,6 +99,7 @@ const router = createBrowserRouter([
 
           // Catch-all 404
           { path: '*', element: <NotFoundPage /> },
+          { path: 'hero-preview', element: <HeroPreview /> },
         ],
       },
     ],

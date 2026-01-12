@@ -31,8 +31,12 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 ease-in-out bg-green-900/90 backdrop-blur-md bg-noise shadow-lg ${scrolled ? 'py-2' : 'py-4'
+        className={`sticky top-0 z-50 transition-all duration-500 ease-in-out backdrop-blur-md shadow-2xl ${scrolled ? 'py-2' : 'py-4'
           }`}
+        style={{
+          background: `linear-gradient(to right, rgb(15 23 42), rgb(5 46 22), rgb(20 83 45))`,
+          backgroundImage: `linear-gradient(to right, rgb(15 23 42), rgb(5 46 22), rgb(20 83 45)), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E")`
+        }}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
@@ -87,7 +91,7 @@ export default function Header() {
           </div>
         </div>
         {/* Gradient Separator Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-[5px] bg-gradient-to-r from-green-900 via-green-700 to-green-900 shadow-md"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[5px] bg-gradient-to-r from-green-700 via-emerald-400 to-green-700 shadow-md"></div>
       </header>
 
       <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />

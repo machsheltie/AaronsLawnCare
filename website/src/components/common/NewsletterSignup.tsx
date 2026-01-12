@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Mail, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function NewsletterSignup() {
@@ -46,72 +46,72 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 py-12">
+    <div className="bg-primary-950 border-t border-primary-900 py-6 md:py-4">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Mail className="w-8 h-8 text-green-100" />
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Stay Updated with Lawn Care Tips
-            </h3>
-          </div>
-          <p className="text-green-100 mb-8 text-lg">
-            Join our email list for seasonal lawn care advice, special offers, and exclusive promotions. No spam, just helpful tips!
-          </p>
-
-          {status === 'success' ? (
-            <div className="flex items-center justify-center gap-3 bg-green-900/50 border-2 border-green-400 text-white py-4 px-6 rounded-lg">
-              <CheckCircle className="w-6 h-6 text-green-400" />
-              <p className="text-lg font-semibold">
-                Thanks for subscribing! Check your email to confirm.
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            {/* Text Section */}
+            <div className="text-center md:text-left flex-1">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                <Mail className="w-4 h-4 text-green-400" />
+                <h3 className="text-lg font-bold text-white">
+                  Stay Updated
+                </h3>
+              </div>
+              <p className="text-primary-300 text-sm max-w-md">
+                Get seasonal tips and special offers. No spam, ever.
               </p>
             </div>
-          ) : (
-            <form
-              name="newsletter"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto"
-            >
-              {/* Netlify Forms hidden fields */}
-              <input type="hidden" name="form-name" value="newsletter" />
-              <input type="hidden" name="bot-field" />
 
-              <div className="flex-1">
-                <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  required
-                  disabled={status === 'loading'}
-                  className="w-full px-6 py-4 rounded-lg border-2 border-green-600 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/50 text-gray-900 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                  aria-label="Email address"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="px-8 py-4 bg-white text-green-800 font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none whitespace-nowrap"
-              >
-                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-              </button>
-            </form>
-          )}
+            {/* Form Section */}
+            <div className="w-full md:w-auto flex-1 max-w-lg">
+              {status === 'success' ? (
+                <div className="flex items-center justify-center md:justify-end gap-2 text-white">
+                  <CheckCircle className="w-5 h-5 text-green-400" />
+                  <p className="text-sm font-semibold">
+                    Thanks for subscribing!
+                  </p>
+                </div>
+              ) : (
+                <form
+                  name="newsletter"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className="flex flex-col sm:flex-row gap-2"
+                >
+                  {/* Netlify Forms hidden fields */}
+                  <input type="hidden" name="form-name" value="newsletter" />
+                  <input type="hidden" name="bot-field" />
 
-          {status === 'error' && (
-            <div className="flex items-center justify-center gap-3 bg-red-900/50 border-2 border-red-400 text-white py-3 px-6 rounded-lg mt-4 max-w-xl mx-auto">
-              <AlertCircle className="w-5 h-5 text-red-400" />
-              <p className="font-medium">{errorMessage}</p>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    disabled={status === 'loading'}
+                    className="w-full px-4 py-2 text-sm rounded-md border border-primary-700 bg-primary-900/50 focus:border-green-400 focus:outline-none text-white placeholder:text-primary-400 disabled:opacity-50"
+                    aria-label="Email address"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="px-6 py-2 bg-green-600 text-white text-sm font-bold rounded-md hover:bg-green-500 transition-colors disabled:opacity-50 whitespace-nowrap"
+                  >
+                    {status === 'loading' ? '...' : 'Subscribe'}
+                  </button>
+                </form>
+              )}
+               {status === 'error' && (
+                <p className="text-red-400 text-xs mt-1 text-center md:text-right">{errorMessage}</p>
+              )}
             </div>
-          )}
 
-          <p className="text-green-200 text-sm mt-4">
-            We respect your privacy. Unsubscribe anytime.
-          </p>
+          </div>
         </div>
       </div>
     </div>

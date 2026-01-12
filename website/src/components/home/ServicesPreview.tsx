@@ -48,18 +48,18 @@ export const ServicesPreview = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="group p-8 rounded-2xl bg-secondary-50 hover:bg-white border border-transparent hover:border-primary-100 hover:shadow-soft transition-all duration-300"
+                            className="group p-8 rounded-2xl bg-secondary-50 hover:bg-white border border-transparent hover:border-primary-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                         >
-                            <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300">
+                            <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:scale-110 transition-all duration-300">
                                 <service.icon className="w-7 h-7 text-primary-600 group-hover:text-white transition-colors duration-300" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">{service.title}</h3>
                             <p className="text-gray-600 leading-relaxed mb-6">
                                 {service.description}
                             </p>
-                            <Link to="/services" className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700">
+                            <Link to="/services" className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
                                 Learn More
-                                <CheckCircle2 className="w-4 h-4 ml-2" />
+                                <CheckCircle2 className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                             </Link>
                         </motion.div>
                     ))}
