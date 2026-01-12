@@ -299,8 +299,14 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-green-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 bg-[#Fdfdfc] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#15803d 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+        {/* Animated Background Blob */}
+        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-green-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2 -translate-x-1/2" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-green-950 mb-6">
               What Our Customers Say
@@ -363,7 +369,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               to="/reviews"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-700 font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-green-700 transform hover:scale-105 transition-all"
             >
               Read More Reviews
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
