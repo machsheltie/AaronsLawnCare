@@ -306,7 +306,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* All Reviews */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -356,7 +356,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Review Summary */}
-      <section className="py-16 bg-gradient-to-br from-green-50 to-green-100">
+      <section className="py-12 bg-gradient-to-br from-green-50 to-green-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -399,7 +399,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white">
+      <section className="py-16 bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Join Our Happy Customers?
