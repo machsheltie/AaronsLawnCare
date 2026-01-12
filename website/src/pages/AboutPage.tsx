@@ -2,6 +2,7 @@ import { Shield, Award, MapPin, Users } from 'lucide-react';
 import { SEOHead } from '@/components/common/SEOHead';
 import { getAboutPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
+import { CountUp } from '@/components/ui/CountUp';
 
 export default function AboutPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -21,7 +22,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-green-900">
-              20+ Years of Excellence in Lawn Care
+              <CountUp end={20} suffix="+" duration={2000} /> Years of Excellence in Lawn Care
             </h1>
             <p className="text-xl md:text-2xl text-gray-600">
               A locally-owned business dedicated to making Louisville properties beautiful, one lawn at a time.
@@ -75,7 +76,9 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Award className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">20+ Years Experience</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <CountUp end={20} suffix="+" duration={2000} /> Years Experience
+              </h3>
               <p className="text-gray-600">
                 Two decades of professional lawn care expertise serving Louisville homeowners.
               </p>

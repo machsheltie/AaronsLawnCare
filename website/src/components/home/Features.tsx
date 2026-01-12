@@ -1,4 +1,5 @@
 import { ShieldCheck, Clock, Award, Users } from "lucide-react";
+import { CountUp } from "../ui/CountUp";
 
 const features = [
     {
@@ -64,7 +65,9 @@ export const Features = () => {
                         />
                         <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl hidden md:block">
                             <div className="flex items-center gap-4">
-                                <div className="text-4xl font-bold text-primary-600">20+</div>
+                                <div className="text-4xl font-bold text-primary-600">
+                                    <CountUp end={20} suffix="+" duration={2000} />
+                                </div>
                                 <div className="text-sm font-medium text-gray-600">
                                     Years of <br /> Excellence
                                 </div>
