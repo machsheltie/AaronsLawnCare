@@ -47,8 +47,8 @@ export const ServicesPreview = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group p-8 rounded-2xl bg-secondary-50 hover:bg-white border border-transparent hover:border-primary-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            transition={{ delay: index * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                            className="group p-8 rounded-2xl bg-secondary-50 hover:bg-white border border-transparent hover:border-primary-100 card-lift cursor-pointer"
                         >
                             <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:scale-110 transition-all duration-300">
                                 <service.icon className="w-7 h-7 text-primary-600 group-hover:text-white transition-colors duration-300" />

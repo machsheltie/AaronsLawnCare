@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Star, MapPin, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
 import {
   generateAggregateRatingSchema,
   generateBreadcrumbSchema,
@@ -261,10 +262,14 @@ export default function ReviewsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {featuredReviews.map((review) => (
-              <div
+            {featuredReviews.map((review, index) => (
+              <motion.div
                 key={review.id}
-                className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-shadow border-t-4 border-green-600"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-green-600 card-lift"
               >
                 <StarRating rating={review.rating} />
 
@@ -294,7 +299,7 @@ export default function ReviewsPage() {
                     {review.date}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -310,10 +315,14 @@ export default function ReviewsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {regularReviews.map((review) => (
-              <div
+            {regularReviews.map((review, index) => (
+              <motion.div
                 key={review.id}
-                className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                className="bg-gray-50 rounded-xl p-6 card-lift"
               >
                 <div className="flex items-start justify-between mb-4">
                   <StarRating rating={review.rating} />
@@ -340,7 +349,7 @@ export default function ReviewsPage() {
                 <div className="mt-3 pt-3 border-t border-gray-200">
                   <p className="text-sm font-semibold text-green-600">{review.service}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -354,18 +363,36 @@ export default function ReviewsPage() {
               Why Customers Choose Aaron's Lawn Care
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-white rounded-lg p-6 shadow-md">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                className="bg-white rounded-lg p-6 shadow-md card-lift"
+              >
                 <div className="text-4xl font-bold text-green-600 mb-2">100%</div>
                 <p className="font-semibold text-gray-900">Customer Satisfaction</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                className="bg-white rounded-lg p-6 shadow-md card-lift"
+              >
                 <div className="text-4xl font-bold text-green-600 mb-2">5★</div>
                 <p className="font-semibold text-gray-900">Average Rating</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                className="bg-white rounded-lg p-6 shadow-md card-lift"
+              >
                 <div className="text-4xl font-bold text-green-600 mb-2">20+</div>
                 <p className="font-semibold text-gray-900">Years Serving Louisville</p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -383,16 +410,16 @@ export default function ReviewsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/quote"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-green-800 font-bold text-lg rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transform hover:scale-105 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-green-800 font-bold text-lg rounded-lg shadow-lg btn-premium group"
             >
               Get Your Free Quote
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </a>
             <a
               href="tel:5029268524"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-900 bg-opacity-50 text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-opacity-70 transform hover:scale-105 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-900 bg-opacity-50 text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-opacity-70 btn-premium"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />

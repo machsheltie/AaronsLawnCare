@@ -35,11 +35,11 @@ export const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button variant="default" size="lg" className="w-full sm:w-auto gap-2 group shadow-lg shadow-primary-900/20 hover:shadow-xl hover:shadow-primary-900/30 transition-all">
+                        <Button variant="default" size="lg" className="w-full sm:w-auto gap-2 group shadow-lg shadow-primary-900/20 btn-premium">
                             Get a Free Quote
-                            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
                         </Button>
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-primary-200 text-primary-900 hover:bg-primary-50 bg-white/50">
+                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-primary-200 text-primary-900 hover:bg-primary-50 bg-white/50 hover:scale-105 transition-all duration-300">
                             <Phone className="w-4 h-4" />
                             (502) 926-8524
                         </Button>
