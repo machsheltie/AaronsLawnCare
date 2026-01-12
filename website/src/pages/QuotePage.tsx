@@ -247,6 +247,8 @@ export default function QuotePage() {
                     isRequired
                     value={formValues.fullName || ''}
                     error={errors.fullName?.message}
+                    autoComplete="name"
+                    inputMode="text"
                   />
 
                   {/* Phone Number */}
@@ -258,6 +260,8 @@ export default function QuotePage() {
                     isRequired
                     value={formValues.phone || ''}
                     error={errors.phone?.message}
+                    autoComplete="tel"
+                    inputMode="tel"
                   />
 
                   {/* Email */}
@@ -269,6 +273,8 @@ export default function QuotePage() {
                     isRequired
                     value={formValues.email || ''}
                     error={errors.email?.message}
+                    autoComplete="email"
+                    inputMode="email"
                   />
 
                   {/* Property Address */}
@@ -280,6 +286,8 @@ export default function QuotePage() {
                     isRequired
                     value={formValues.propertyAddress || ''}
                     error={errors.propertyAddress?.message}
+                    autoComplete="street-address"
+                    inputMode="text"
                   />
                 </div>
               </div>

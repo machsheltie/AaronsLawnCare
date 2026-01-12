@@ -245,6 +245,8 @@ export default function ContactPage() {
                       isRequired
                       value={formValues.name || ''}
                       error={errors.name?.message}
+                      autoComplete="name"
+                      inputMode="text"
                     />
 
                     {/* Email */}
@@ -256,6 +258,8 @@ export default function ContactPage() {
                       isRequired
                       value={formValues.email || ''}
                       error={errors.email?.message}
+                      autoComplete="email"
+                      inputMode="email"
                     />
 
                     {/* Phone */}
@@ -267,6 +271,8 @@ export default function ContactPage() {
                       isRequired
                       value={formValues.phone || ''}
                       error={errors.phone?.message}
+                      autoComplete="tel"
+                      inputMode="tel"
                     />
 
                     {/* Subject */}
@@ -278,6 +284,8 @@ export default function ContactPage() {
                       isRequired
                       value={formValues.subject || ''}
                       error={errors.subject?.message}
+                      autoComplete="off"
+                      inputMode="text"
                     />
 
                     {/* Message */}
