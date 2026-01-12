@@ -4,6 +4,7 @@ import Header from "./Header";
 import { Footer } from "./Footer";
 import { ScrollToTop } from "../common/ScrollToTop";
 import { ScrollProgressBar } from "../common/ScrollProgressBar";
+import { SkipToContent } from "../common/SkipToContent";
 import { useSmoothScroll } from "../../hooks/useSmoothScroll";
 
 interface LayoutProps {
@@ -16,10 +17,11 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans text-foreground">
+      <SkipToContent />
       <ScrollToTop />
       <ScrollProgressBar />
       <Header />
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow" tabIndex={-1}>
         {children || <Outlet />}
       </main>
       <Footer />
