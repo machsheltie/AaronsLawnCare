@@ -18,7 +18,7 @@ export const CallToAction = () => {
                             <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg items-center h-14" asChild>
                                 <a href="/contact">Get Your Free Quote</a>
                             </Button>
-                            <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 hover:text-white h-14">
+                            <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14">
                                 Call (502) 926-8524
                             </Button>
                         </div>
