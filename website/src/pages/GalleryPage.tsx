@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { X } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getGalleryPageSEO } from '@/utils/seo-meta';
+import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 
 interface GalleryItem {
   id: string;
@@ -19,8 +21,8 @@ const galleryItems: GalleryItem[] = [
     id: '1',
     service: 'mowing',
     title: 'Residential Lawn Mowing',
-    beforeAlt: 'Overgrown lawn before mowing',
-    afterAlt: 'Perfectly manicured lawn after professional mowing',
+    beforeAlt: 'Overgrown residential lawn before professional mowing service in Louisville Kentucky',
+    afterAlt: 'Perfectly manicured residential lawn after professional mowing by Aaron\'s Lawn Care in Louisville KY',
     beforeImage: 'https://placehold.co/800x600/4a7d26/white?text=Before+Mowing',
     afterImage: 'https://placehold.co/800x600/2d5016/white?text=After+Mowing',
   },
@@ -28,8 +30,8 @@ const galleryItems: GalleryItem[] = [
     id: '2',
     service: 'landscaping',
     title: 'Landscape Design & Installation',
-    beforeAlt: 'Empty yard before landscaping',
-    afterAlt: 'Beautiful landscaped garden after installation',
+    beforeAlt: 'Empty residential yard before professional landscaping in Louisville Kentucky',
+    afterAlt: 'Beautiful landscaped garden after professional installation by Aaron\'s Lawn Care Louisville KY',
     beforeImage: 'https://placehold.co/800x600/8B7355/white?text=Before+Landscaping',
     afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Landscaping',
   },
@@ -37,8 +39,8 @@ const galleryItems: GalleryItem[] = [
     id: '3',
     service: 'mulching',
     title: 'Garden Bed Mulching',
-    beforeAlt: 'Garden bed before mulching',
-    afterAlt: 'Fresh mulch installed in garden bed',
+    beforeAlt: 'Garden bed before professional mulching service in Louisville KY',
+    afterAlt: 'Fresh premium mulch installed in garden bed by Aaron\'s Lawn Care Louisville Kentucky',
     beforeImage: 'https://placehold.co/800x600/8B7355/white?text=Before+Mulching',
     afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Mulching',
   },
@@ -46,8 +48,8 @@ const galleryItems: GalleryItem[] = [
     id: '4',
     service: 'cleanup',
     title: 'Fall Leaf Cleanup',
-    beforeAlt: 'Yard covered with fall leaves',
-    afterAlt: 'Clean yard after leaf removal',
+    beforeAlt: 'Residential yard covered with fall leaves before cleanup in Louisville Kentucky',
+    afterAlt: 'Clean yard after professional fall leaf removal by Aaron\'s Lawn Care Louisville KY',
     beforeImage: 'https://placehold.co/800x600/d97706/white?text=Before+Cleanup',
     afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Cleanup',
   },
@@ -55,8 +57,8 @@ const galleryItems: GalleryItem[] = [
     id: '5',
     service: 'hedges',
     title: 'Hedge Trimming & Shaping',
-    beforeAlt: 'Overgrown hedges before trimming',
-    afterAlt: 'Neatly trimmed and shaped hedges',
+    beforeAlt: 'Overgrown hedges before professional trimming service in Louisville KY',
+    afterAlt: 'Neatly trimmed and shaped hedges by Aaron\'s Lawn Care Louisville Kentucky',
     beforeImage: 'https://placehold.co/800x600/059669/white?text=Before+Trimming',
     afterImage: 'https://placehold.co/800x600/10b981/white?text=After+Trimming',
   },
@@ -64,8 +66,8 @@ const galleryItems: GalleryItem[] = [
     id: '6',
     service: 'edging',
     title: 'Professional Edging',
-    beforeAlt: 'Undefined lawn edges',
-    afterAlt: 'Crisp, clean edges along walkway',
+    beforeAlt: 'Undefined lawn edges before professional edging in Louisville Kentucky',
+    afterAlt: 'Crisp clean edges along walkway by Aaron\'s Lawn Care Louisville KY',
     beforeImage: 'https://placehold.co/800x600/6b7280/white?text=Before+Edging',
     afterImage: 'https://placehold.co/800x600/4a7d26/white?text=After+Edging',
   },
@@ -89,15 +91,14 @@ export default function GalleryPage() {
     ? galleryItems
     : galleryItems.filter(item => item.service === selectedFilter);
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://aaronslawncare.com' },
+    { name: 'Gallery', url: 'https://aaronslawncare.com/gallery' }
+  ]);
+
   return (
     <>
-      <Helmet>
-        <title>Gallery | Aaron's Lawn Care Louisville KY - Before & After Photos</title>
-        <meta
-          name="description"
-          content="View our lawn care before and after photos. See the quality of our work in Louisville, KY. Professional mowing, landscaping, cleanup, and more."
-        />
-      </Helmet>
+      <SEOHead {...getGalleryPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
@@ -163,6 +164,9 @@ export default function GalleryPage() {
                       <img
                         src={item.beforeImage}
                         alt={item.beforeAlt}
+                        loading="lazy"
+                        width="800"
+                        height="600"
                         className="w-full h-64 object-cover hover:opacity-90 transition-opacity cursor-pointer"
                       />
                     </button>
@@ -180,6 +184,9 @@ export default function GalleryPage() {
                       <img
                         src={item.afterImage}
                         alt={item.afterAlt}
+                        loading="lazy"
+                        width="800"
+                        height="600"
                         className="w-full h-64 object-cover hover:opacity-90 transition-opacity cursor-pointer"
                       />
                     </button>
@@ -254,6 +261,7 @@ export default function GalleryPage() {
           <img
             src={selectedImage.src}
             alt={selectedImage.alt}
+            loading="eager"
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, MapPin, Clock, CheckCircle, Loader2 } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getContactPageSEO } from '@/utils/seo-meta';
+import { generateBreadcrumbSchema, generateContactPointSchema, schemaToJsonLd, generateSchemaGraph } from '@/utils/schemas';
 import { businessInfo } from '../data/navigation';
 
 // Simple contact form validation
@@ -29,6 +31,15 @@ export default function ContactPage() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://aaronslawncare.com' },
+    { name: 'Contact', url: 'https://aaronslawncare.com/contact' }
+  ]);
+
+  const contactPointSchema = generateContactPointSchema();
+
+  const schemaMarkup = generateSchemaGraph([breadcrumbSchema, contactPointSchema]);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -62,13 +73,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | Aaron's Lawn Care Louisville KY</title>
-        <meta
-          name="description"
-          content="Contact Aaron's Lawn Care in Louisville, KY. Call (502) 926-8524 or send us a message. We serve the greater Louisville area with professional lawn care services."
-        />
-      </Helmet>
+      <SEOHead {...getContactPageSEO()} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">

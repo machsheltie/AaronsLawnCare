@@ -1,5 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Star, MapPin, Calendar } from 'lucide-react';
+import {
+  generateAggregateRatingSchema,
+  generateBreadcrumbSchema,
+  generateReviewSchema,
+  schemaToJsonLd,
+  type ReviewItem,
+} from '@/utils/schemas';
 
 interface Review {
   id: string;
@@ -139,6 +146,23 @@ export default function ReviewsPage() {
   const regularReviews = reviews.filter(r => !r.featured);
   const averageRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
 
+  // Convert reviews to schema format
+  const reviewSchemas: ReviewItem[] = reviews.map((review) => ({
+    author: review.name,
+    ratingValue: review.rating,
+    reviewBody: review.review,
+    datePublished: new Date(review.date).toISOString().split('T')[0], // Convert "November 2025" to ISO format
+    serviceType: review.service,
+    location: review.location,
+  }));
+
+  // Generate structured data schemas
+  const aggregateRatingSchema = generateAggregateRatingSchema(reviewSchemas);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://aaronslawncare.com' },
+    { name: 'Reviews', url: 'https://aaronslawncare.com/reviews' },
+  ]);
+
   return (
     <>
       <Helmet>
@@ -159,6 +183,32 @@ export default function ReviewsPage() {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Customer Reviews | Aaron's Lawn Care Louisville KY" />
         <meta name="twitter:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." />
+
+        {/* Structured Data - Aggregate Rating Schema */}
+        <script type="application/ld+json">
+          {schemaToJsonLd(aggregateRatingSchema)}
+        </script>
+
+        {/* Structured Data - Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {schemaToJsonLd(breadcrumbSchema)}
+        </script>
+
+        {/* Structured Data - Individual Review Schemas for Featured Reviews */}
+        {featuredReviews.map((review, index) => (
+          <script key={`review-schema-${index}`} type="application/ld+json">
+            {schemaToJsonLd(
+              generateReviewSchema({
+                author: review.name,
+                ratingValue: review.rating,
+                reviewBody: review.review,
+                datePublished: new Date(review.date).toISOString().split('T')[0],
+                serviceType: review.service,
+                location: review.location,
+              })
+            )}
+          </script>
+        ))}
       </Helmet>
 
       {/* Hero Section */}

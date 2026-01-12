@@ -26,6 +26,11 @@ const LandscapeDesignPage = lazy(() => import('./pages/services/LandscapeDesignP
 const LandscapeMaintenancePage = lazy(() => import('./pages/services/LandscapeMaintenancePage'));
 const SnowRemovalPage = lazy(() => import('./pages/services/SnowRemovalPage'));
 
+// Location Pages
+const StMatthewsPage = lazy(() => import('./pages/areas/StMatthewsPage'));
+const HighlandsPage = lazy(() => import('./pages/areas/HighlandsPage'));
+const JeffersontownPage = lazy(() => import('./pages/areas/JeffersontownPage'));
+
 function Loading() {
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -71,6 +76,11 @@ const router = createBrowserRouter([
           { path: 'services/landscape-design', element: <LandscapeDesignPage /> },
           { path: 'services/landscape-maintenance', element: <LandscapeMaintenancePage /> },
           { path: 'services/snow-removal', element: <SnowRemovalPage /> },
+
+          // Location Pages
+          { path: 'areas/st-matthews', element: <StMatthewsPage /> },
+          { path: 'areas/highlands', element: <HighlandsPage /> },
+          { path: 'areas/jeffersontown', element: <JeffersontownPage /> },
 
           // Catch-all 404
           { path: '*', element: <NotFoundPage /> },

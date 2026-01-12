@@ -1,16 +1,17 @@
-import { Helmet } from 'react-helmet-async';
 import { Shield, Award, MapPin, Users } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getAboutPageSEO } from '@/utils/seo-meta';
+import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 
 export default function AboutPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://aaronslawncare.com' },
+    { name: 'About', url: 'https://aaronslawncare.com/about' }
+  ]);
+
   return (
     <>
-      <Helmet>
-        <title>About Us | Aaron's Lawn Care - 20+ Years Serving Louisville KY</title>
-        <meta
-          name="description"
-          content="Learn about Aaron's Lawn Care - a family-owned business with 20+ years of professional lawn care experience in Louisville, Kentucky. Fully insured and committed to quality."
-        />
-      </Helmet>
+      <SEOHead {...getAboutPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Helmet } from 'react-helmet-async';
 import { CheckCircle, Loader2 } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getQuotePageSEO } from '@/utils/seo-meta';
+import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 
 // Validation schema
 const quoteFormSchema = z.object({
@@ -66,6 +68,11 @@ export default function QuotePage() {
     },
   });
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://aaronslawncare.com' },
+    { name: 'Request a Quote', url: 'https://aaronslawncare.com/quote' }
+  ]);
+
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
 
@@ -103,9 +110,12 @@ export default function QuotePage() {
   if (isSuccess) {
     return (
       <>
-        <Helmet>
-          <title>Quote Request Sent | Aaron's Lawn Care</title>
-        </Helmet>
+        <SEOHead
+          title="Quote Request Sent | Aaron's Lawn Care"
+          description="Thank you for your quote request! We'll get back to you as soon as possible."
+          canonical="https://aaronslawncare.com/quote"
+          robots="noindex, nofollow"
+        />
 
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-16">
           <div className="container mx-auto px-4">
@@ -165,13 +175,7 @@ export default function QuotePage() {
 
   return (
     <>
-      <Helmet>
-        <title>Request a Free Quote | Aaron's Lawn Care Louisville KY</title>
-        <meta
-          name="description"
-          content="Get a free quote for professional lawn care services in Louisville, KY. 20+ years of experience. Fast response time. Request your quote today!"
-        />
-      </Helmet>
+      <SEOHead {...getQuotePageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       <div className="min-h-screen bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
         {/* Background Pattern */}

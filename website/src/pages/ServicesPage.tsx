@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import {
   Scissors,
   Leaf,
@@ -12,6 +11,9 @@ import {
   Grid2x2,
   Brush
 } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getServicesPageSEO } from '@/utils/seo-meta';
+import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 
 interface Service {
   id: string;
@@ -106,15 +108,14 @@ const services: Service[] = [
 ];
 
 export default function ServicesPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://aaronslawncare.com' },
+    { name: 'Services', url: 'https://aaronslawncare.com/services' }
+  ]);
+
   return (
     <>
-      <Helmet>
-        <title>Lawn Care Services | Aaron's Lawn Care Louisville KY</title>
-        <meta
-          name="description"
-          content="Professional lawn care and landscaping services in Louisville, KY. Mowing, edging, landscaping, snow removal, and more. 20+ years of experience. Get your free quote today!"
-        />
-      </Helmet>
+      <SEOHead {...getServicesPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">

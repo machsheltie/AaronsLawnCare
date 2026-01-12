@@ -1,11 +1,14 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getServicePageSEO } from '@/utils/seo-meta';
 import {
   generateServiceSchema,
   generateFAQSchema,
   generateBreadcrumbSchema,
-  getBreadcrumbsForService
+  getBreadcrumbsForService,
+  generateSchemaGraph,
+  schemaToJsonLd
 } from '@/utils/schemas';
 
 interface Benefit {
@@ -41,39 +44,23 @@ export default function ServicePageTemplate({
   seasonalNote,
   serviceUrl,
 }: ServicePageTemplateProps) {
+  // Extract slug from serviceUrl (e.g., "/services/lawn-mowing" -> "lawn-mowing")
+  const slug = serviceUrl.replace('/services/', '');
+
+  // Generate SEO config using the helper function
+  const seoConfig = getServicePageSEO(serviceName, metaDescription, slug);
+
+  // Generate structured data schemas
+  const breadcrumbSchema = generateBreadcrumbSchema(getBreadcrumbsForService(serviceName, serviceUrl));
+  const serviceSchema = generateServiceSchema(serviceName, metaDescription, serviceUrl);
+  const faqSchema = generateFAQSchema(faqs);
+
+  // Combine all schemas into a single graph
+  const schemaMarkup = generateSchemaGraph([breadcrumbSchema, serviceSchema, faqSchema]);
+
   return (
     <>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={metaDescription} />
-
-        {/* Open Graph Tags */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={`https://aaronslawncare.com${serviceUrl}`} />
-        <meta property="og:site_name" content="Aaron's Lawn Care" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={metaDescription} />
-
-        {/* Service Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(generateServiceSchema(serviceName, metaDescription, serviceUrl))}
-        </script>
-
-        {/* FAQ Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(generateFAQSchema(faqs))}
-        </script>
-
-        {/* Breadcrumb Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(generateBreadcrumbSchema(getBreadcrumbsForService(serviceName, serviceUrl)))}
-        </script>
-      </Helmet>
+      <SEOHead {...seoConfig} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">

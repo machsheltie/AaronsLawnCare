@@ -25,7 +25,10 @@ export const Gallery = () => {
                     >
                         <img
                             src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=1200"
-                            alt="Beautiful large lawn"
+                            alt="Professional estate lawn maintenance service in Louisville Kentucky by Aaron's Lawn Care"
+                            loading="lazy"
+                            width="1200"
+                            height="800"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
@@ -43,7 +46,10 @@ export const Gallery = () => {
                     >
                         <img
                             src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=1000&auto=format&fit=crop"
-                            alt="Garden path"
+                            alt="Professional garden path design and landscaping in Louisville KY by Aaron's Lawn Care"
+                            loading="lazy"
+                            width="800"
+                            height="1000"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
@@ -61,7 +67,10 @@ export const Gallery = () => {
                     >
                         <img
                             src="https://images.unsplash.com/photo-1610427847423-f38f712f5a63?q=80&w=800&auto=format&fit=crop"
-                            alt="Mowing Pattern"
+                            alt="Precision lawn mowing with professional striping pattern in Louisville Kentucky"
+                            loading="lazy"
+                            width="800"
+                            height="600"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -79,7 +88,10 @@ export const Gallery = () => {
                     >
                         <img
                             src="https://images.unsplash.com/photo-1623315995837-2938a425399c?q=80&w=1000&auto=format&fit=crop"
-                            alt="Landscape Overview"
+                            alt="Complete landscape transformation and maintenance services in Louisville KY by Aaron's Lawn Care"
+                            loading="lazy"
+                            width="1000"
+                            height="600"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
