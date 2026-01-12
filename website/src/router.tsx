@@ -25,6 +25,13 @@ const HedgeTrimmingPage = lazy(() => import('./pages/services/HedgeTrimmingPage'
 const LandscapeDesignPage = lazy(() => import('./pages/services/LandscapeDesignPage'));
 const LandscapeMaintenancePage = lazy(() => import('./pages/services/LandscapeMaintenancePage'));
 const SnowRemovalPage = lazy(() => import('./pages/services/SnowRemovalPage'));
+const AerationPage = lazy(() => import('./pages/services/AerationPage'));
+const LawnTreatmentPage = lazy(() => import('./pages/services/LawnTreatmentPage'));
+const DebrisRemovalPage = lazy(() => import('./pages/services/DebrisRemovalPage'));
+const GutterCleaningPage = lazy(() => import('./pages/services/GutterCleaningPage'));
+const PressureWashingPage = lazy(() => import('./pages/services/PressureWashingPage'));
+const TreeRemovalPage = lazy(() => import('./pages/services/TreeRemovalPage'));
+const SeasonalCleanupPage = lazy(() => import('./pages/services/SeasonalCleanupPage'));
 
 // Location Pages
 const StMatthewsPage = lazy(() => import('./pages/areas/StMatthewsPage'));
@@ -76,6 +83,13 @@ const router = createBrowserRouter([
           { path: 'services/landscape-design', element: <LandscapeDesignPage /> },
           { path: 'services/landscape-maintenance', element: <LandscapeMaintenancePage /> },
           { path: 'services/snow-removal', element: <SnowRemovalPage /> },
+          { path: 'services/aeration', element: <AerationPage /> },
+          { path: 'services/lawn-treatment', element: <LawnTreatmentPage /> },
+          { path: 'services/debris-removal', element: <DebrisRemovalPage /> },
+          { path: 'services/gutter-cleaning', element: <GutterCleaningPage /> },
+          { path: 'services/pressure-washing', element: <PressureWashingPage /> },
+          { path: 'services/tree-removal', element: <TreeRemovalPage /> },
+          { path: 'services/seasonal-cleanup', element: <SeasonalCleanupPage /> },
 
           // Location Pages
           { path: 'areas/st-matthews', element: <StMatthewsPage /> },

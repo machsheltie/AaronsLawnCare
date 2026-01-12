@@ -9,7 +9,12 @@ import {
   Wind,
   Snowflake,
   Grid2x2,
-  Brush
+  Brush,
+  Trash2,
+  Home,
+  Sparkles,
+  Axe,
+  Calendar
 } from 'lucide-react';
 import { SEOHead } from '@/components/common/SEOHead';
 import { getServicesPageSEO } from '@/utils/seo-meta';
@@ -104,6 +109,62 @@ const services: Service[] = [
     icon: Snowflake,
     path: '/services/snow-removal',
     seasonal: 'Winter',
+  },
+  {
+    id: 'aeration',
+    title: 'Lawn Aeration',
+    description: 'Professional core aeration to relieve soil compaction, improve nutrient absorption, and strengthen your lawn.',
+    icon: Wind,
+    path: '/services/aeration',
+    seasonal: 'Spring, Fall',
+  },
+  {
+    id: 'lawn-treatment',
+    title: 'Lawn Treatment & Fertilization',
+    description: 'Customized fertilization and weed control programs to keep your lawn healthy, green, and weed-free.',
+    icon: Sprout,
+    path: '/services/lawn-treatment',
+    seasonal: 'Spring, Summer, Fall',
+  },
+  {
+    id: 'debris-removal',
+    title: 'Debris & Yard Waste Removal',
+    description: 'Fast, reliable removal of storm debris, branches, and yard waste to keep your property clean and safe.',
+    icon: Trash2,
+    path: '/services/debris-removal',
+    seasonal: 'Year-round',
+  },
+  {
+    id: 'gutter-cleaning',
+    title: 'Gutter Cleaning',
+    description: 'Thorough gutter cleaning to prevent water damage, protect your foundation, and maintain proper drainage.',
+    icon: Home,
+    path: '/services/gutter-cleaning',
+    seasonal: 'Spring, Fall',
+  },
+  {
+    id: 'pressure-washing',
+    title: 'Pressure Washing',
+    description: 'Professional pressure washing for driveways, patios, decks, and siding to restore your property\'s beauty.',
+    icon: Sparkles,
+    path: '/services/pressure-washing',
+    seasonal: 'Spring, Summer',
+  },
+  {
+    id: 'tree-removal',
+    title: 'Tree Removal',
+    description: 'Safe, professional removal of dead, diseased, or hazardous trees with optional stump grinding.',
+    icon: Axe,
+    path: '/services/tree-removal',
+    seasonal: 'Year-round',
+  },
+  {
+    id: 'seasonal-cleanup',
+    title: 'Seasonal Cleanup',
+    description: 'Comprehensive spring and fall cleanup services to prepare your property for changing seasons.',
+    icon: Calendar,
+    path: '/services/seasonal-cleanup',
+    seasonal: 'Spring, Fall',
   },
 ];
 
