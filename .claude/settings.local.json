@@ -38,7 +38,8 @@
       "Bash(dir /B \"C:\\\\Users\\\\heirr\\\\OneDrive\\\\Desktop\\\\Hope2_Studio\\\\Aarons_Lawn_Care\\\\website\\\\public\")",
       "Bash(npm run type-check:*)",
       "Bash(npm run:*)",
-      "Bash(node scripts/verify-schemas.js:*)"
+      "Bash(node scripts/verify-schemas.js:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []

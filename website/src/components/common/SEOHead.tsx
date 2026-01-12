@@ -15,7 +15,8 @@
  */
 
 import { Helmet } from "react-helmet-async";
-import { SEOConfig, generateCompleteSEOTags, BASE_URL, IMAGE_PATH } from "../../utils/seo-meta";
+import type { SEOConfig } from "../../utils/seo-meta";
+import { generateCompleteSEOTags, BASE_URL, IMAGE_PATH } from "../../utils/seo-meta";
 
 interface SEOHeadProps extends Partial<SEOConfig> {
   /** Optional structured data (JSON-LD) */
