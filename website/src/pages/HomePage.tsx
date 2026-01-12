@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Gallery } from '../components/home/Gallery';
 import { SEOHead } from '../components/common/SEOHead';
-import { getHomePageSEO, generateLocalBusinessSchema } from '../utils/seo-meta';
-import { generateLocalBusinessSchema as genLBSchema } from '../utils/schemas';
+import { getHomePageSEO } from '../utils/seo-meta';
+import { generateLocalBusinessSchema } from '../utils/schemas';
 
 export default function HomePage() {
   const seoConfig = getHomePageSEO();
-  const localBusinessSchema = genLBSchema();
+  const localBusinessSchema = generateLocalBusinessSchema();
 
   return (
     <>
