@@ -3,9 +3,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { CheckCircle, Loader2 } from 'lucide-react';
-// TEMPORARY: SEOHead commented out to fix OG tag issue
-// import { SEOHead } from '@/components/common/SEOHead';
-// import { getQuotePageSEO } from '@/utils/seo-meta';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getQuotePageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 import { FloatingLabelInput } from '@/components/ui/FloatingLabelInput';
 import { FloatingLabelTextarea } from '@/components/ui/FloatingLabelTextarea';
@@ -195,7 +194,7 @@ export default function QuotePage() {
 
   return (
     <>
-      {/* <SEOHead {...getQuotePageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} /> */}
+      <SEOHead {...getQuotePageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       {/* Toast Notifications */}
       <ToastContainer>

@@ -1,23 +1,23 @@
-import { Helmet } from 'react-helmet-async';
 import { Gallery } from '../components/home/Gallery';
 import { Hero } from '../components/home/Hero';
 import { ServicesPreview } from '../components/home/ServicesPreview';
 import { Testimonials } from '../components/home/Testimonials';
 import { Features } from '../components/home/Features';
 import { CallToAction } from '../components/home/CTA';
+import { SEOHead } from '../components/common/SEOHead';
+import { getHomePageSEO } from '../utils/seo-meta';
 import { generateLocalBusinessSchema } from '../utils/schemas';
 
 export default function HomePage() {
+  const seoConfig = getHomePageSEO();
   const localBusinessSchema = generateLocalBusinessSchema();
 
   return (
     <>
-      {/* Enhanced LocalBusiness Schema for SEO - Rich Results eligible */}
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(localBusinessSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        {...seoConfig}
+        schemaMarkup={localBusinessSchema}
+      />
 
       <main>
         <section id="hero">
