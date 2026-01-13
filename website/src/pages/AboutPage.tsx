@@ -1,7 +1,6 @@
 import { Shield, Award, MapPin, Users } from 'lucide-react';
-// TEMPORARY: SEOHead commented out to fix OG tag issue
-// import { SEOHead } from '@/components/common/SEOHead';
-// import { getAboutPageSEO } from '@/utils/seo-meta';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getAboutPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 import { CountUp } from '@/components/ui/CountUp';
 
@@ -13,7 +12,7 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* <SEOHead {...getAboutPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} /> */}
+      <SEOHead {...getAboutPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
 
       {/* Hero Section */}
       <section id="about-hero" className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">

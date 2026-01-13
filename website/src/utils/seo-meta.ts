@@ -548,6 +548,141 @@ export function getServicesPageSEO(): SEOConfig {
   };
 }
 
+/**
+ * Generate SEO config for reviews/testimonials page
+ */
+export function getReviewsPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/reviews"),
+    title: "Customer Reviews | Aaron's Lawn Care Louisville, KY",
+    description:
+      "Read what our customers say about Aaron's Lawn Care. 20+ years of 5-star lawn care and landscaping service in Louisville, KY. See real reviews from satisfied clients.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Customer Reviews - Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("default"),
+    geoRegion: LOUISVILLE_GEO.region,
+    geoPlacename: LOUISVILLE_GEO.city,
+    geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for FAQ page
+ */
+export function getFAQPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/faq"),
+    title: "FAQ - Lawn Care Questions | Aaron's Lawn Care Louisville",
+    description:
+      "Frequently asked questions about lawn care, landscaping, and our services in Louisville, KY. Get answers about pricing, scheduling, service areas, and more.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care FAQ - Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("default"),
+    geoRegion: LOUISVILLE_GEO.region,
+    geoPlacename: LOUISVILLE_GEO.city,
+    geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for privacy policy page
+ */
+export function getPrivacyPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/privacy"),
+    title: "Privacy Policy | Aaron's Lawn Care",
+    description:
+      "Privacy policy for Aaron's Lawn Care. Learn how we collect, use, and protect your personal information when you use our website and services.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Privacy Policy",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("noindex"), // Privacy pages typically noindex
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for terms of service page
+ */
+export function getTermsPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/terms"),
+    title: "Terms of Service | Aaron's Lawn Care",
+    description:
+      "Terms of service for Aaron's Lawn Care. Review our service terms, conditions, and policies for lawn care and landscaping services in Louisville, KY.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Terms of Service",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("noindex"), // Terms pages typically noindex
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for blog page
+ */
+export function getBlogPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/blog"),
+    title: "Lawn Care Tips & Blog | Aaron's Lawn Care Louisville, KY",
+    description:
+      "Expert lawn care tips, seasonal guides, and landscaping advice for Louisville, KY homeowners. Get professional insights from 20+ years of experience.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Blog - Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("default"),
+    geoRegion: LOUISVILLE_GEO.region,
+    geoPlacename: LOUISVILLE_GEO.city,
+    geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for 404 not found page
+ */
+export function getNotFoundPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/404"),
+    title: "Page Not Found | Aaron's Lawn Care",
+    description:
+      "The page you're looking for doesn't exist. Return to Aaron's Lawn Care homepage or browse our lawn care services in Louisville, KY.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care - Page Not Found",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("noindex"), // 404 pages should be noindex
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
 // ============================================================================
 // CHARACTER COUNT VALIDATION HELPERS
 // ============================================================================
@@ -624,6 +759,12 @@ export const SEOHelpers = {
   getAboutPageSEO,
   getGalleryPageSEO,
   getQuotePageSEO,
+  getReviewsPageSEO,
+  getFAQPageSEO,
+  getPrivacyPageSEO,
+  getTermsPageSEO,
+  getBlogPageSEO,
+  getNotFoundPageSEO,
   validateMetaDescription,
   validateMetaTitle,
 };
