@@ -58,6 +58,8 @@ const URGENCY_LEVELS = [
 export default function QuotePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  // Honeypot field for spam prevention
+  const [honeypot, setHoneypot] = useState('');
   const { toasts, removeToast, success: showSuccess, error: showError } = useToast();
 
   const {
@@ -82,6 +84,13 @@ export default function QuotePage() {
   ]);
 
   const onSubmit = async (data: QuoteFormData) => {
+    // Check honeypot field for spam bots
+    if (honeypot) {
+      // Silently reject spam submissions
+      setIsSubmitting(false);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -109,7 +118,8 @@ export default function QuotePage() {
       showSuccess('Quote request submitted successfully! We\'ll contact you soon.');
       reset();
     } catch (error) {
-      console.error('Form submission error:', error);
+      // Error logging removed for production
+      // TODO: Add proper error monitoring (Sentry)
       showError('There was an error submitting your request. Please try again or call us directly at (502) 926-8524.');
     } finally {
       setIsSubmitting(false);
@@ -232,6 +242,18 @@ export default function QuotePage() {
             </form>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+              {/* Honeypot field - hidden from users, visible to bots */}
+              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               {/* Contact Information Section */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-green-600">

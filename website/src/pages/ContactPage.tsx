@@ -40,6 +40,9 @@ export default function ContactPage() {
 
   const formValues = watch();
 
+  // Honeypot field for spam prevention
+  const [honeypot, setHoneypot] = useState('');
+
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://aaronslawncare502.com' },
     { name: 'Contact', url: 'https://aaronslawncare502.com/contact' }
@@ -50,6 +53,13 @@ export default function ContactPage() {
   const schemaMarkup = generateSchemaGraph([breadcrumbSchema, contactPointSchema]);
 
   const onSubmit = async (data: ContactFormData) => {
+    // Check honeypot field for spam bots
+    if (honeypot) {
+      // Silently reject spam submissions
+      setIsSubmitting(false);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -73,7 +83,8 @@ export default function ContactPage() {
       showSuccess('Message sent successfully! We\'ll get back to you soon.');
       reset();
     } catch (error) {
-      console.error('Form submission error:', error);
+      // Error logging removed for production
+      // TODO: Add proper error monitoring (Sentry)
       showError('There was an error sending your message. Please try again or call us directly at (502) 926-8524.');
     } finally {
       setIsSubmitting(false);
@@ -236,6 +247,18 @@ export default function ContactPage() {
                   </form>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    {/* Honeypot field - hidden from users, visible to bots */}
+                    <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                      <input
+                        type="text"
+                        name="_gotcha"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                      />
+                    </div>
+
                     {/* Name */}
                     <FloatingLabelInput
                       {...register('name')}

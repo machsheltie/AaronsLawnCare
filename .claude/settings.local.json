@@ -45,7 +45,9 @@
       "Bash(xargs:*)",
       "WebSearch",
       "WebFetch(domain:www.svgbackgrounds.com)",
-      "WebFetch(domain:heropatterns.com)"
+      "WebFetch(domain:heropatterns.com)",
+      "Bash(wc:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,14 +1,17 @@
 import { HelmetProvider } from 'react-helmet-async';
 import Router from './router.tsx';
 import { ToastProvider } from './contexts/ToastContext';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 function App() {
   return (
-    <HelmetProvider>
-      <ToastProvider>
-        <Router />
-      </ToastProvider>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <ToastProvider>
+          <Router />
+        </ToastProvider>
+      </HelmetProvider>
+    </ErrorBoundary>
   );
 }
 
