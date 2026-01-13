@@ -2,20 +2,20 @@ import { motion } from "framer-motion";
 
 export const Gallery = () => {
     return (
-        <section className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <span className="text-green-600 font-semibold tracking-wider text-sm uppercase mb-3 block">Our Work</span>
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-green-950 mb-6">
+        <section className="py-12 md:py-20 lg:py-24 bg-white overflow-hidden">
+            <div className="container mx-auto px-4 max-w-7xl">
+                <div className="text-center mb-10 md:mb-16">
+                    <span className="text-green-600 font-semibold tracking-wider text-xs md:text-sm uppercase mb-2 md:mb-3 block">Our Work</span>
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-green-950 mb-4 md:mb-6">
                         See The Difference
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
                         Take a look at some of the landscapes we've transformed.
                     </p>
                 </div>
 
                 {/* Bento Grid Gallery */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[200px]">
                     {/* Large Featured Image - Precision Mowing */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
