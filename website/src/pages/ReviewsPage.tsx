@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet-async';
+// TEMPORARY: Helmet commented out to fix OG tag issue
+// import { Helmet } from 'react-helmet-async';
 import { Star, MapPin, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { CountUp } from '@/components/ui/CountUp';
@@ -167,7 +168,7 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Customer Reviews | Aaron's Lawn Care Louisville KY</title>
         <meta
           name="description"
@@ -175,29 +176,29 @@ export default function ReviewsPage() {
         />
 
         {/* Open Graph Tags */}
-        <meta property="og:type" content="website" />
+        {/* <meta property="og:type" content="website" />
         <meta property="og:title" content="Customer Reviews | Aaron's Lawn Care Louisville KY" />
         <meta property="og:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." />
         <meta property="og:url" content="https://aaronslawncare502.com/reviews" />
-        <meta property="og:site_name" content="Aaron's Lawn Care" />
+        <meta property="og:site_name" content="Aaron's Lawn Care" /> */}
 
         {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary" />
+        {/* <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Customer Reviews | Aaron's Lawn Care Louisville KY" />
-        <meta name="twitter:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." />
+        <meta name="twitter:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." /> */}
 
         {/* Structured Data - Aggregate Rating Schema */}
-        <script type="application/ld+json">
+        {/* <script type="application/ld+json">
           {schemaToJsonLd(aggregateRatingSchema)}
-        </script>
+        </script> */}
 
         {/* Structured Data - Breadcrumb Schema */}
-        <script type="application/ld+json">
+        {/* <script type="application/ld+json">
           {schemaToJsonLd(breadcrumbSchema)}
-        </script>
+        </script> */}
 
         {/* Structured Data - Individual Review Schemas for Featured Reviews */}
-        {featuredReviews.map((review, index) => (
+        {/* {featuredReviews.map((review, index) => (
           <script key={`review-schema-${index}`} type="application/ld+json">
             {schemaToJsonLd(
               generateReviewSchema({
@@ -210,8 +211,8 @@ export default function ReviewsPage() {
               })
             )}
           </script>
-        ))}
-      </Helmet>
+        ))} */}
+      {/* </Helmet> */}
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">
