@@ -74,6 +74,7 @@
 **Commits:**
 - `a7ae161` - feat(seo): Phase 2 SEO & Discovery Enhancements
 - `9dff81b` - feat(seo): Add Open Graph social media image
+- `956aa63` - fix(seo): Correct Open Graph image paths (CRITICAL FIX)
 
 ---
 
@@ -313,13 +314,21 @@ VITE_SENTRY_DSN=https://your-sentry-dsn@sentry.io/project-id
 VITE_ANALYTICS_ID=G-XXXXXXXXXX (or plausible domain)
 ```
 
-### 3. Test OG Image (5 minutes) - NEW
-After deployment:
+### 3. ⚠️ CRITICAL FIX APPLIED - OG Tags Fixed (Awaiting Deployment)
+**Status:** Fixed and pushed to GitHub (commit: `956aa63`)
+**Issue:** OpenGraph.xyz reported "No Open Graph image found" and "No Open Graph title found"
+**Root Cause:** React Helmet was overriding index.html meta tags with wrong image paths
+**Fix Applied:**
+- Updated SEOHead.tsx default to use `/og-image.jpg` (was `/images/og-default.jpg`)
+- Updated all 7 page-specific SEO generators in seo-meta.ts
+- All paths now correctly point to `/og-image.jpg`
+
+**Next Steps After Deployment:**
 - Visit https://www.opengraph.xyz/
 - Enter: `https://aaronslawncare502.com/`
-- Verify image loads correctly
-- Test on Facebook Debugger
-- Test on Twitter Card Validator
+- Verify image loads correctly (should now work!)
+- Test on Facebook Debugger: https://developers.facebook.com/tools/debug/
+- Test on Twitter Card Validator: https://cards-dev.twitter.com/validator
 
 ### 4. Add Lazy Loading to Images (20 minutes)
 Find all `<img>` tags and add:
@@ -340,7 +349,8 @@ Document:
 
 ### Critical (Before Production)
 - [x] Create og-image.jpg (1200x630px) - *Completed 2025-01-14*
-- [ ] Test og-image.jpg on OpenGraph.xyz
+- [x] Fix OG image paths in SEOHead and seo-meta.ts - *Completed 2025-01-14*
+- [ ] Deploy and test og-image.jpg on OpenGraph.xyz (awaiting deployment)
 - [ ] Add Sentry DSN to .env.production
 - [ ] Add analytics ID to .env.production
 - [ ] Test forms with honeypot
@@ -442,9 +452,10 @@ npm run lint (if available)
 
 ---
 
-**Last Updated:** 2025-01-14 (18:30 UTC)
+**Last Updated:** 2025-01-14 (20:15 UTC)
 **Phases Completed:** 2.2 / 5 (Phase 3: 20% complete)
-**Production Ready:** 87% (was 85%, +2% with OG image)
+**Production Ready:** 87% (was 85%, +2% with OG image + fix)
 **Remaining Work:** 25-35 hours estimated (was 26-36)
+**Latest:** Critical OG tag fix applied (commit: `956aa63`), awaiting deployment test
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
