@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { SEOHead } from '@/components/common/SEOHead';
-import { getGalleryPageSEO } from '@/utils/seo-meta';
+// TEMPORARY: SEOHead commented out to fix OG tag issue
+// import { SEOHead } from '@/components/common/SEOHead';
+// import { getGalleryPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 
 interface GalleryItem {
@@ -98,7 +99,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <SEOHead {...getGalleryPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
+      {/* <SEOHead {...getGalleryPageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} /> */}
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">

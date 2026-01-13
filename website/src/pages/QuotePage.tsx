@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { CheckCircle, Loader2 } from 'lucide-react';
-import { SEOHead } from '@/components/common/SEOHead';
-import { getQuotePageSEO } from '@/utils/seo-meta';
+// TEMPORARY: SEOHead commented out to fix OG tag issue
+// import { SEOHead } from '@/components/common/SEOHead';
+// import { getQuotePageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 import { FloatingLabelInput } from '@/components/ui/FloatingLabelInput';
 import { FloatingLabelTextarea } from '@/components/ui/FloatingLabelTextarea';
@@ -129,12 +130,12 @@ export default function QuotePage() {
   if (isSuccess) {
     return (
       <>
-        <SEOHead
+        {/* <SEOHead
           title="Quote Request Sent | Aaron's Lawn Care"
           description="Thank you for your quote request! We'll get back to you as soon as possible."
           canonical="https://aaronslawncare502.com/quote"
           robots="noindex, nofollow"
-        />
+        /> */}
 
         <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-16">
           <div className="container mx-auto px-4">
@@ -194,7 +195,7 @@ export default function QuotePage() {
 
   return (
     <>
-      <SEOHead {...getQuotePageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} />
+      {/* <SEOHead {...getQuotePageSEO()} schemaMarkup={schemaToJsonLd(breadcrumbSchema)} /> */}
 
       {/* Toast Notifications */}
       <ToastContainer>

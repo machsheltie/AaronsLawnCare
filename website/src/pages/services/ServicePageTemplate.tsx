@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
-import { SEOHead } from '@/components/common/SEOHead';
-import { getServicePageSEO } from '@/utils/seo-meta';
+// TEMPORARY: SEOHead commented out to fix OG tag issue
+// import { SEOHead } from '@/components/common/SEOHead';
+// import { getServicePageSEO } from '@/utils/seo-meta';
 import {
   generateServiceSchema,
   generateFAQSchema,
@@ -60,7 +61,7 @@ export default function ServicePageTemplate({
 
   return (
     <>
-      <SEOHead {...seoConfig} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
+      {/* <SEOHead {...seoConfig} schemaMarkup={schemaToJsonLd(schemaMarkup)} /> */}
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">

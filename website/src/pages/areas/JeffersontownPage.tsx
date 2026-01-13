@@ -1,5 +1,6 @@
 import React from 'react';
-import { SEOHead } from '../../components/common/SEOHead';
+// TEMPORARY: SEOHead commented out to fix OG tag issue
+// import { SEOHead } from '../../components/common/SEOHead';
 
 const JeffersontownPage: React.FC = () => {
   const breadcrumbSchema = {
@@ -72,12 +73,12 @@ const JeffersontownPage: React.FC = () => {
 
   return (
     <>
-      <SEOHead
+      {/* <SEOHead
         title="Lawn Care in Jeffersontown, Louisville KY | Aaron's Lawn Care"
         description="Professional lawn care services in Jeffersontown, Louisville, Kentucky. Mowing, edging, landscaping & more. 20+ years serving Jeffersontown residents. Free quotes!"
         canonicalUrl="https://aaronslawncare502.com/areas/jeffersontown"
         schema={[breadcrumbSchema, localBusinessSchema]}
-      />
+      /> */}
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

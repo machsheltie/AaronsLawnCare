@@ -4,20 +4,23 @@ import { ServicesPreview } from '../components/home/ServicesPreview';
 import { Testimonials } from '../components/home/Testimonials';
 import { Features } from '../components/home/Features';
 import { CallToAction } from '../components/home/CTA';
-import { SEOHead } from '../components/common/SEOHead';
-import { getHomePageSEO } from '../utils/seo-meta';
+// TEMPORARY: SEOHead commented out to fix OG tag issue
+// React Helmet removes static meta tags before crawlers can read them
+// Static tags in index.html work perfectly without client-side JS
+// import { SEOHead } from '../components/common/SEOHead';
+// import { getHomePageSEO } from '../utils/seo-meta';
 import { generateLocalBusinessSchema } from '../utils/schemas';
 
 export default function HomePage() {
-  const seoConfig = getHomePageSEO();
+  // const seoConfig = getHomePageSEO();
   const localBusinessSchema = generateLocalBusinessSchema();
 
   return (
     <>
-      <SEOHead
+      {/* <SEOHead
         {...seoConfig}
         schemaMarkup={localBusinessSchema}
-      />
+      /> */}
 
       <main>
         <section id="hero">

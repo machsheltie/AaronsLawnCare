@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Phone, Mail, MapPin, Clock, CheckCircle, Loader2 } from 'lucide-react';
-import { SEOHead } from '@/components/common/SEOHead';
-import { getContactPageSEO } from '@/utils/seo-meta';
+// TEMPORARY: SEOHead commented out to fix OG tag issue
+// import { SEOHead } from '@/components/common/SEOHead';
+// import { getContactPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, generateContactPointSchema, schemaToJsonLd, generateSchemaGraph } from '@/utils/schemas';
 import { businessInfo } from '../data/navigation';
 import { FloatingLabelInput } from '@/components/ui/FloatingLabelInput';
@@ -93,7 +94,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <SEOHead {...getContactPageSEO()} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
+      {/* <SEOHead {...getContactPageSEO()} schemaMarkup={schemaToJsonLd(schemaMarkup)} /> */}
 
       {/* Toast Notifications */}
       <ToastContainer>
