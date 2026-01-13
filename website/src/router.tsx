@@ -11,6 +11,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const HeroPreview = lazy(() => import('./pages/HeroPreview'));
@@ -70,6 +71,7 @@ const router = createBrowserRouter([
           { path: 'contact', element: <ContactPage /> },
           { path: 'gallery', element: <GalleryPage /> },
           { path: 'reviews', element: <ReviewsPage /> },
+          { path: 'faq', element: <FAQPage /> },
           { path: 'privacy', element: <PrivacyPage /> },
           { path: 'terms', element: <TermsPage /> },
 

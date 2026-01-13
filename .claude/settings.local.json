@@ -47,7 +47,8 @@
       "WebFetch(domain:heropatterns.com)",
       "Bash(wc:*)",
       "Bash(dir:*)",
-      "WebFetch(domain:aaronslawncare502.com)"
+      "WebFetch(domain:aaronslawncare502.com)",
+      "Bash(node scripts/optimize-images.js:*)"
     ],
     "deny": [],
     "ask": []

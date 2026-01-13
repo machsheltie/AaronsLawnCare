@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
-// TEMPORARY: SEOHead commented out to fix OG tag issue
-// import { SEOHead } from '@/components/common/SEOHead';
-// import { getServicePageSEO } from '@/utils/seo-meta';
+import { Helmet } from 'react-helmet-async';
 import {
   generateServiceSchema,
   generateFAQSchema,
   generateBreadcrumbSchema,
   getBreadcrumbsForService,
   generateSchemaGraph,
-  schemaToJsonLd
 } from '@/utils/schemas';
 
 interface Benefit {
@@ -45,13 +42,7 @@ export default function ServicePageTemplate({
   seasonalNote,
   serviceUrl,
 }: ServicePageTemplateProps) {
-  // Extract slug from serviceUrl (e.g., "/services/lawn-mowing" -> "lawn-mowing")
-  const slug = serviceUrl.replace('/services/', '');
-
-  // Generate SEO config using the helper function
-  const seoConfig = getServicePageSEO(serviceName, metaDescription, slug);
-
-  // Generate structured data schemas
+  // Generate structured data schemas for SEO
   const breadcrumbSchema = generateBreadcrumbSchema(getBreadcrumbsForService(serviceName, serviceUrl));
   const serviceSchema = generateServiceSchema(serviceName, metaDescription, serviceUrl);
   const faqSchema = generateFAQSchema(faqs);
@@ -61,7 +52,14 @@ export default function ServicePageTemplate({
 
   return (
     <>
-      {/* <SEOHead {...seoConfig} schemaMarkup={schemaToJsonLd(schemaMarkup)} /> */}
+      {/* Service, FAQ, and Breadcrumb Schema for SEO - Rich Results eligible */}
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      </Helmet>
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">
