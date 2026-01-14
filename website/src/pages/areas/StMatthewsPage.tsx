@@ -1,5 +1,6 @@
 import React from 'react';
 import { SEOHead } from '../../components/common/SEOHead';
+import { Button } from '@/components/ui/Button';
 
 const StMatthewsPage: React.FC = () => {
   const breadcrumbSchema = {
@@ -332,6 +333,32 @@ const StMatthewsPage: React.FC = () => {
                   >
                     Call (502) 123-4567
                   </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="bg-primary-900 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                  Ready for Professional Lawn Care in St. Matthews?
+                </h2>
+                <p className="text-lg text-primary-100 mb-10">
+                  Get your free, no-obligation quote today. We'll visit your property and provide a detailed estimate tailored to your yard's unique needs.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg items-center h-14" asChild>
+                    <a href="/contact">Get Your Free Quote</a>
+                  </Button>
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14">
+                    Call (502) 926-8524
+                  </Button>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { SEOHead } from '@/components/common/SEOHead';
 import { getGalleryPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
+import { Button } from '@/components/ui/Button';
 
 interface GalleryItem {
   id: string;
@@ -214,33 +215,27 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Lawn?
-          </h2>
-          <p className="text-xl md:text-2xl mb-10 text-green-100 max-w-3xl mx-auto">
-            Let's make your property our next success story
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/quote"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-green-800 font-bold text-lg rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transform hover:scale-105 transition-all"
-            >
-              Get Your Free Quote
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a
-              href="tel:5029268524"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-900 bg-opacity-50 text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-opacity-70 transform hover:scale-105 transition-all"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-              Call (502) 926-8524
-            </a>
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="bg-primary-900 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                Ready to Transform Your Lawn?
+              </h2>
+              <p className="text-lg text-primary-100 mb-10">
+                Let's make your property our next success story
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg items-center h-14" asChild>
+                  <a href="/contact">Get Your Free Quote</a>
+                </Button>
+                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14">
+                  Call (502) 926-8524
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
