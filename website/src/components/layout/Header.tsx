@@ -4,12 +4,10 @@ import { Leaf } from 'lucide-react';
 import Navigation from './Navigation';
 import MobileMenu from './MobileMenu';
 import { businessInfo } from '../../data/navigation';
-import { useScrollDirection } from '../../hooks/useScrollDirection';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const scrollDirection = useScrollDirection({ threshold: 10 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,16 +28,11 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  // Hide navbar when scrolling down (past 80px), show when scrolling up
-  const shouldHide = scrollDirection === 'down' && window.scrollY > 80;
-
   return (
     <>
       <header
-        className={`sticky z-50 transition-all duration-500 ease-in-out backdrop-blur-md shadow-2xl ${
+        className={`sticky top-0 z-50 transition-all duration-500 ease-in-out backdrop-blur-md shadow-2xl ${
           scrolled ? 'py-2' : 'py-4'
-        } ${
-          shouldHide ? '-top-32' : 'top-0'
         }`}
         style={{
           background: `linear-gradient(to right, rgb(15 23 42), rgb(5 46 22), rgb(20 83 45))`,
