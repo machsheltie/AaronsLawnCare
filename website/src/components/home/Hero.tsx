@@ -1,5 +1,5 @@
 import { Button } from "../ui/Button";
-import { MoveRight, Phone } from "lucide-react";
+import { MoveRight, Phone, Award, Shield, MapPin, CheckCircle } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export const Hero = () => {
@@ -58,6 +58,39 @@ export const Hero = () => {
                             (502) 926-8524
                         </Button>
                     </div>
+
+                    {/* Trust Signals */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+                    >
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                                <Award className="w-6 h-6 text-primary-700" />
+                            </div>
+                            <span className="text-sm font-semibold text-primary-900">20 Years Experience</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                                <Shield className="w-6 h-6 text-primary-700" />
+                            </div>
+                            <span className="text-sm font-semibold text-primary-900">Licensed & Insured</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                                <MapPin className="w-6 h-6 text-primary-700" />
+                            </div>
+                            <span className="text-sm font-semibold text-primary-900">Locally Owned</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 text-center">
+                            <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                                <CheckCircle className="w-6 h-6 text-primary-700" />
+                            </div>
+                            <span className="text-sm font-semibold text-primary-900">Free Estimates</span>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
 
