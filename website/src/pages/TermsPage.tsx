@@ -1,29 +1,11 @@
-// TEMPORARY: Helmet commented out to fix OG tag issue
-// import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getTermsPageSEO } from '@/utils/seo-meta';
 
 export default function TermsPage() {
   return (
     <>
-      {/* <Helmet>
-        <title>Terms of Service | Aaron's Lawn Care</title>
-        <meta
-          name="description"
-          content="Aaron's Lawn Care terms of service. Read our terms and conditions for using our website and lawn care services."
-        />
-
-        {/* Open Graph Tags */}
-        {/* <meta property="og:type" content="website" />
-        <meta property="og:title" content="Terms of Service | Aaron's Lawn Care" />
-        <meta property="og:description" content="Aaron's Lawn Care terms of service. Read our terms and conditions for using our website and lawn care services." />
-        <meta property="og:url" content="https://aaronslawncare502.com/terms" />
-        <meta property="og:site_name" content="Aaron's Lawn Care" /> */}
-
-        {/* Twitter Card Tags */}
-        {/* <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Terms of Service | Aaron's Lawn Care" />
-        <meta name="twitter:description" content="Aaron's Lawn Care terms of service. Read our terms and conditions for using our website and lawn care services." /> */}
-      {/* </Helmet> */}
+      <SEOHead {...getTermsPageSEO()} />
 
       <div className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">

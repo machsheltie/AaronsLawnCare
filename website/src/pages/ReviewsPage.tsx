@@ -1,13 +1,14 @@
-// TEMPORARY: Helmet commented out to fix OG tag issue
-// import { Helmet } from 'react-helmet-async';
 import { Star, MapPin, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { CountUp } from '@/components/ui/CountUp';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getReviewsPageSEO } from '@/utils/seo-meta';
 import {
   generateAggregateRatingSchema,
   generateBreadcrumbSchema,
   generateReviewSchema,
   schemaToJsonLd,
+  generateSchemaGraph,
   type ReviewItem,
 } from '@/utils/schemas';
 
@@ -166,53 +167,11 @@ export default function ReviewsPage() {
     { name: 'Reviews', url: 'https://aaronslawncare502.com/reviews' },
   ]);
 
+  const schemaMarkup = generateSchemaGraph([aggregateRatingSchema, breadcrumbSchema]);
+
   return (
     <>
-      {/* <Helmet>
-        <title>Customer Reviews | Aaron's Lawn Care Louisville KY</title>
-        <meta
-          name="description"
-          content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience. See why homeowners trust Aaron's Lawn Care."
-        />
-
-        {/* Open Graph Tags */}
-        {/* <meta property="og:type" content="website" />
-        <meta property="og:title" content="Customer Reviews | Aaron's Lawn Care Louisville KY" />
-        <meta property="og:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." />
-        <meta property="og:url" content="https://aaronslawncare502.com/reviews" />
-        <meta property="og:site_name" content="Aaron's Lawn Care" /> */}
-
-        {/* Twitter Card Tags */}
-        {/* <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Customer Reviews | Aaron's Lawn Care Louisville KY" />
-        <meta name="twitter:description" content="Read reviews from our satisfied customers in Louisville, KY. 5-star rated lawn care service with 20+ years of experience." /> */}
-
-        {/* Structured Data - Aggregate Rating Schema */}
-        {/* <script type="application/ld+json">
-          {schemaToJsonLd(aggregateRatingSchema)}
-        </script> */}
-
-        {/* Structured Data - Breadcrumb Schema */}
-        {/* <script type="application/ld+json">
-          {schemaToJsonLd(breadcrumbSchema)}
-        </script> */}
-
-        {/* Structured Data - Individual Review Schemas for Featured Reviews */}
-        {/* {featuredReviews.map((review, index) => (
-          <script key={`review-schema-${index}`} type="application/ld+json">
-            {schemaToJsonLd(
-              generateReviewSchema({
-                author: review.name,
-                ratingValue: review.rating,
-                reviewBody: review.review,
-                datePublished: new Date(review.date).toISOString().split('T')[0],
-                serviceType: review.service,
-                location: review.location,
-              })
-            )}
-          </script>
-        ))} */}
-      {/* </Helmet> */}
+      <SEOHead {...getReviewsPageSEO()} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
 
       {/* Hero Section */}
       <section className="relative bg-[#Fdfdfc] text-green-950 pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">

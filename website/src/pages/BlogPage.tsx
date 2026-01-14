@@ -1,6 +1,7 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Clock, Calendar, Tag } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getBlogPageSEO } from '@/utils/seo-meta';
 import { getAllBlogPosts, type BlogPost } from '../data/blogPosts';
 
 function BlogCard({ post }: { post: BlogPost }) {
@@ -86,14 +87,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Lawn Care Blog | Tips & Guides for Louisville KY | Aaron's Lawn Care</title>
-        <meta
-          name="description"
-          content="Expert lawn care tips, seasonal guides, and maintenance advice from Louisville's trusted lawn care professionals. Over 20 years of experience serving Kentucky homeowners."
-        />
-        <link rel="canonical" href="https://aaronslawncare502.com/blog" />
-      </Helmet>
+      <SEOHead {...getBlogPageSEO()} />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

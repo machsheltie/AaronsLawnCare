@@ -1,8 +1,9 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { generateFAQSchema } from '../utils/schemas';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getFAQPageSEO } from '@/utils/seo-meta';
+import { generateFAQSchema, schemaToJsonLd } from '../utils/schemas';
 
 interface FAQItem {
   question: string;
@@ -217,16 +218,7 @@ export default function FAQPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Frequently Asked Questions | Aaron's Lawn Care Louisville KY</title>
-        <meta
-          name="description"
-          content="Get answers to common questions about Aaron's Lawn Care services, pricing, scheduling, and service areas in Louisville, KY. Find everything you need to know."
-        />
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      </Helmet>
+      <SEOHead {...getFAQPageSEO()} schemaMarkup={schemaToJsonLd(faqSchema)} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-20">
