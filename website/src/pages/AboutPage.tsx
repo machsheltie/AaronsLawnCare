@@ -3,6 +3,7 @@ import { SEOHead } from '@/components/common/SEOHead';
 import { getAboutPageSEO } from '@/utils/seo-meta';
 import { generateBreadcrumbSchema, schemaToJsonLd } from '@/utils/schemas';
 import { CountUp } from '@/components/ui/CountUp';
+import { ServiceAreas } from '@/components/common/ServiceAreas';
 
 export default function AboutPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -197,43 +198,30 @@ export default function AboutPage() {
       </section>
 
       {/* Service Area */}
-      <section id="service-area" className="py-20 bg-gradient-to-br from-green-50 to-green-100">
+      <section id="service-area" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Proudly Serving Greater Louisville
-            </h2>
-            <p className="text-xl text-gray-600 mb-12">
-              We provide professional lawn care services throughout the Louisville area, including:
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-              {[
-                'St. Matthews',
-                'Highlands',
-                'Okolona',
-                'Jeffersontown',
-                'Middletown',
-                'Prospect',
-                'Downtown',
-                'East End',
-              ].map((area) => (
-                <div key={area} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow">
-                  <p className="font-semibold text-gray-900">{area}</p>
-                </div>
-              ))}
+          <div className="max-w-6xl mx-auto">
+            <ServiceAreas
+              variant="grid"
+              title="Proudly Serving Greater Louisville"
+              subtitle="We provide professional lawn care services throughout the Louisville area"
+              showCallout={false}
+              columns={4}
+            />
+            <div className="text-center mt-8">
+              <p className="text-gray-600 mb-6">
+                Don't see your area listed? Give us a call—we may still be able to help!
+              </p>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+              >
+                Contact Us
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
-            <p className="text-gray-600 mb-6">
-              Don't see your area listed? Give us a call—we may still be able to help!
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
-            >
-              Contact Us
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
           </div>
         </div>
       </section>
