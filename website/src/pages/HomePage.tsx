@@ -1,7 +1,7 @@
 import { Gallery } from '../components/home/Gallery';
 import { Hero } from '../components/home/Hero';
 import { ServicesPreview } from '../components/home/ServicesPreview';
-import { Testimonials } from '../components/home/Testimonials';
+// import { Testimonials } from '../components/home/Testimonials'; // TODO: Re-enable when real customer testimonials are available
 import { Features } from '../components/home/Features';
 import { CallToAction } from '../components/home/CTA';
 import { SEOHead } from '../components/common/SEOHead';
@@ -32,9 +32,10 @@ export default function HomePage() {
         <section id="gallery">
           <Gallery />
         </section>
-        <section id="testimonials">
+        {/* Testimonials section hidden until real customer reviews are available */}
+        {/* <section id="testimonials">
           <Testimonials />
-        </section>
+        </section> */}
         <section id="cta">
           <CallToAction />
         </section>
