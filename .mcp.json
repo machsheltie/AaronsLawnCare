@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "upstash-context-7-mcp": {
-      "transport": "http",
+      "transport": "sse",
       "url": "https://server.smithery.ai/@upstash/context7-mcp/mcp"
     },
     "knowall-ai-mcp-neo-4-j-agent-memory": {

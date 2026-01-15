@@ -11,6 +11,9 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogPostTemplate = lazy(() => import('./pages/BlogPostTemplate'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const HeroPreview = lazy(() => import('./pages/HeroPreview'));
@@ -38,6 +41,12 @@ const SeasonalCleanupPage = lazy(() => import('./pages/services/SeasonalCleanupP
 const StMatthewsPage = lazy(() => import('./pages/areas/StMatthewsPage'));
 const HighlandsPage = lazy(() => import('./pages/areas/HighlandsPage'));
 const JeffersontownPage = lazy(() => import('./pages/areas/JeffersontownPage'));
+const MiddletownPage = lazy(() => import('./pages/areas/MiddletownPage'));
+const ProspectPage = lazy(() => import('./pages/areas/ProspectPage'));
+const AnchoragePage = lazy(() => import('./pages/areas/AnchoragePage'));
+const OkolonaPage = lazy(() => import('./pages/areas/OkolonaPage'));
+const LyndonPage = lazy(() => import('./pages/areas/LyndonPage'));
+const ShivelyPage = lazy(() => import('./pages/areas/ShivelyPage'));
 
 function Loading() {
   return (
@@ -70,6 +79,9 @@ const router = createBrowserRouter([
           { path: 'contact', element: <ContactPage /> },
           { path: 'gallery', element: <GalleryPage /> },
           { path: 'reviews', element: <ReviewsPage /> },
+          { path: 'faq', element: <FAQPage /> },
+          { path: 'blog', element: <BlogPage /> },
+          { path: 'blog/:slug', element: <BlogPostTemplate /> },
           { path: 'privacy', element: <PrivacyPage /> },
           { path: 'terms', element: <TermsPage /> },
 
@@ -96,6 +108,12 @@ const router = createBrowserRouter([
           { path: 'areas/st-matthews', element: <StMatthewsPage /> },
           { path: 'areas/highlands', element: <HighlandsPage /> },
           { path: 'areas/jeffersontown', element: <JeffersontownPage /> },
+          { path: 'areas/middletown', element: <MiddletownPage /> },
+          { path: 'areas/prospect', element: <ProspectPage /> },
+          { path: 'areas/anchorage', element: <AnchoragePage /> },
+          { path: 'areas/okolona', element: <OkolonaPage /> },
+          { path: 'areas/lyndon', element: <LyndonPage /> },
+          { path: 'areas/shively', element: <ShivelyPage /> },
 
           // Catch-all 404
           { path: '*', element: <NotFoundPage /> },

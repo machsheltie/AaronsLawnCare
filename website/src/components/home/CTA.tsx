@@ -12,7 +12,7 @@ export const CallToAction = () => {
                             Ready to Transform Your Lawn?
                         </h2>
                         <p className="text-lg text-primary-100 mb-10">
-                            Get in touch today for a free, no-obligation quote. Let use handle the hard work so you can enjoy your weekend.
+                            Get in touch today for a free, no-obligation quote. Let us handle the hard work so you can enjoy your weekend.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg items-center h-14" asChild>

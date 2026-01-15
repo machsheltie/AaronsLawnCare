@@ -9,7 +9,7 @@ import {
   generateBreadcrumbSchema,
   getBreadcrumbsForService,
   generateSchemaGraph,
-  schemaToJsonLd
+  schemaToJsonLd,
 } from '@/utils/schemas';
 
 interface Benefit {
@@ -48,10 +48,10 @@ export default function ServicePageTemplate({
   // Extract slug from serviceUrl (e.g., "/services/lawn-mowing" -> "lawn-mowing")
   const slug = serviceUrl.replace('/services/', '');
 
-  // Generate SEO config using the helper function
+  // Generate SEO config using centralized function
   const seoConfig = getServicePageSEO(serviceName, metaDescription, slug);
 
-  // Generate structured data schemas
+  // Generate structured data schemas for SEO
   const breadcrumbSchema = generateBreadcrumbSchema(getBreadcrumbsForService(serviceName, serviceUrl));
   const serviceSchema = generateServiceSchema(serviceName, metaDescription, serviceUrl);
   const faqSchema = generateFAQSchema(faqs);
@@ -61,6 +61,7 @@ export default function ServicePageTemplate({
 
   return (
     <>
+      {/* Service, FAQ, and Breadcrumb Schema for SEO - Rich Results eligible */}
       <SEOHead {...seoConfig} schemaMarkup={schemaToJsonLd(schemaMarkup)} />
 
       {/* Hero Section */}

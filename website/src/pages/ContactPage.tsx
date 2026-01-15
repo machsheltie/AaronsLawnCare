@@ -11,6 +11,7 @@ import { FloatingLabelInput } from '@/components/ui/FloatingLabelInput';
 import { FloatingLabelTextarea } from '@/components/ui/FloatingLabelTextarea';
 import { Toast, ToastContainer } from '@/components/ui/Toast';
 import { useToast } from '@/hooks/useToast';
+import { ServiceAreas } from '@/components/common/ServiceAreas';
 
 // Simple contact form validation
 const contactFormSchema = z.object({
@@ -354,44 +355,14 @@ export default function ContactPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                We Serve the Greater Louisville Area
-              </h2>
-              <p className="text-xl text-gray-600">
-                Professional lawn care services for residential and commercial properties
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 md:p-12">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  'St. Matthews',
-                  'Highlands',
-                  'Okolona',
-                  'Jeffersontown',
-                  'Middletown',
-                  'Prospect',
-                  'Downtown Louisville',
-                  'East End',
-                  'Anchorage',
-                  'Lyndon',
-                  'Hurstbourne',
-                  'Fern Creek',
-                ].map((area) => (
-                  <div
-                    key={area}
-                    className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow text-center"
-                  >
-                    <MapPin className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                    <p className="font-semibold text-gray-900">{area}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-gray-600 mt-8">
-                Don't see your area? <a href="tel:5029268524" className="text-green-600 font-bold hover:underline">Give us a call</a> - we may still be able to help!
-              </p>
-            </div>
+            <ServiceAreas
+              variant="cards"
+              title="We Serve the Greater Louisville Area"
+              subtitle="Professional lawn care services for residential and commercial properties"
+              showCallout={true}
+              showIcons={true}
+              columns={4}
+            />
           </div>
         </div>
       </section>

@@ -117,7 +117,9 @@ export function generateLocalBusinessSchema(config: SchemaConfig = BUSINESS_CONF
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": config.websiteUrl,
     "name": config.businessName,
+    "image": `${config.websiteUrl}/og-image.jpg`,
     "description": "Professional lawn care and landscaping services serving the greater Louisville, Kentucky area for over 20 years.",
     "url": config.websiteUrl,
     "telephone": config.phone,
@@ -134,21 +136,60 @@ export function generateLocalBusinessSchema(config: SchemaConfig = BUSINESS_CONF
       "latitude": config.latitude,
       "longitude": config.longitude,
     },
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": config.latitude,
-        "longitude": config.longitude,
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Louisville",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Louisville",
+          "addressRegion": "KY",
+          "addressCountry": "US",
+        },
       },
-      "geoRadius": config.serviceRadius,
-    },
+      {
+        "@type": "City",
+        "name": "Jeffersontown",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jeffersontown",
+          "addressRegion": "KY",
+          "addressCountry": "US",
+        },
+      },
+      {
+        "@type": "City",
+        "name": "St. Matthews",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "St. Matthews",
+          "addressRegion": "KY",
+          "addressCountry": "US",
+        },
+      },
+      {
+        "@type": "City",
+        "name": "Highlands",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Highlands",
+          "addressRegion": "KY",
+          "addressCountry": "US",
+        },
+      },
+    ],
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": config.openingHours.dayOfWeek,
       "opens": config.openingHours.opens,
       "closes": config.openingHours.closes,
     },
+    "sameAs": [
+      // Placeholder for social media profiles (to be added by business owner)
+      // "https://www.facebook.com/aaronslawncare",
+      // "https://www.instagram.com/aaronslawncare",
+      // "https://www.linkedin.com/company/aaronslawncare",
+    ],
     ...(config.aggregateRating && {
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -156,6 +197,124 @@ export function generateLocalBusinessSchema(config: SchemaConfig = BUSINESS_CONF
         "reviewCount": config.aggregateRating.reviewCount,
       },
     }),
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Lawn Care Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Lawn Mowing & Edging",
+            "description": "Professional lawn mowing and edging services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Landscaping Design & Installation",
+            "description": "Custom landscape design and installation",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Landscape Maintenance",
+            "description": "Ongoing landscape maintenance services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mulching Services",
+            "description": "Professional mulching and bed maintenance",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Leaf Removal",
+            "description": "Fall leaf removal and cleanup",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Seasonal Cleanup",
+            "description": "Spring and fall seasonal cleanup services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Lawn Aeration",
+            "description": "Core aeration for healthier lawns",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hedge & Shrub Trimming",
+            "description": "Professional hedge and shrub trimming",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tree Removal",
+            "description": "Safe tree removal services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Pressure Washing",
+            "description": "Exterior pressure washing services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Snow Removal",
+            "description": "Winter snow removal services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Gutter Cleaning",
+            "description": "Professional gutter cleaning services",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Lawn Treatment & Fertilization",
+            "description": "Lawn care treatment and fertilization",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Debris Removal",
+            "description": "Yard debris and waste removal",
+          },
+        },
+      ],
+    },
   };
 }
 

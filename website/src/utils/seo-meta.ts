@@ -356,9 +356,12 @@ export function getHomePageSEO(): SEOConfig {
     title: "Aaron's Lawn Care | Professional Lawn Services in Louisville, KY",
     description:
       "20+ years of professional lawn care services in Louisville, KY. Mowing, treatment, landscaping, and more. Get your free quote today!",
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-home.jpg`,
-    ogImageAlt: "Aaron's Lawn Care - Professional Lawn Services",
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-home.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care - Professional Lawn Services in Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
@@ -380,9 +383,12 @@ export function getServicePageSEO(
     canonical: generateCanonicalUrl(`/services/${slug}`),
     title: `${serviceName} | Aaron's Lawn Care in Louisville, KY`,
     description: `Professional ${serviceName.toLowerCase()} services in Louisville, KY. ${description}. Contact us for a free quote!`,
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-service-${slug}.jpg`,
-    ogImageAlt: `${serviceName} - Aaron's Lawn Care`,
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-service-${slug}.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: `${serviceName} - Aaron's Lawn Care Louisville, KY`,
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
@@ -407,9 +413,12 @@ export function getArticleSEO(
     canonical: generateCanonicalUrl(`/blog/${slug}`),
     title: `${title} | Aaron's Lawn Care Blog`,
     description,
-    ogImage: imageUrl || `${BASE_URL}${IMAGE_PATH}/og-blog-${slug}.jpg`,
-    ogImageAlt: title,
-    twitterImage: imageUrl || `${BASE_URL}${IMAGE_PATH}/twitter-blog-${slug}.jpg`,
+    ogImage: imageUrl || `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: imageUrl ? title : "Aaron's Lawn Care - Professional Lawn Services in Louisville, KY",
+    twitterImage: imageUrl || `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     locale: "en_US",
     ogType: "article",
@@ -428,8 +437,12 @@ export function getContactPageSEO(): SEOConfig {
     title: "Contact Aaron's Lawn Care | Free Quote Request",
     description:
       "Contact Aaron's Lawn Care in Louisville, KY. Call (502) 926-8524 or request a free quote. We're available Monday-Saturday, 8AM-6PM.",
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-contact.jpg`,
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-contact.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Contact Aaron's Lawn Care - Professional Lawn Services in Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
@@ -448,8 +461,12 @@ export function getAboutPageSEO(): SEOConfig {
     title: "About Aaron's Lawn Care | 20+ Years of Excellence",
     description:
       "Learn about Aaron's Lawn Care - 20+ years of professional lawn care services in Louisville, KY. Meet our team and discover our commitment to quality.",
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-about.jpg`,
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-about.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "About Aaron's Lawn Care - 20+ Years of Professional Service in Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
@@ -468,9 +485,12 @@ export function getGalleryPageSEO(): SEOConfig {
     title: "Gallery | Aaron's Lawn Care - Before & After Photos",
     description:
       "View our lawn care before and after photos in Louisville, KY. See the quality of our professional mowing, landscaping, cleanup services, and more.",
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-gallery.jpg`,
-    ogImageAlt: "Aaron's Lawn Care Before and After Gallery",
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-gallery.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Gallery - Professional Lawn Services in Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
@@ -489,9 +509,12 @@ export function getQuotePageSEO(): SEOConfig {
     title: "Request a Free Quote | Aaron's Lawn Care Louisville, KY",
     description:
       "Get a free quote for professional lawn care services in Louisville, KY. 20+ years of experience, fast response time. Request your quote today!",
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-quote.jpg`,
-    ogImageAlt: "Request a Free Lawn Care Quote",
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-quote.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Request Free Quote - Aaron's Lawn Care Professional Services in Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
@@ -510,13 +533,151 @@ export function getServicesPageSEO(): SEOConfig {
     title: "Lawn Care Services | Aaron's Lawn Care Louisville, KY",
     description:
       "Professional lawn care and landscaping services in Louisville, KY. Mowing, edging, landscaping, snow removal, and more. 20+ years of experience. Get your free quote today!",
-    ogImage: `${BASE_URL}${IMAGE_PATH}/og-services.jpg`,
-    ogImageAlt: "Aaron's Lawn Care Services",
-    twitterImage: `${BASE_URL}${IMAGE_PATH}/twitter-services.jpg`,
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Services - Professional Lawn Care in Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
     robots: generateRobotsMeta("default"),
     geoRegion: LOUISVILLE_GEO.region,
     geoPlacename: LOUISVILLE_GEO.city,
     geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for reviews/testimonials page
+ */
+export function getReviewsPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/reviews"),
+    title: "Customer Reviews | Aaron's Lawn Care Louisville, KY",
+    description:
+      "Read what our customers say about Aaron's Lawn Care. 20+ years of 5-star lawn care and landscaping service in Louisville, KY. See real reviews from satisfied clients.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Customer Reviews - Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("default"),
+    geoRegion: LOUISVILLE_GEO.region,
+    geoPlacename: LOUISVILLE_GEO.city,
+    geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for FAQ page
+ */
+export function getFAQPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/faq"),
+    title: "FAQ - Lawn Care Questions | Aaron's Lawn Care Louisville",
+    description:
+      "Frequently asked questions about lawn care, landscaping, and our services in Louisville, KY. Get answers about pricing, scheduling, service areas, and more.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care FAQ - Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("default"),
+    geoRegion: LOUISVILLE_GEO.region,
+    geoPlacename: LOUISVILLE_GEO.city,
+    geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for privacy policy page
+ */
+export function getPrivacyPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/privacy"),
+    title: "Privacy Policy | Aaron's Lawn Care",
+    description:
+      "Privacy policy for Aaron's Lawn Care. Learn how we collect, use, and protect your personal information when you use our website and services.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Privacy Policy",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("noindex"), // Privacy pages typically noindex
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for terms of service page
+ */
+export function getTermsPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/terms"),
+    title: "Terms of Service | Aaron's Lawn Care",
+    description:
+      "Terms of service for Aaron's Lawn Care. Review our service terms, conditions, and policies for lawn care and landscaping services in Louisville, KY.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Terms of Service",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("noindex"), // Terms pages typically noindex
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for blog page
+ */
+export function getBlogPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/blog"),
+    title: "Lawn Care Tips & Blog | Aaron's Lawn Care Louisville, KY",
+    description:
+      "Expert lawn care tips, seasonal guides, and landscaping advice for Louisville, KY homeowners. Get professional insights from 20+ years of experience.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care Blog - Louisville, KY",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("default"),
+    geoRegion: LOUISVILLE_GEO.region,
+    geoPlacename: LOUISVILLE_GEO.city,
+    geoPosition: LOUISVILLE_GEO.position,
+    locale: "en_US",
+    ogType: "website",
+  };
+}
+
+/**
+ * Generate SEO config for 404 not found page
+ */
+export function getNotFoundPageSEO(): SEOConfig {
+  return {
+    canonical: generateCanonicalUrl("/404"),
+    title: "Page Not Found | Aaron's Lawn Care",
+    description:
+      "The page you're looking for doesn't exist. Return to Aaron's Lawn Care homepage or browse our lawn care services in Louisville, KY.",
+    ogImage: `${BASE_URL}/og-image.jpg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: "image/jpeg",
+    ogImageAlt: "Aaron's Lawn Care - Page Not Found",
+    twitterImage: `${BASE_URL}/og-image.jpg`,
+    robots: generateRobotsMeta("noindex"), // 404 pages should be noindex
     locale: "en_US",
     ogType: "website",
   };
@@ -598,6 +759,12 @@ export const SEOHelpers = {
   getAboutPageSEO,
   getGalleryPageSEO,
   getQuotePageSEO,
+  getReviewsPageSEO,
+  getFAQPageSEO,
+  getPrivacyPageSEO,
+  getTermsPageSEO,
+  getBlogPageSEO,
+  getNotFoundPageSEO,
   validateMetaDescription,
   validateMetaTitle,
 };

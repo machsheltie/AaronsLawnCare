@@ -1,16 +1,11 @@
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/common/SEOHead';
+import { getPrivacyPageSEO } from '@/utils/seo-meta';
 
 export default function PrivacyPage() {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy | Aaron's Lawn Care</title>
-        <meta
-          name="description"
-          content="Aaron's Lawn Care privacy policy. Learn how we collect, use, and protect your personal information."
-        />
-      </Helmet>
+      <SEOHead {...getPrivacyPageSEO()} />
 
       <div className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">

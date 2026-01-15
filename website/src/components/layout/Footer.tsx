@@ -17,14 +17,6 @@ export const Footer = () => {
               <p className="text-primary-200 mb-6">
                 Professional, reliable, and affordable lawn care services for Louisville and surrounding areas.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="p-2 bg-primary-900 rounded-full hover:bg-primary-800 transition-colors">
-                  <Facebook className="w-5 h-5 text-primary-200" />
-                </a>
-                <a href="#" className="p-2 bg-primary-900 rounded-full hover:bg-primary-800 transition-colors">
-                  <Instagram className="w-5 h-5 text-primary-200" />
-                </a>
-              </div>
             </div>
 
             {/* Quick Links */}
@@ -55,11 +47,11 @@ export const Footer = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-accent mt-1" />
-                  <span className="text-primary-200">(502) 555-0123</span>
+                  <span className="text-primary-200">(502) 926-8524</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-accent mt-1" />
-                  <span className="text-primary-200">hello@aaronlawn.com</span>
+                  <span className="text-primary-200">gnaua429@gmail.com</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-accent mt-1" />

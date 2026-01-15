@@ -2,21 +2,21 @@ import { motion } from "framer-motion";
 
 export const Gallery = () => {
     return (
-        <section className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <span className="text-green-600 font-semibold tracking-wider text-sm uppercase mb-3 block">Our Work</span>
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-green-950 mb-6">
+        <section className="py-12 md:py-20 lg:py-24 bg-white overflow-hidden">
+            <div className="container mx-auto px-4 max-w-7xl">
+                <div className="text-center mb-10 md:mb-16">
+                    <span className="text-green-600 font-semibold tracking-wider text-xs md:text-sm uppercase mb-2 md:mb-3 block">Our Work</span>
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-green-950 mb-4 md:mb-6">
                         See The Difference
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
                         Take a look at some of the landscapes we've transformed.
                     </p>
                 </div>
 
                 {/* Bento Grid Gallery */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
-                    {/* Large Featured Image */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[200px]">
+                    {/* Large Featured Image - Precision Mowing */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -24,19 +24,19 @@ export const Gallery = () => {
                         className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=1200"
-                            alt="Professional estate lawn maintenance service in Louisville Kentucky by Aaron's Lawn Care"
+                            src="/precisionmowing.jpg"
+                            alt="Precision lawn mowing with professional striping pattern in Louisville Kentucky by Aaron's Lawn Care"
                             loading="lazy"
                             width="1200"
                             height="800"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                            <p className="text-white font-bold text-xl">Estate Maintenance</p>
+                            <p className="text-white font-bold text-xl">Precision Mowing</p>
                         </div>
                     </motion.div>
 
-                    {/* Tall Side Image */}
+                    {/* Tall Side Image - Landscaping */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -45,19 +45,19 @@ export const Gallery = () => {
                         className="md:row-span-2 relative group overflow-hidden rounded-2xl"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=1000&auto=format&fit=crop"
-                            alt="Professional garden path design and landscaping in Louisville KY by Aaron's Lawn Care"
+                            src="/landscaping.jpg"
+                            alt="Professional landscaping and garden bed design in Louisville KY by Aaron's Lawn Care"
                             loading="lazy"
                             width="800"
                             height="1000"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                            <p className="text-white font-bold text-xl">Garden Design</p>
+                            <p className="text-white font-bold text-xl">Landscaping</p>
                         </div>
                     </motion.div>
 
-                    {/* Small Bottom Image 1 */}
+                    {/* Small Bottom Image 1 - Mulching */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -66,19 +66,19 @@ export const Gallery = () => {
                         className="relative group overflow-hidden rounded-2xl"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1610427847423-f38f712f5a63?q=80&w=800&auto=format&fit=crop"
-                            alt="Precision lawn mowing with professional striping pattern in Louisville Kentucky"
+                            src="/mulching.jpg"
+                            alt="Fresh mulch application and garden bed maintenance in Louisville Kentucky by Aaron's Lawn Care"
                             loading="lazy"
                             width="800"
                             height="600"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <p className="text-white font-bold text-lg">Precision Mowing</p>
+                            <p className="text-white font-bold text-lg">Mulching</p>
                         </div>
                     </motion.div>
 
-                    {/* Small Bottom Image 2 */}
+                    {/* Small Bottom Image 2 - Snow Removal */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -87,15 +87,15 @@ export const Gallery = () => {
                         className="md:col-span-2 relative group overflow-hidden rounded-2xl"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1623315995837-2938a425399c?q=80&w=1000&auto=format&fit=crop"
-                            alt="Complete landscape transformation and maintenance services in Louisville KY by Aaron's Lawn Care"
+                            src="/snowremoval.jpg"
+                            alt="Professional snow removal service for residential driveways in Louisville KY by Aaron's Lawn Care"
                             loading="lazy"
                             width="1000"
                             height="600"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <p className="text-white font-bold text-lg">Full Transformations</p>
+                            <p className="text-white font-bold text-lg">Snow Removal</p>
                         </div>
                     </motion.div>
                 </div>

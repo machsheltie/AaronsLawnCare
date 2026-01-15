@@ -42,6 +42,7 @@ lerna-debug.log*
 .temp/
 tmp/
 .tmp/
+tmpclaude-*
 
 # OS files
 Thumbs.db
