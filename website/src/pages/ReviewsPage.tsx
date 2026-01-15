@@ -150,14 +150,26 @@ export default function ReviewsPage() {
   const averageRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
 
   // Convert reviews to schema format
-  const reviewSchemas: ReviewItem[] = reviews.map((review) => ({
-    author: review.name,
-    ratingValue: review.rating,
-    reviewBody: review.review,
-    datePublished: new Date(review.date).toISOString().split('T')[0], // Convert "November 2025" to ISO format
-    serviceType: review.service,
-    location: review.location,
-  }));
+  const reviewSchemas: ReviewItem[] = reviews.map((review) => {
+    // Parse date strings like "November 2025" to ISO format
+    const dateStr = review.date;
+    const [month, year] = dateStr.split(' ');
+    const monthMap: Record<string, string> = {
+      'January': '01', 'February': '02', 'March': '03', 'April': '04',
+      'May': '05', 'June': '06', 'July': '07', 'August': '08',
+      'September': '09', 'October': '10', 'November': '11', 'December': '12'
+    };
+    const isoDate = `${year}-${monthMap[month]}-01`;
+
+    return {
+      author: review.name,
+      ratingValue: review.rating,
+      reviewBody: review.review,
+      datePublished: isoDate,
+      serviceType: review.service,
+      location: review.location,
+    };
+  });
 
   // Generate structured data schemas
   const aggregateRatingSchema = generateAggregateRatingSchema(reviewSchemas);
