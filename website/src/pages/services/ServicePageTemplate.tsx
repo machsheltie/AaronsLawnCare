@@ -200,8 +200,8 @@ export default function ServicePageTemplate({
                 <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg items-center h-14" asChild>
                   <a href="/contact">Get Your Free Quote</a>
                 </Button>
-                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14" asChild>
-                  <a href="tel:5029268524">Call (502) 926-8524</a>
+                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14">
+                  Call (502) 926-8524
                 </Button>
               </div>
             </div>
