@@ -7,22 +7,26 @@ const services = [
     {
         icon: Scissors,
         title: "Lawn Mowing",
-        description: "Precise mowing patterns, edging, and blowing for a pristine look every time."
+        description: "Precise mowing patterns, edging, and blowing for a pristine look every time.",
+        slug: "/services/lawn-mowing"
     },
     {
         icon: Droplets,
         title: "Lawn Treatment",
-        description: "Fertilization and weed control programs to keep your turf lush and green."
+        description: "Fertilization and weed control programs to keep your turf lush and green.",
+        slug: "/services/lawn-treatment"
     },
     {
         icon: Shovel,
         title: "Landscaping",
-        description: "Design and installation of garden beds, plants, and hardscapes."
+        description: "Design and installation of garden beds, plants, and hardscapes.",
+        slug: "/services/landscape-design"
     },
     {
         icon: Trees,
         title: "Tree & Hedge Care",
-        description: "Professional trimming and pruning to maintain health and shape."
+        description: "Professional trimming and pruning to maintain health and shape.",
+        slug: "/services/hedge-trimming"
     },
     // Add more as needed
 ];
@@ -42,26 +46,27 @@ export const ServicesPreview = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                            className="group p-8 rounded-2xl bg-secondary-50 hover:bg-white border border-transparent hover:border-primary-100 card-lift cursor-pointer"
-                        >
-                            <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:scale-110 transition-all duration-300">
-                                <service.icon className="w-7 h-7 text-primary-600 group-hover:text-white transition-colors duration-300" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">{service.title}</h3>
-                            <p className="text-gray-600 leading-relaxed mb-6">
-                                {service.description}
-                            </p>
-                            <Link to="/services" className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                                Learn More
-                                <CheckCircle2 className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                            </Link>
-                        </motion.div>
+                        <Link to={service.slug} key={index}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                                className="group p-8 rounded-2xl bg-secondary-50 hover:bg-white border border-transparent hover:border-primary-100 card-lift cursor-pointer h-full"
+                            >
+                                <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:scale-110 transition-all duration-300">
+                                    <service.icon className="w-7 h-7 text-primary-600 group-hover:text-white transition-colors duration-300" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">{service.title}</h3>
+                                <p className="text-gray-600 leading-relaxed mb-6">
+                                    {service.description}
+                                </p>
+                                <span className="inline-flex items-center text-primary-600 font-semibold group-hover:text-primary-700 transition-colors">
+                                    Learn More
+                                    <CheckCircle2 className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                                </span>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
 
