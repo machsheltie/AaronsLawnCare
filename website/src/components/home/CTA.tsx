@@ -16,9 +16,14 @@ export const CallToAction = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg items-center h-14" asChild>
-                                <a href="/contact">Get Your Free Quote</a>
+                                <a href="/quote">Get Your Free Quote</a>
                             </Button>
-                            <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="w-full sm:w-auto border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white h-14"
+                                onClick={() => window.location.href = 'tel:+15029268524'}
+                            >
                                 Call (502) 926-8524
                             </Button>
                         </div>
