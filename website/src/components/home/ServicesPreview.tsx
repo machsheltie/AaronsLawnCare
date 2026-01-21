@@ -1,4 +1,4 @@
-import { CheckCircle2, Scissors, Trees, Shovel, Droplets } from "lucide-react";
+import { CheckCircle2, Scissors, Trees, Shovel, Droplets, MoveRight } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -71,8 +71,11 @@ export const ServicesPreview = () => {
                 </div>
 
                 <div className="text-center">
-                    <Button variant="outline" size="lg" asChild>
-                        <Link to="/services">View All Services</Link>
+                    <Button variant="default" size="lg" className="gap-2 group shadow-lg shadow-primary-900/20 btn-premium" asChild>
+                        <Link to="/services">
+                            View All Services
+                            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
+                        </Link>
                     </Button>
                 </div>
             </div>
