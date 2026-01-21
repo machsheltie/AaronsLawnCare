@@ -50,7 +50,11 @@
       "WebFetch(domain:aaronslawncare502.com)",
       "Bash(node scripts/optimize-images.js:*)",
       "Bash(git reset:*)",
-      "Bash(git grep:*)"
+      "Bash(git grep:*)",
+      "Bash(git checkout:*)",
+      "Bash(pkill:*)",
+      "Bash(git revert:*)",
+      "Bash(git check-ignore:*)"
     ],
     "deny": [],
     "ask": []
