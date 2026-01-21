@@ -228,19 +228,7 @@ export default function QuotePage() {
 
           {/* Form */}
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            {/* Hidden Netlify Form */}
-            <form name="quote-request" data-netlify="true" hidden>
-              <input type="text" name="fullName" />
-              <input type="text" name="propertyAddress" />
-              <input type="tel" name="phone" />
-              <input type="email" name="email" />
-              <input type="text" name="serviceTypes" />
-              <input type="text" name="propertySize" />
-              <input type="text" name="preferredContact" />
-              <input type="text" name="urgency" />
-              <textarea name="additionalDetails" />
-            </form>
-
+            {/* Note: Hidden form for Netlify detection is in index.html */}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               {/* Honeypot field - hidden from users, visible to bots */}
               <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
