@@ -64,6 +64,16 @@
 [functions]
   directory = "netlify/functions"
 
+# Netlify Forms Configuration
+# Note: Email notifications are configured in the Netlify Dashboard UI
+# See NETLIFY_FORM_SETUP.md for complete setup instructions
+#
+# Forms in this site:
+# - quote-request: Quote request form (/quote page)
+#   - Owner email: gnaua429@gmail.com
+#   - Auto-reply: Enabled (configure in dashboard)
+#   - Spam filtering: Enabled (configure in dashboard)
+
 # Plugin configuration
 [[plugins]]
   package = "@netlify/plugin-lighthouse"

@@ -1,8 +1,10 @@
 import { Button } from "../ui/Button";
 import { MoveRight, Phone, Award, Shield, MapPin, CheckCircle } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
+    const navigate = useNavigate();
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, -150]);
     const y2 = useTransform(scrollY, [0, 500], [0, -100]);
@@ -49,11 +51,21 @@ export const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button variant="default" size="lg" className="w-full sm:w-auto gap-2 group shadow-lg shadow-primary-900/20 btn-premium">
+                        <Button
+                            variant="default"
+                            size="lg"
+                            className="w-full sm:w-auto gap-2 group shadow-lg shadow-primary-900/20 btn-premium"
+                            onClick={() => navigate('/quote')}
+                        >
                             Get a Free Quote
                             <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-300" />
                         </Button>
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-primary-200 text-primary-900 hover:text-primary-900 hover:bg-primary-50 bg-white/50 hover:scale-105 transition-all duration-300">
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="w-full sm:w-auto gap-2 border-primary-200 text-primary-900 hover:text-primary-900 hover:bg-primary-50 bg-white/50 hover:scale-105 transition-all duration-300"
+                            onClick={() => window.location.href = 'tel:+15029268524'}
+                        >
                             <Phone className="w-4 h-4" />
                             (502) 926-8524
                         </Button>
